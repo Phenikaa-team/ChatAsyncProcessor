@@ -1,7 +1,10 @@
 package com.chat.async.app
 
+import com.chat.async.app.ui.extension.MessageNode
 import javafx.application.Platform
 import javafx.embed.swing.SwingFXUtils
+import javafx.scene.control.Alert
+import javafx.scene.control.ListView
 import javafx.scene.control.TextArea
 import javafx.scene.image.Image
 import java.io.ByteArrayOutputStream
@@ -12,7 +15,6 @@ const val EXCHANGE = "chat_exchange"
 
 fun ByteArray.encodeBase64(): String = Base64.getEncoder().encodeToString(this)!!
 
-
 fun String.decodeBase64(): ByteArray = Base64.getDecoder().decode(this)!!
 
 fun Image.toByteArray(extension: String): ByteArray {
@@ -22,21 +24,45 @@ fun Image.toByteArray(extension: String): ByteArray {
     return outputStream.toByteArray()
 }
 
-fun generateUserId() = UUID.randomUUID().toString().take(8)
+fun generateUserId(): String = UUID.randomUUID().toString().take(8)
 
-fun String.appendSystemMessage(
-    chatArea: TextArea
+fun generateMessageId(): String = UUID.randomUUID().toString()
+
+fun showAlert(
+    title: String,
+    message: String
 ) {
     Platform.runLater {
-        chatArea.appendText("\n[SYSTEM] $this\n")
+        Alert(Alert.AlertType.INFORMATION).apply {
+            this.title = title
+            headerText = message
+        }.showAndWait()
+    }
+}
+
+fun String.appendSystemMessage(
+    chatArea: ListView<MessageNode>
+) {
+    Platform.runLater {
+        chatArea.items.add(MessageNode(
+            "System",
+            this,
+            MessageNode.MessageType.SYSTEM,
+            false
+        ))
     }
 }
 
 fun String.appendOwnMessage(
-    chatArea: TextArea
+    chatArea: ListView<MessageNode>
 ) {
     Platform.runLater {
-        chatArea.appendText("\n[YOU] $this\n")
+        chatArea.items.add(MessageNode(
+            "You",
+            this,
+            MessageNode.MessageType.TEXT,
+            true
+        ))
     }
 }
 

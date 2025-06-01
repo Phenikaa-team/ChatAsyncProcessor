@@ -1,6 +1,7 @@
 package com.chat.async.app.ui
 
 import com.chat.async.app.*
+import com.chat.async.app.ui.extension.MessageNode
 import javafx.application.Platform
 import javafx.geometry.Insets
 import javafx.geometry.Pos
@@ -8,16 +9,21 @@ import javafx.scene.Scene
 import javafx.scene.control.*
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
+import javafx.scene.input.Clipboard
+import javafx.scene.input.ClipboardContent
 import javafx.scene.layout.*
 import javafx.stage.FileChooser
 import javafx.stage.Stage
 import javafx.stage.StageStyle
+import javafx.util.Callback
+import java.io.ByteArrayInputStream
 import java.io.File
 
 class ChatUI(
     private val onSend: (toId: String, message: String) -> Unit,
     private val onSendFile: (toId: String, fileName: String, fileBytes: ByteArray) -> Unit,
-    private val onSendImage: (toId: String, imageBytes: ByteArray) -> Unit
+    private val onSendImage: (toId: String, imageBytes: ByteArray) -> Unit,
+    private val onEditMessage: (messageId: String, newContent: String) -> Unit
 ) {
     // UI Components
     private val stage = Stage()
@@ -38,7 +44,7 @@ class ChatUI(
     private lateinit var imageButton: Button
 
     // Chat area
-    lateinit var chatArea: TextArea
+    lateinit var chatArea: ListView<MessageNode>
 
     // Preview components
     private val previewStage = Stage(StageStyle.UTILITY)
@@ -57,6 +63,10 @@ class ChatUI(
     private var currentPreviewFile: File? = null
     private var currentPreviewType: PreviewType = PreviewType.NONE
     var onRegister: ((Pair<String, String>) -> Unit)? = null
+    var hostServices: javafx.application.HostServices? = null
+
+    private var currentUserId: String = ""
+    private var currentUsername: String = ""
 
     enum class PreviewType { NONE, IMAGE, FILE }
 
@@ -82,6 +92,7 @@ class ChatUI(
 
         registerPane.isVisible = true
         chatPane.isVisible = false
+        createUserInfoBar()
         stage.show()
     }
 
@@ -97,6 +108,43 @@ class ChatUI(
                 alignment = Pos.CENTER
             }
         )
+    }
+
+    private fun createUserInfoBar() = HBox(10.0).apply {
+        alignment = Pos.TOP_RIGHT
+        padding = Insets(5.0)
+        style = "-fx-background-color: #f0f0f0;"
+
+        val userLabel = Label().apply {
+            style = "-fx-font-weight: bold;"
+        }
+
+        val uuidLabel = Label().apply {
+            style = "-fx-font-size: 11px; -fx-text-fill: #666666;"
+            tooltip = Tooltip("Click to copy UUID")
+            setOnMouseClicked {
+                copyToClipboard(currentUserId)
+                showAlert("Copied", "UUID copied to clipboard")
+            }
+        }
+
+        children.addAll(userLabel, uuidLabel)
+
+        fun updateInfo() {
+            userLabel.text = currentUsername
+            uuidLabel.text = "(${currentUserId.take(8)}...)"
+        }
+
+        updateInfo()
+    }
+
+    fun setUserId(id: String, username: String) {
+        currentUserId = id
+        currentUsername = username
+        Platform.runLater {
+            showChatPane()
+            ("📌 Registration successful!").appendSystemMessage(chatArea)
+        }
     }
 
     private fun resetPreview() {
@@ -170,6 +218,164 @@ class ChatUI(
         }
 
         onRegister?.invoke(username to uuid)
+        println(username to uuid)
+    }
+
+    fun addMessageToChat(
+        sender: String,
+        content: String,
+        type: MessageNode.MessageType,
+        isOwnMessage: Boolean,
+        messageId: String? = null,
+        fileBytes: ByteArray? = null
+    ) {
+        val messageNode = MessageNode(
+            sender = sender,
+            content = content,
+            type = type,
+            isOwnMessage = isOwnMessage,
+            onEdit = { newContent ->
+                messageId?.let { id ->
+                    onEditMessage(id, newContent)
+                    Platform.runLater {
+                        val items = chatArea.items
+                        for (i in 0 until items.size) {
+                            if (items[i].messageId == id) {
+                                items[i] = MessageNode(
+                                    sender = sender,
+                                    content = newContent,
+                                    type = type,
+                                    isOwnMessage = isOwnMessage,
+                                    messageId = id,
+                                    onEdit = { newerContent ->
+                                        onEditMessage(id, newerContent)
+                                    }
+                                )
+                                break
+                            }
+                        }
+                    }
+                }
+            },
+            onDownload = {
+                fileBytes?.let { bytes ->
+                    saveFile(content, bytes)
+                }
+            },
+            onPreview = {
+                when (type) {
+                    MessageNode.MessageType.FILE -> showFilePreview(content, fileBytes!!)
+                    MessageNode.MessageType.IMAGE -> showImagePreview(fileBytes!!)
+                    else -> {}
+                }
+            }
+        )
+
+        Platform.runLater {
+            chatArea.items.add(messageNode)
+            chatArea.scrollTo(chatArea.items.size - 1)
+        }
+    }
+
+    private fun showFilePreview(fileName: String, bytes: ByteArray) {
+        val previewStage = Stage(StageStyle.UTILITY).apply {
+            title = "File Preview: $fileName"
+            scene = Scene(VBox(10.0).apply {
+                padding = Insets(20.0)
+                alignment = Pos.CENTER
+                children.addAll(
+                    Label("File: $fileName").apply {
+                        style = "-fx-font-weight: bold;"
+                    },
+                    HBox(10.0).apply {
+                        alignment = Pos.CENTER
+                        children.addAll(
+                            Button("View").apply {
+                                setOnAction {
+                                    try {
+                                        val tempFile = File.createTempFile("chat_file", ".tmp")
+                                        tempFile.writeBytes(bytes)
+                                        hostServices?.showDocument(tempFile.absolutePath)
+                                    } catch (e: Exception) {
+                                        showAlert("Error", "Could not open file: ${e.message}")
+                                    }
+                                }
+                            },
+                            Button("Download").apply {
+                                setOnAction { saveFile(fileName, bytes) }
+                            }
+                        )
+                    }
+                )
+            })
+            width = 300.0
+            height = 150.0
+        }
+        previewStage.show()
+    }
+
+    private fun showImagePreview(bytes: ByteArray) {
+        val previewStage = Stage(StageStyle.UTILITY).apply {
+            title = "Image Preview"
+            scene = Scene(VBox(10.0).apply {
+                padding = Insets(20.0)
+                alignment = Pos.CENTER
+                children.addAll(
+                    ImageView(Image(ByteArrayInputStream(bytes))).apply {
+                        fitWidth = 300.0
+                        fitHeight = 300.0
+                        isPreserveRatio = true
+                    },
+                    HBox(10.0).apply {
+                        alignment = Pos.CENTER
+                        children.addAll(
+                            Button("Copy Image").apply {
+                                setOnAction {
+                                    val image = Image(ByteArrayInputStream(bytes))
+                                    Clipboard.getSystemClipboard().setContent(
+                                        ClipboardContent().apply { putImage(image) }
+                                    )
+                                }
+                            },
+                            Button("Download").apply {
+                                setOnAction {
+                                    saveFile("image_${System.currentTimeMillis()}.png", bytes)
+                                }
+                            },
+                            Button("View Full").apply {
+                                setOnAction {
+                                    val fullStage = Stage().apply {
+                                        scene = Scene(StackPane(ImageView(Image(ByteArrayInputStream(bytes)))))
+                                        title = "Full Image View"
+                                    }
+                                    fullStage.show()
+                                }
+                            }
+                        )
+                    }
+                )
+            })
+        }
+        previewStage.show()
+    }
+    private fun sendTextMessage() {
+        val toId = toIdField.text.trim()
+        val message = inputField.text.trim()
+        val messageId = generateMessageId()
+
+        if (toId.isNotEmpty() && message.isNotEmpty()) {
+            onSend(toId, message)
+            addMessageToChat("You", message, MessageNode.MessageType.TEXT, true, messageId)
+            inputField.text = ""
+        }
+    }
+
+    fun showReceivedFile(senderId: String, fileName: String, bytes: ByteArray) {
+        addMessageToChat(senderId, fileName, MessageNode.MessageType.FILE, false, null, bytes)
+    }
+
+    fun showReceivedImage(senderId: String, bytes: ByteArray) {
+        addMessageToChat(senderId, "image", MessageNode.MessageType.IMAGE, false, null, bytes)
     }
 
     private fun createRecipientPanel(
@@ -184,15 +390,31 @@ class ChatUI(
         )
     }
 
-    private fun createChatArea(): ScrollPane {
-        chatArea = TextArea().apply {
-            isEditable = false
-            isWrapText = true
-        }
-        return ScrollPane(chatArea).apply {
+    private fun createChatArea(): BorderPane {
+        val borderPane = BorderPane()
+        borderPane.top = createUserInfoBar()
+        borderPane.center = ScrollPane(ListView<MessageNode>().apply {
+            chatArea = this
+            cellFactory = Callback {
+                object : ListCell<MessageNode>() {
+                    override fun updateItem(item: MessageNode?, empty: Boolean) {
+                        super.updateItem(item, empty)
+                        graphic = if (empty || item == null) null else item
+                    }
+                }
+            }
+        }).apply {
             isFitToWidth = true
             isFitToHeight = true
         }
+        return borderPane
+    }
+
+    private fun copyToClipboard(text: String) {
+        val clipboard = Clipboard.getSystemClipboard()
+        val content = ClipboardContent()
+        content.putString(text)
+        clipboard.setContent(content)
     }
 
     private fun createInputPanel() = VBox(10.0).apply {
@@ -292,17 +514,6 @@ class ChatUI(
         previewFileName.graphic = null
     }
 
-    private fun sendTextMessage() {
-        val toId = toIdField.text.trim()
-        val message = inputField.text.trim()
-
-        if (toId.isNotEmpty() && message.isNotEmpty()) {
-            onSend(toId, message)
-            message.appendOwnMessage(chatArea)
-            inputField.text = ""
-        }
-    }
-
     private fun showChatPane() {
         registerPane.isVisible = false
         chatPane.isVisible = true
@@ -317,30 +528,23 @@ class ChatUI(
         }
     }
 
-    fun showReceivedFile(
-        senderId: String,
-        fileName: String,
-        bytes: ByteArray
-    ) {
-        Platform.runLater {
-            val saveButton = Button("Save $fileName").apply {
-                setOnAction { saveFile(fileName, bytes) }
-            }
-
-            chatArea.appendText("\n\uD83D\uDCCE [$senderId] sent a file: $fileName\n")
-        }
-    }
-
-    private fun saveFile(
-        fileName: String,
-        bytes: ByteArray
-    ) {
-        FileChooser().apply {
+    private fun saveFile(fileName: String, bytes: ByteArray) {
+        val fileChooser = FileChooser().apply {
             initialFileName = fileName
-            title = "Save File"
-        }.showSaveDialog(stage)?.let { file ->
+        }
+        val file = fileChooser.showSaveDialog(stage) ?: return
+
+        try {
             file.writeBytes(bytes)
-            "[File saved to: ${file.absolutePath}]".appendSystemMessage(chatArea)
+            Platform.runLater {
+                chatArea.items.add(MessageNode("System", "File saved to ${file.absolutePath}",
+                    MessageNode.MessageType.SYSTEM, false))
+            }
+        } catch (e: Exception) {
+            Platform.runLater {
+                chatArea.items.add(MessageNode("System", "Failed to save file: ${e.message}",
+                    MessageNode.MessageType.SYSTEM, false))
+            }
         }
     }
 }
