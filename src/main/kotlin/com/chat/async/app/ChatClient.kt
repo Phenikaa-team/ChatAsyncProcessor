@@ -1,20 +1,17 @@
-package com.chat.async.`fun`.chat.async.app
+package com.chat.async.app
 
+import com.chat.async.app.ui.ChatUI
 import com.rabbitmq.client.*
-import com.chat.async.app.ChatUI
-import com.chat.async.app.EXCHANGE
-import com.chat.async.app.appendMessage
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 import java.util.*
 import java.util.concurrent.TimeoutException
-import java.util.function.Consumer
 import kotlin.concurrent.thread
 
 class ChatClient(
-    private val vertx : Vertx
+    private val vertx: Vertx
 ) : AutoCloseable {
     private lateinit var id: String
     private lateinit var name: String
@@ -24,43 +21,87 @@ class ChatClient(
     private lateinit var ui: ChatUI
 
     fun start() {
-        this.ui = ChatUI { toId, message -> this.sendMessage(toId, message) }
-        thread {
-            try {
-                connection = factory.newConnection()
-                channel = connection.createChannel()
+        this.ui = ChatUI(
+            { toId, message -> this.sendMessage(toId, message) },
+            { toId, fileName, fileBytes -> this.sendFile(toId, fileName, fileBytes) },
+            { toId, imageBytes -> this.sendImage(toId, imageBytes) }
+        )
 
-                // exchange & queue
-                channel.exchangeDeclarePassive(EXCHANGE)
+        try {
+            connection = factory.newConnection()
+            channel = connection.createChannel()
 
-                // register queue
-                val registerQueue = channel.queueDeclare("chat.register", false, false, false, null).queue
-                channel.queueBind(registerQueue, EXCHANGE, "register")
+            // exchange & queue
+            channel.exchangeDeclarePassive(EXCHANGE)
 
-                // message queue
-                val messageQueue = channel.queueDeclare("chat.message", false, false, false, null).queue
-                channel.queueBind(messageQueue, EXCHANGE, "message")
+            // register queue
+            val registerQueue = channel.queueDeclare("chat.register", false, false, false, null).queue
+            channel.queueBind(registerQueue, EXCHANGE, "register")
 
-                ui.onRegister = Consumer { enteredName ->
-                    name = enteredName
-                    registerUser(name)
-                }
+            // message queue
+            val messageQueue = channel.queueDeclare("chat.message", false, false, false, null).queue
+            channel.queueBind(messageQueue, EXCHANGE, "message")
 
-                ui.onSend = { toId, message ->
-                    sendMessage(toId, message)
-                }
+            // file queue
+            val fileQueue = channel.queueDeclare("chat.file", false, false, false, null).queue
+            channel.queueBind(fileQueue, EXCHANGE, "file")
 
-                println("✅ Client connected to RabbitMQ")
-            } catch (e: Exception) {
-                e.printStackTrace()
-                println("❌ Client failed to connect to RabbitMQ")
+            // image queue
+            val imageQueue = channel.queueDeclare("chat.image", false, false, false, null).queue
+            channel.queueBind(imageQueue, EXCHANGE, "image")
+
+            ui.onRegister = { enteredName ->
+                name = enteredName
+                registerUser(name)
             }
+
+            println("✅ Client connected to RabbitMQ")
+        } catch (e: Exception) {
+            e.printStackTrace()
+            println("❌ Client failed to connect to RabbitMQ")
         }
     }
 
-    private fun registerUser(
-        name : String
-    ) {
+    private fun sendMessage(toId: String, message: String) {
+        val json = JsonObject()
+            .put("toId", toId)
+            .put("content", "$id ($name): $message")
+            .put("senderId", id)
+            .put("senderName", name)
+            .encode()
+
+        val props = AMQP.BasicProperties.Builder()
+            .contentType("application/json")
+            .build()
+        channel.basicPublish(EXCHANGE, "message", props, json.toByteArray(StandardCharsets.UTF_8))
+    }
+
+    private fun sendFile(toId: String, fileName: String, fileBytes: ByteArray) {
+        val json = JsonObject()
+            .put("toId", toId)
+            .put("fileName", fileName)
+            .put("content", fileBytes.encodeBase64())
+            .put("senderId", id)
+            .put("senderName", name)
+            .encode()
+
+        val props = AMQP.BasicProperties.Builder().build()
+        channel.basicPublish(EXCHANGE, "file", props, json.toByteArray(StandardCharsets.UTF_8))
+    }
+
+    private fun sendImage(toId: String, imageBytes: ByteArray) {
+        val json = JsonObject()
+            .put("toId", toId)
+            .put("content", imageBytes.encodeBase64())
+            .put("senderId", id)
+            .put("senderName", name)
+            .encode()
+
+        val props = AMQP.BasicProperties.Builder().build()
+        channel.basicPublish(EXCHANGE, "image", props, json.toByteArray(StandardCharsets.UTF_8))
+    }
+
+    private fun registerUser(name: String) {
         // Make temp queue reply to claim ID
         val replyQueue = channel.queueDeclare().queue
         val corrId = UUID.randomUUID().toString()
@@ -94,21 +135,7 @@ class ChatClient(
         channel.basicConsume(replyQueue, true, consumer)
     }
 
-    private fun sendMessage(
-        toId : String,
-        message : String
-    ) {
-        val json = JsonObject()
-            .put("toId", toId)
-            .put("content", "$id ($name): $message")
-            .encode()
-
-        val props = AMQP.BasicProperties.Builder().build()
-        channel.basicPublish(EXCHANGE, "message", props, json.toByteArray(StandardCharsets.UTF_8))
-    }
-
     private fun subscribeToMessages() {
-        // Make queue receive message
         val myQueue = "chat.to.$id"
         channel.queueDeclare(myQueue, false, false, false, null)
 
@@ -119,9 +146,26 @@ class ChatClient(
                 properties: AMQP.BasicProperties?,
                 body: ByteArray?
             ) {
-                val content = body?.toString(StandardCharsets.UTF_8) ?: ""
-                vertx.runOnContext {
-                    content.appendMessage(ui.chatArea)
+                try {
+                    val content = body?.toString(StandardCharsets.UTF_8) ?: ""
+                    val json = JsonObject(content)
+
+                    vertx.runOnContext {
+                        when {
+                            json.containsKey("fileName") -> {
+                                val fileName = json.getString("fileName")
+                                val fileContent = json.getString("content").decodeBase64()
+                                val senderId = json.getString("senderId")
+                                ui.showReceivedFile(senderId, fileName, fileContent)
+                            }
+                            json.containsKey("content") && !json.containsKey("fileName") -> { // Text message
+                                val message = json.getString("content")
+                                message.appendMessage(ui.chatArea)
+                            }
+                        }
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
             }
         }
@@ -129,13 +173,7 @@ class ChatClient(
     }
 
     override fun close() {
-        try {
-            channel.close()
-            connection.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        } catch (e: TimeoutException) {
-            e.printStackTrace()
-        }
+        channel.close()
+        connection.close()
     }
 }

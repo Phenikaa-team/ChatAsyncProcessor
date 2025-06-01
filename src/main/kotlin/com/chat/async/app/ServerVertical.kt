@@ -17,7 +17,7 @@ class ServerVertical : AbstractVerticle() {
         connection = factory.newConnection()
         channel = connection.createChannel()
 
-        channel.exchangeDeclarePassive(EXCHANGE)
+        channel.exchangeDeclare(EXCHANGE, "direct", true)
 
         // register queue
         val registerQueue = channel.queueDeclare("chat.register", false, false, false, null).queue
@@ -26,6 +26,14 @@ class ServerVertical : AbstractVerticle() {
         // message queue
         val messageQueue = channel.queueDeclare("chat.message", false, false, false, null).queue
         channel.queueBind(messageQueue, EXCHANGE, "message")
+
+        // file queue
+        val fileQueue = channel.queueDeclare("chat.file", false, false, false, null).queue
+        channel.queueBind(fileQueue, EXCHANGE, "file")
+
+        // image queue
+        val imageQueue = channel.queueDeclare("chat.image", false, false, false, null).queue
+        channel.queueBind(imageQueue, EXCHANGE, "image")
 
         // register process
         val registerConsumer = object : DefaultConsumer(channel) {
@@ -58,18 +66,31 @@ class ServerVertical : AbstractVerticle() {
                 properties: AMQP.BasicProperties?,
                 body: ByteArray?
             ) {
-                val json = JsonObject(String(body!!))
-                val toId = json.getString("toId")
-                val content = json.getString("content")
-                println("Message to $toId: $content")
+                try {
+                    val json = JsonObject(String(body!!))
+                    val toId = json.getString("toId")
+                    println("Received ${envelope?.routingKey} for $toId")
 
-                // send message queue
-                val toQueue = "chat.to.$toId"
-                channel.queueDeclare(toQueue, false, false, false, null)
-                channel.basicPublish("", toQueue, null, content.toByteArray())
+                    // Tạo queue cho người nhận nếu chưa có
+                    val toQueue = "chat.to.$toId"
+                    channel.queueDeclare(toQueue, false, false, false, null)
+
+                    // Giữ nguyên routingKey khi forward
+                    channel.basicPublish("", toQueue,
+                        AMQP.BasicProperties.Builder()
+                            .contentType("application/json")
+                            .build(),
+                        body)
+                    println("Forwarding message to $toId via queue $toQueue")
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
             }
         }
+
         channel.basicConsume(messageQueue, true, messageConsumer)
+        channel.basicConsume(fileQueue, true, messageConsumer)
+        channel.basicConsume(imageQueue, true, messageConsumer)
 
         println("Chat server connected to RabbitMQ")
     }
