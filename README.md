@@ -27,6 +27,12 @@ The system supports:
 - ✅ User registration with UUID generation
 - ✅ File type detection with appropriate icons
 
+UI:
+<details>
+    <summary>Click to show GUI </summary>
+   <img src="src/main/resources/assets/static/ui.png" alt="latest ui">
+</details>
+
 ## ️ Architecture
 ```mermaid
 graph TD
