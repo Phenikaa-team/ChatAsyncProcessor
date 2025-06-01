@@ -4,11 +4,8 @@ import com.chat.async.app.ui.ChatUI
 import com.rabbitmq.client.*
 import io.vertx.core.Vertx
 import io.vertx.core.json.JsonObject
-import java.io.IOException
 import java.nio.charset.StandardCharsets
 import java.util.*
-import java.util.concurrent.TimeoutException
-import kotlin.concurrent.thread
 
 class ChatClient(
     private val vertx: Vertx
@@ -55,14 +52,21 @@ class ChatClient(
         }
     }
 
-    private fun sendMessage(toId: String, message: String) {
+    private fun sendMessage(
+        toId: String,
+        message: String
+    ) {
         val json = createBaseMessageJson(toId)
             .put("content", "$id ($name): $message")
 
         sendJsonMessage(json, "message")
     }
 
-    private fun sendFile(toId: String, fileName: String, fileBytes: ByteArray) {
+    private fun sendFile(
+        toId: String,
+        fileName: String,
+        fileBytes: ByteArray
+    ) {
         val json = createBaseMessageJson(toId)
             .put("fileName", fileName)
             .put("content", fileBytes.encodeBase64())
@@ -70,21 +74,27 @@ class ChatClient(
         sendJsonMessage(json, "file")
     }
 
-    private fun sendImage(toId: String, imageBytes: ByteArray) {
+    private fun sendImage(
+        toId: String,
+        imageBytes: ByteArray
+    ) {
         val json = createBaseMessageJson(toId)
             .put("content", imageBytes.encodeBase64())
 
         sendJsonMessage(json, "image")
     }
 
-    private fun createBaseMessageJson(toId: String): JsonObject {
-        return JsonObject()
-            .put("toId", toId)
-            .put("senderId", id)
-            .put("senderName", name)
-    }
+    private fun createBaseMessageJson(
+        toId: String
+    ) = JsonObject()
+        .put("toId", toId)
+        .put("senderId", id)
+        .put("senderName", name)
 
-    private fun sendJsonMessage(json: JsonObject, routingKey: String) {
+    private fun sendJsonMessage(
+        json: JsonObject,
+        routingKey: String
+    ) {
         val props = AMQP.BasicProperties.Builder()
             .contentType("application/json")
             .build()
@@ -97,7 +107,9 @@ class ChatClient(
         )
     }
 
-    private fun registerUser(name: String) {
+    private fun registerUser(
+        name: String
+    ) {
         val replyQueue = channel.queueDeclare().queue
         val corrId = UUID.randomUUID().toString()
 
@@ -112,7 +124,10 @@ class ChatClient(
         setupRegistrationConsumer(replyQueue, corrId)
     }
 
-    private fun setupRegistrationConsumer(replyQueue: String, corrId: String) {
+    private fun setupRegistrationConsumer(
+        replyQueue: String,
+        corrId: String
+    ) {
         val consumer = object : DefaultConsumer(channel) {
             override fun handleDelivery(
                 consumerTag: String?,
@@ -129,7 +144,9 @@ class ChatClient(
         channel.basicConsume(replyQueue, true, consumer)
     }
 
-    private fun handleRegistrationResponse(body: ByteArray?) {
+    private fun handleRegistrationResponse(
+        body: ByteArray?
+    ) {
         id = body?.toString(StandardCharsets.UTF_8) ?: ""
         ui.setUserId(id)
         subscribeToMessages()
@@ -152,7 +169,9 @@ class ChatClient(
         channel.basicConsume(myQueue, true, consumer)
     }
 
-    private fun handleIncomingMessage(body: ByteArray?) {
+    private fun handleIncomingMessage(
+        body: ByteArray?
+    ) {
         try {
             val content = body?.toString(StandardCharsets.UTF_8) ?: return
             val json = JsonObject(content)
@@ -168,14 +187,18 @@ class ChatClient(
         }
     }
 
-    private fun handleFileMessage(json: JsonObject) {
+    private fun handleFileMessage(
+        json: JsonObject
+    ) {
         val fileName = json.getString("fileName")
         val fileContent = json.getString("content").decodeBase64()
         val senderId = json.getString("senderId")
         ui.showReceivedFile(senderId, fileName, fileContent)
     }
 
-    private fun handleTextMessage(json: JsonObject) {
+    private fun handleTextMessage(
+        json: JsonObject
+    ) {
         val message = json.getString("content")
         message.appendMessage(ui.chatArea)
     }

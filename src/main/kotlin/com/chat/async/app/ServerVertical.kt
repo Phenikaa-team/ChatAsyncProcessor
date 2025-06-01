@@ -49,22 +49,23 @@ class ServerVertical : AbstractVerticle() {
         }
     }
 
-    private fun setupQueue(queueName: String, routingKey: String): String {
+    private fun setupQueue(
+        queueName : String,
+        routingKey : String
+    ) : String {
         val queue = channel.queueDeclare(queueName, false, false, false, null).queue
         channel.queueBind(queue, EXCHANGE, routingKey)
         return queue
     }
 
-    private fun createRegistrationConsumer(): DefaultConsumer {
-        return object : DefaultConsumer(channel) {
-            override fun handleDelivery(
-                consumerTag: String?,
-                envelope: Envelope?,
-                properties: AMQP.BasicProperties?,
-                body: ByteArray?
-            ) {
-                handleRegistrationRequest(properties, body)
-            }
+    private fun createRegistrationConsumer() = object : DefaultConsumer(channel) {
+        override fun handleDelivery(
+            consumerTag: String?,
+            envelope: Envelope?,
+            properties: AMQP.BasicProperties?,
+            body: ByteArray?
+        ) {
+            handleRegistrationRequest(properties, body)
         }
     }
 
@@ -100,16 +101,14 @@ class ServerVertical : AbstractVerticle() {
         )
     }
 
-    private fun createMessageConsumer(): DefaultConsumer {
-        return object : DefaultConsumer(channel) {
-            override fun handleDelivery(
-                consumerTag: String?,
-                envelope: Envelope?,
-                properties: AMQP.BasicProperties?,
-                body: ByteArray?
-            ) {
-                processIncomingMessage(envelope, body)
-            }
+    private fun createMessageConsumer() = object : DefaultConsumer(channel) {
+        override fun handleDelivery(
+            consumerTag: String?,
+            envelope: Envelope?,
+            properties: AMQP.BasicProperties?,
+            body: ByteArray?
+        ) {
+            processIncomingMessage(envelope, body)
         }
     }
 

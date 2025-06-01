@@ -81,19 +81,18 @@ class ChatUI(
         previewCancelButton.setOnAction { resetPreview() }
     }
 
-    private fun createPreviewPane(): VBox {
-        return VBox(10.0).apply {
-            padding = Insets(20.0)
-            alignment = Pos.CENTER
-            children.addAll(
-                previewLabel,
-                previewImage,
-                previewFileName,
-                HBox(10.0, previewCancelButton, previewSendButton).apply {
-                    alignment = Pos.CENTER
-                }
-            )
-        }
+    private fun createPreviewPane(
+    ) = VBox(10.0).apply {
+        padding = Insets(20.0)
+        alignment = Pos.CENTER
+        children.addAll(
+            previewLabel,
+            previewImage,
+            previewFileName,
+            HBox(10.0, previewCancelButton, previewSendButton).apply {
+                alignment = Pos.CENTER
+            }
+        )
     }
 
     private fun resetPreview() {
@@ -108,22 +107,21 @@ class ChatUI(
         registerPane.children.add(createRegisterForm())
     }
 
-    private fun createRegisterForm(): VBox {
-        return VBox(10.0).apply {
-            padding = Insets(20.0)
-            alignment = Pos.CENTER
-            children.addAll(
-                Label("Name:"),
-                TextField().apply {
-                    nameField = this
-                    promptText = "Enter your name"
-                },
-                Button("Register").apply {
-                    registerButton = this
-                    setOnAction { handleRegistration() }
-                }
-            )
-        }
+    private fun createRegisterForm(
+    ) = VBox(10.0).apply {
+        padding = Insets(20.0)
+        alignment = Pos.CENTER
+        children.addAll(
+            Label("Name:"),
+            TextField().apply {
+                nameField = this
+                promptText = "Enter your name"
+            },
+            Button("Register").apply {
+                registerButton = this
+                setOnAction { handleRegistration() }
+            }
+        )
     }
 
     private fun handleRegistration() {
@@ -138,17 +136,16 @@ class ChatUI(
         chatPane.bottom = createInputPanel()
     }
 
-    private fun createRecipientPanel(): HBox {
-        return HBox(10.0).apply {
-            padding = Insets(10.0)
-            children.addAll(
-                Label("Send to ID:"),
-                TextField().apply {
-                    toIdField = this
-                    prefWidth = 100.0
-                }
-            )
-        }
+    private fun createRecipientPanel(
+    ) = HBox(10.0).apply {
+        padding = Insets(10.0)
+        children.addAll(
+            Label("Send to ID:"),
+            TextField().apply {
+                toIdField = this
+                prefWidth = 100.0
+            }
+        )
     }
 
     private fun createChatArea(): ScrollPane {
@@ -162,18 +159,15 @@ class ChatUI(
         }
     }
 
-    private fun createInputPanel(): VBox {
-        return VBox(10.0).apply {
-            padding = Insets(10.0)
-            children.addAll(
-                createMessageInputRow(),
-                createAttachmentButtons()
-            )
-        }
+    private fun createInputPanel() = VBox(10.0).apply {
+        padding = Insets(10.0)
+        children.addAll(
+            createMessageInputRow(),
+            createAttachmentButtons()
+        )
     }
 
-    private fun createMessageInputRow(
-    ) = HBox(10.0).apply {
+    private fun createMessageInputRow() = HBox(10.0).apply {
         children.addAll(
             TextField().apply {
                 inputField = this
@@ -186,8 +180,7 @@ class ChatUI(
         )
     }
 
-    private fun createAttachmentButtons(
-    ) = HBox(10.0).apply {
+    private fun createAttachmentButtons() = HBox(10.0).apply {
         children.addAll(
             Button("Attach File").apply {
                 fileButton = this
@@ -247,7 +240,9 @@ class ChatUI(
         previewStage.show()
     }
 
-    private fun prepareImagePreview(file: File) {
+    private fun prepareImagePreview(
+        file: File
+    ) {
         val image = Image(file.toURI().toString())
         previewImage.image = image
         previewImage.isVisible = true
@@ -282,14 +277,20 @@ class ChatUI(
         chatPane.isVisible = true
     }
 
-    fun setUserId(id: String) {
+    fun setUserId(
+        id: String
+    ) {
         Platform.runLater {
             showChatPane()
             ("📌 Registration successful! Your ID is: $id").appendSystemMessage(chatArea)
         }
     }
 
-    fun showReceivedFile(senderId: String, fileName: String, bytes: ByteArray) {
+    fun showReceivedFile(
+        senderId: String,
+        fileName: String,
+        bytes: ByteArray
+    ) {
         Platform.runLater {
             val saveButton = Button("Save $fileName").apply {
                 setOnAction { saveFile(fileName, bytes) }
@@ -299,7 +300,10 @@ class ChatUI(
         }
     }
 
-    private fun saveFile(fileName: String, bytes: ByteArray) {
+    private fun saveFile(
+        fileName: String,
+        bytes: ByteArray
+    ) {
         FileChooser().apply {
             initialFileName = fileName
             title = "Save File"
@@ -310,7 +314,9 @@ class ChatUI(
     }
 }
 
-class FileIconView(private val file: File) : StackPane() {
+class FileIconView(
+    file : File
+) : StackPane() {
     init {
         children.add(Label(getFileIcon(file)))
     }
