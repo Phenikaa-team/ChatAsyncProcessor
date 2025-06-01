@@ -1,83 +1,241 @@
-# Distributed Chat System
+# Distributed Chat System with Vert.x and RabbitMQ
 
-## 📝 Overview
-This project implements a distributed chat system using:
-- **Vert.x** for event-driven architecture
-- **RabbitMQ** as the message broker
-- **JavaFX** for the client UI
+## Overview
+
+This project implements a comprehensive distributed chat system using:
+- **Vert.x** for event-driven architecture and async processing
+- **RabbitMQ** as the message broker for reliable message delivery
+- **JavaFX** for rich desktop client UI with modern interface
 
 The system supports:
-- Real-time text messaging
-- File sharing
-- Image sharing
-- Multiple concurrent users
+- ✅ Real-time text messaging (1-to-1 and group chat)
+- ✅ File sharing with preview and download capabilities
+- ✅ Image sharing with inline preview and full-screen view
+- ✅ Group chat management (create, join, leave groups)
+- ✅ Message editing functionality
+- ✅ Multiple concurrent users with unique ID system
+- ✅ User registration with UUID generation
+- ✅ File type detection with appropriate icons
 
-## 🏗️ Architecture
-
-![architecture.svg](src/main/resources/assets/static/architecture.svg)
-
+## ️ Architecture
+```mermaid
+graph TD
+    A[Client 1] -->|Publish| B[RabbitMQ Exchange]
+    C[Client 2] -->|Publish| B
+    D[Client 3] -->|Publish| B
+    B -->|Route| E[Server Verticle]
+    E -->|Group Messages| F[Group Queue]
+    E -->|Direct Messages| G[User Queue]
+    F -->|Broadcast| H[Group Members]
+    G -->|Forward| I[Target User]
+    
+    style B fill:#ff9999
+    style E fill:#99ccff
+    style F fill:#99ff99
+    style G fill:#ffcc99 
+```
+[![](https://mermaid.ink/img/pako:eNptkkuPmzAQx7-K5V6zCY8AgUOl5tkeVuo-2kPJHow9gFXAyI_tZkO-ew0JaVrVB8ue3_8_M5bniKlggBNcSNKW6Hm9b5Bdn9JVxaHRyH1Bd3cfu68mq7gqO7RMH0mWcX3_gDZvtCRNAS9ny2q0eP9aznw9cv__fDlEH4XR0KFN-gTyFST6DlJzWo1FNoNoJ4Vp0T0oRQpQHdqm58iDAfO3cs0lUH0j3aXflE17q9wOyqUUhFGidIc-p2OBOgOpLrLdINsK-YtI1qEv6TORBWjU57tIzrvShwrsc3JeVcmHPI_tuiWbC4ljSvP8lmyvpHfdkt01G6VxjPDE_hdnOMlJpWCCa5A16e_42Lv2WJdQwx4n9siI_LnH--ZkTS1pfghR40RLY232lUV5TWJaRjSsObGj8EcCDQO5EqbROImHDDg54jecuK4zjfw4WjhBMHec-dyf4ANOvPk0DqPAizzXD8MoPk3w-1DSmS6iIHBcNwgWge9FbjDBwLgW8v48gcMgjm1sBnLtjRgtng4NHduq7GeB7DvRh3YYX660NVPR5Lzo40ZWNlxq3apkNuvxtOC6NNmUinqmOCuJ1OVrHM5CL1wQz4cw8kng-4xmbrzIvbmbs8hxPYJPp9Nv3X3-Aw?type=png)](https://mermaid.live/edit#pako:eNptkkuPmzAQx7-K5V6zCY8AgUOl5tkeVuo-2kPJHow9gFXAyI_tZkO-ew0JaVrVB8ue3_8_M5bniKlggBNcSNKW6Hm9b5Bdn9JVxaHRyH1Bd3cfu68mq7gqO7RMH0mWcX3_gDZvtCRNAS9ny2q0eP9aznw9cv__fDlEH4XR0KFN-gTyFST6DlJzWo1FNoNoJ4Vp0T0oRQpQHdqm58iDAfO3cs0lUH0j3aXflE17q9wOyqUUhFGidIc-p2OBOgOpLrLdINsK-YtI1qEv6TORBWjU57tIzrvShwrsc3JeVcmHPI_tuiWbC4ljSvP8lmyvpHfdkt01G6VxjPDE_hdnOMlJpWCCa5A16e_42Lv2WJdQwx4n9siI_LnH--ZkTS1pfghR40RLY232lUV5TWJaRjSsObGj8EcCDQO5EqbROImHDDg54jecuK4zjfw4WjhBMHec-dyf4ANOvPk0DqPAizzXD8MoPk3w-1DSmS6iIHBcNwgWge9FbjDBwLgW8v48gcMgjm1sBnLtjRgtng4NHduq7GeB7DvRh3YYX660NVPR5Lzo40ZWNlxq3apkNuvxtOC6NNmUinqmOCuJ1OVrHM5CL1wQz4cw8kng-4xmbrzIvbmbs8hxPYJPp9Nv3X3-Aw)
 ### Key Components:
-1. **Server Verticle**:
-   - Manages user registration
-   - Routes messages between clients
-   - Uses RabbitMQ queues for communication
 
-2. **Client Verticle**:
-   - Provides chat UI (JavaFX)
-   - Handles message sending/receiving
-   - Manages file/image transfers
+1. **Server Verticle** (`ServerVerticle.kt`):
+   - Manages user registration with collision detection
+   - Routes messages between users and groups
+   - Handles group operations (create, join, leave)
+   - Manages message editing and history
+   - Uses dedicated RabbitMQ queues for each operation type
 
-3. **RabbitMQ**:
-   - Acts as message broker
-   - Uses direct exchange for routing
-   - Dedicated queues for each client
+2. **Client Verticle** (`ClientVerticle.kt`):
+   - Manages connection to RabbitMQ broker
+   - Handles real-time message receiving
+   - Processes different message types (text, file, image, group operations)
+   - Maintains user session and authentication state
 
-## 🚀 Features
+3. **Chat UI** (`ChatUI.kt`):
+   - Modern JavaFX interface with tabbed layout
+   - File/Image preview before sending
+   - Group management dialog
+   - Message editing capabilities
+   - Drag-and-drop file support
+   - Responsive design with proper layouts
 
-### User Registration
-![user_registration.svg](src/main/resources/assets/static/user_registration.svg)
+4. **Group Manager** (`Group.kt`):
+   - Complete group chat functionality
+   - Create groups with unique IDs
+   - Join/leave group operations
+   - Member management
+   - Group message broadcasting
 
-### Message Flow
-![message_flow.svg](src/main/resources/assets/static/message_flow.svg)
-## 🛠️ Setup & Usage
+## Features
+
+### User Registration & Authentication
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Server
+    participant R as RabbitMQ
+    
+    C->>R: Register request (username + UUID)
+    R->>S: Forward to registration queue
+    S->>S: Check ID collision
+    alt ID Available
+        S->>R: Send back confirmation
+        R->>C: Registration successful
+    else ID Exists
+        S->>R: Send error response
+        R->>C: Registration failed
+    end
+```
+
+### Message Flow (Direct Chat)
+```mermaid
+sequenceDiagram
+    participant C1 as Sender
+    participant R as RabbitMQ
+    participant S as Server
+    participant C2 as Receiver
+    
+    C1->>R: Send message (to: userID, content)
+    R->>S: Route to message queue
+    S->>S: Validate sender & recipient
+    S->>R: Forward to recipient queue
+    R->>C2: Deliver message with metadata
+    C2->>C2: Display in chat UI
+```
+
+### Group Chat Flow
+```mermaid
+sequenceDiagram
+    participant C1 as Group Member 1
+    participant S as Server
+    participant C2 as Group Member 2
+    participant C3 as Group Member 3
+    
+    C1->>S: Send group message
+    S->>S: Identify group members
+    par Broadcast to all members
+        S->>C2: Forward message
+    and
+        S->>C3: Forward message
+    end
+    Note over C2,C3: Sender excluded from broadcast
+```
+
+## Setup & Usage
 
 ### Prerequisites
-- Java 11+
-- RabbitMQ server
-- Gradle/Maven
+- **Java 11+** (with JavaFX support)
+- **RabbitMQ Server** (running on default port 5672)
+- **Gradle** or **Maven** for dependency management
 
 ### Configuration
 ```bash
-# Set RabbitMQ host (default: localhost)
+# Set RabbitMQ host (optional, defaults to localhost)
 export RABBITMQ_HOST=your_rabbitmq_host
+
+# For production deployment
+export RABBITMQ_HOST=production-rabbitmq-server.com
 ```
 
 ### Running the System
-1. Start the server:
-```kotlin
-vertx.deployVerticle(ServerVerticle())
+
+1. **Start RabbitMQ Server**:
+```bash
+# Using Docker
+docker run -d --hostname rabbitmq --name rabbitmq-server -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+
+# Or using local installation
+sudo systemctl start rabbitmq-server
 ```
 
-2. Launch clients:
+2. **Launch the Application**:
 ```kotlin
-val client1 = ClientVerticle("Client-1")
-vertx.deployVerticle(client1)
-
-val client2 = ClientVerticle("Client-2") 
-vertx.deployVerticle(client2)
+// Main application entry point
+fun main() {
+    Application.launch(ChatApp::class.java)
+}
 ```
 
-## 📊 Message Types
+The system automatically:
+- Deploys server verticle
+- Creates multiple client instances for testing
+- Sets up all necessary RabbitMQ queues and exchanges
 
-| Type  | Format                          | Description        |
-|-------|----------------------------------|--------------------|
-| Text  | JSON: `{toId, message}`          | Basic text messages |
-| File  | JSON: `{toId, file, data(base64)}` | File attachments    |
-| Image | JSON: `{toId, image(base64)}`    | Image sharing       |
+## Message Types & Protocols
 
-## 🌟 Advanced Features
+| Message Type | Route Key | JSON Format | Description |
+|--------------|-----------|-------------|-------------|
+| **Registration** | `register` | `{username, uuid}` | User registration with custom/generated ID |
+| **Text Message** | `message` | `{toId, message, messageId}` | Direct or group text messages |
+| **File Sharing** | `file` | `{toId, file, data(base64)}` | File attachments with base64 encoding |
+| **Image Sharing** | `image` | `{toId, image(base64)}` | Image files with preview support |
+| **Message Edit** | `edit` | `{messageId, newContent}` | Edit existing messages |
+| **Group Create** | `create_group` | `{groupId, groupName, createdBy}` | Create new group chats |
+| **Group Join** | `join_group` | `{groupId}` | Join existing groups |
+| **Group Leave** | `leave_group` | `{groupId}` | Leave group chats |
 
-- **Message Persistence**: RabbitMQ queues store undelivered messages
-- **Error Handling**: Duplicate ID detection during registration
-- **File Previews**: Client-side preview before sending files/images
-- **Responsive UI**: JavaFX interface with clean layout
+## Advanced Features
+
+### File & Image Handling
+- **Preview System**: Files and images can be previewed before sending
+- **Type Detection**: Automatic file type detection with appropriate icons (📄 PDF, 📝 DOC, 📊 XLS, etc.)
+- **Download Support**: Recipients can download shared files to local storage
+- **Image Viewer**: Full-screen image viewing with copy-to-clipboard functionality
+
+### Group Chat Management
+- **Dynamic Groups**: Create groups with custom names and auto-generated IDs
+- **Member Management**: Real-time join/leave notifications
+- **Group Persistence**: Groups are maintained on server until last member leaves
+- **Broadcast Messaging**: Efficient message distribution to all group members
+
+### Message Features
+- **Edit Capability**: Users can edit their own messages post-send
+- **Message History**: Server maintains message history for edited content
+- **Delivery Confirmation**: Visual feedback for message delivery status
+- **Timestamp Support**: All messages include server-side timestamps
+
+### UI/UX Enhancements
+- **Modern Interface**: Clean JavaFX design with intuitive controls
+- **Real-time Updates**: Instant message display with smooth scrolling
+- **User Information**: Display current user info with copyable UUID
+- **Notification System**: Toast notifications for system events
+- **Responsive Layout**: Adaptive UI that scales with window size
+
+## Technical Implementation Details
+
+### Queue Management
+- **Dynamic Queue Creation**: Queues created on-demand for new users
+- **Queue Cleanup**: Automatic cleanup of unused queues
+- **Message Persistence**: RabbitMQ durability settings for message reliability
+- **Error Handling**: Comprehensive error handling for connection failures
+
+### Concurrency & Threading
+- **Thread-Safe Operations**: ConcurrentHashMap for user and group storage
+- **JavaFX Threading**: Proper Platform.runLater() usage for UI updates
+- **Async Processing**: Vert.x event loop for non-blocking operations
+
+### Security Considerations
+- **UUID-based Authentication**: Unique user identification system
+- **Message Validation**: Server-side validation of all incoming messages
+- **Access Control**: Users can only edit their own messages
+- **Group Security**: Only group members receive group messages
+
+## Error Handling
+
+The system includes comprehensive error handling for:
+- **Connection Failures**: Automatic reconnection attempts to RabbitMQ
+- **Invalid Messages**: Malformed JSON or missing required fields
+- **User Conflicts**: Duplicate UUID registration prevention
+- **File Transfer Errors**: Graceful handling of corrupted or oversized files
+- **UI Exceptions**: Proper error display in JavaFX interface
+
+## Future Enhancements
+
+Potential improvements and features:
+- [ ] **Message Encryption**: End-to-end encryption for secure communication
+- [ ] **Voice Messages**: Audio recording and playback support
+- [ ] **User Presence**: Online/offline status indicators
+- [ ] **Message Reactions**: Emoji reactions to messages
+- [ ] **File Streaming**: Large file transfer with progress indicators
+- [ ] **Database Integration**: Persistent message storage with database
+- [ ] **Web Client**: Browser-based client using WebSocket connections
+- [ ] **Mobile Support**: Cross-platform mobile applications
