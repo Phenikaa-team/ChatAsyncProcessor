@@ -2,16 +2,15 @@ package com.chat.async.app.verticle
 
 import com.chat.async.app.*
 import com.chat.async.app.ui.ChatUI
-import com.chat.async.app.ui.extension.MessageNode
+import com.chat.async.app.ui.group.ChatGroup
+import com.chat.async.app.ui.node.MessageNode
 import com.rabbitmq.client.*
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.json.JsonObject
 import javafx.application.Platform
 import java.util.concurrent.ConcurrentHashMap
 
-class ClientVerticle(
-    private val clientName: String
-) : AbstractVerticle() {
+class ClientVerticle : AbstractVerticle() {
 
     var ui: ChatUI? = null
     private val sentMessages = ConcurrentHashMap<String, String>()
@@ -51,15 +50,39 @@ class ClientVerticle(
                 sendToRabbitMQ("image", json.encode())
             },
             onEditMessage = { messageId, newContent ->
-                sentMessages[messageId]?.let {
-                    val json = JsonObject(
-                        mapOf(
-                            "originalMessageId" to messageId,
-                            "newMessage" to newContent
-                        )
+                val json = JsonObject(
+                    mapOf(
+                        "messageId" to messageId,
+                        "newContent" to newContent
                     )
-                    sendToRabbitMQ("edit", json.encode())
-                }
+                )
+                sendToRabbitMQ("edit", json.encode())
+            },
+            onCreateGroup = { group ->
+                val json = JsonObject(
+                    mapOf(
+                        "groupId" to group.id,
+                        "groupName" to group.name,
+                        "createdBy" to group.createdBy
+                    )
+                )
+                sendToRabbitMQ("create_group", json.encode())
+            },
+            onJoinGroup = { groupId ->
+                val json = JsonObject(
+                    mapOf(
+                        "groupId" to groupId
+                    )
+                )
+                sendToRabbitMQ("join_group", json.encode())
+            },
+            onLeaveGroup = { groupId ->
+                val json = JsonObject(
+                    mapOf(
+                        "groupId" to groupId
+                    )
+                )
+                sendToRabbitMQ("leave_group", json.encode())
             }
         )
 
@@ -149,7 +172,10 @@ class ClientVerticle(
                             json.containsKey("message") -> handleTextMessage(json)
                             json.containsKey("file") -> handleFileMessage(json)
                             json.containsKey("image") -> handleImageMessage(json)
-                            json.containsKey("newMessage") -> handleEditMessage(json)
+                            json.containsKey("newContent") -> handleEditMessage(json)
+                            json.containsKey("groupCreated") -> handleGroupCreated(json)
+                            json.containsKey("groupJoined") -> handleGroupJoined(json)
+                            json.containsKey("groupLeft") -> handleGroupLeft(json)
                             else -> println("⚠️ Unknown message type")
                         }
                     }
@@ -163,9 +189,13 @@ class ClientVerticle(
                 val sender = json.getString("sender", "Unknown")
                 val message = json.getString("message")
                 val isOwn = json.getString("senderId") == currentUserId
+                val isGroup = json.getBoolean("isGroup", false)
+                val targetId = json.getString("targetId", "")
+
+                val displaySender = if (isGroup) "$sender@$targetId" else sender
 
                 ui.addMessageToChat(
-                    sender = sender,
+                    sender = displaySender,
                     content = message,
                     type = MessageNode.MessageType.TEXT,
                     isOwnMessage = isOwn,
@@ -178,46 +208,109 @@ class ClientVerticle(
                 val fileName = json.getString("file")
                 val bytes = json.getString("data").decodeBase64()
                 val isOwn = json.getString("senderId") == currentUserId
+                val isGroup = json.getBoolean("isGroup", false)
+                val targetId = json.getString("targetId", "")
 
-                ui.showReceivedFile(sender, fileName, bytes)
+                val displaySender = if (isGroup) "$sender@$targetId" else sender
+
+                ui.addMessageToChat(displaySender, fileName, MessageNode.MessageType.FILE, isOwn, null, bytes)
             }
 
             private fun handleImageMessage(json: JsonObject) {
                 val sender = json.getString("sender", "Unknown")
                 val bytes = json.getString("image").decodeBase64()
                 val isOwn = json.getString("senderId") == currentUserId
+                val isGroup = json.getBoolean("isGroup", false)
+                val targetId = json.getString("targetId", "")
 
-                ui.showReceivedImage(sender, bytes)
+                val displaySender = if (isGroup) "$sender@$targetId" else sender
+
+                ui.addMessageToChat(displaySender, "image", MessageNode.MessageType.IMAGE, isOwn, null, bytes)
             }
 
             private fun handleEditMessage(json: JsonObject) {
-                val originalMessageId = json.getString("originalMessageId")
-                val newContent = json.getString("newMessage")
+                val messageId = json.getString("messageId")
+                val newContent = json.getString("newContent")
                 val sender = json.getString("sender", "Unknown")
                 val isOwn = json.getString("senderId") == currentUserId
+                val isGroup = json.getBoolean("isGroup", false)
+                val targetId = json.getString("targetId", "")
+
+                val displaySender = if (isGroup) "$sender@$targetId" else sender
 
                 // Find the old message in the chatArea to replace it
                 Platform.runLater {
                     val items = ui.chatArea.items
                     for (i in 0 until items.size) {
                         val node = items[i]
-                        if (node.messageId == originalMessageId) {
+                        if (node.messageId == messageId) {
                             items[i] = MessageNode(
-                                sender = sender,
+                                sender = displaySender,
                                 content = newContent,
                                 type = MessageNode.MessageType.TEXT,
                                 isOwnMessage = isOwn,
-                                messageId = originalMessageId,
+                                messageId = messageId,
                                 onEdit = { newText ->
                                     val editJson = JsonObject().apply {
-                                        put("originalMessageId", originalMessageId)
-                                        put("newMessage", newText)
+                                        put("messageId", messageId)
+                                        put("newContent", newText)
                                     }
                                     sendToRabbitMQ("edit", editJson.encode())
                                 }
                             )
                             break
                         }
+                    }
+                }
+            }
+
+            private fun handleGroupCreated(json: JsonObject) {
+                val groupId = json.getString("groupId")
+                val groupName = json.getString("groupName")
+                val createdBy = json.getString("createdBy")
+
+                val group = ChatGroup(
+                    id = groupId,
+                    name = groupName,
+                    createdBy = createdBy
+                )
+
+                Platform.runLater {
+                    ui.addGroup(group)
+                    "✅ Group '${groupName}' created successfully (ID: ${groupId})".appendSystemMessage(ui.chatArea)
+                }
+            }
+
+            private fun handleGroupJoined(json: JsonObject) {
+                val groupId = json.getString("groupId")
+                val groupName = json.getString("groupName", "Unknown Group")
+                val joinedBy = json.getString("joinedBy", currentUserId)
+                val joinerName = json.getString("joinerName", "Unknown User")
+
+                if (joinedBy == currentUserId) {
+                    Platform.runLater {
+                        "✅ Successfully joined group '${groupName}' (ID: ${groupId})".appendSystemMessage(ui.chatArea)
+                    }
+                } else {
+                    Platform.runLater {
+                        "👋 ${joinerName} joined the group '${groupName}'".appendSystemMessage(ui.chatArea)
+                    }
+                }
+            }
+
+            private fun handleGroupLeft(json: JsonObject) {
+                val groupId = json.getString("groupId")
+                val groupName = json.getString("groupName", "Unknown Group")
+                val leftBy = json.getString("leftBy", currentUserId)
+                val leaverName = json.getString("leaverName", "Unknown User")
+
+                if (leftBy == currentUserId) {
+                    Platform.runLater {
+                        "👋 You left the group '${groupName}' (ID: ${groupId})".appendSystemMessage(ui.chatArea)
+                    }
+                } else {
+                    Platform.runLater {
+                        "👋 $leaverName left the group '${groupName}'".appendSystemMessage(ui.chatArea)
                     }
                 }
             }

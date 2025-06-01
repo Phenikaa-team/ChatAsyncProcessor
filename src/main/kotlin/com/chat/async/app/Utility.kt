@@ -1,11 +1,10 @@
 package com.chat.async.app
 
-import com.chat.async.app.ui.extension.MessageNode
+import com.chat.async.app.ui.node.MessageNode
 import javafx.application.Platform
 import javafx.embed.swing.SwingFXUtils
 import javafx.scene.control.Alert
 import javafx.scene.control.ListView
-import javafx.scene.control.TextArea
 import javafx.scene.image.Image
 import java.io.ByteArrayOutputStream
 import java.util.*
@@ -25,8 +24,8 @@ fun Image.toByteArray(extension: String): ByteArray {
 }
 
 fun generateUserId(): String = UUID.randomUUID().toString().take(8)
-
 fun generateMessageId(): String = UUID.randomUUID().toString()
+fun generateGroupId(): String = UUID.randomUUID().toString().take(8)
 
 fun showAlert(
     title: String,

@@ -11,14 +11,12 @@ class ChatApp : Application() {
         val vertx = Vertx.vertx()
         vertx.deployVerticle(ServerVerticle())
 
-
-        val client1 = ClientVerticle("Client-1")
-        vertx.deployVerticle(client1)
-        client1.start()
-
-        val client2 = ClientVerticle("Client-2")
-        vertx.deployVerticle(client2)
-        client2.start()
+        // Multiple clients for testing
+        repeat(2) {
+            val client = ClientVerticle()
+            vertx.deployVerticle(client)
+            client.start()
+        }
     }
 }
 

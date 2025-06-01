@@ -1,7 +1,9 @@
 package com.chat.async.app.ui
 
 import com.chat.async.app.*
-import com.chat.async.app.ui.extension.MessageNode
+import com.chat.async.app.ui.group.GroupManager
+import com.chat.async.app.ui.group.ChatGroup
+import com.chat.async.app.ui.node.MessageNode
 import javafx.application.Platform
 import javafx.geometry.Insets
 import javafx.geometry.Pos
@@ -23,7 +25,10 @@ class ChatUI(
     private val onSend: (toId: String, message: String) -> Unit,
     private val onSendFile: (toId: String, fileName: String, fileBytes: ByteArray) -> Unit,
     private val onSendImage: (toId: String, imageBytes: ByteArray) -> Unit,
-    private val onEditMessage: (messageId: String, newContent: String) -> Unit
+    private val onEditMessage: (messageId: String, newContent: String) -> Unit,
+    private val onCreateGroup: (ChatGroup) -> Unit,
+    private val onJoinGroup: (String) -> Unit,
+    private val onLeaveGroup: (String) -> Unit
 ) {
     // UI Components
     private val stage = Stage()
@@ -42,6 +47,7 @@ class ChatUI(
     private lateinit var sendButton: Button
     private lateinit var fileButton: Button
     private lateinit var imageButton: Button
+    private lateinit var groupManagerButton: Button
 
     // Chat area
     lateinit var chatArea: ListView<MessageNode>
@@ -67,6 +73,9 @@ class ChatUI(
 
     private var currentUserId: String = ""
     private var currentUsername: String = ""
+
+    // Group Manager
+    private lateinit var groupManager: GroupManager
 
     enum class PreviewType { NONE, IMAGE, FILE }
 
@@ -141,6 +150,16 @@ class ChatUI(
     fun setUserId(id: String, username: String) {
         currentUserId = id
         currentUsername = username
+
+        // Initialize group manager
+        groupManager = GroupManager(
+            currentUserId = currentUserId,
+            currentUsername = currentUsername,
+            onCreateGroup = onCreateGroup,
+            onJoinGroup = onJoinGroup,
+            onLeaveGroup = onLeaveGroup
+        )
+
         Platform.runLater {
             showChatPane()
             ("📌 Registration successful!").appendSystemMessage(chatArea)
@@ -199,8 +218,27 @@ class ChatUI(
                 registerButton = this
                 prefWidth = 300.0
                 setOnAction { handleRegistration() }
+                // Allow to Enter key to register
+                setOnKeyPressed { event ->
+                    if (event.code.toString() == "ENTER") {
+                        handleRegistration()
+                    }
+                }
             }
         )
+
+        // Set Enter key action for text fields
+        nameField.setOnKeyPressed { event ->
+            if (event.code.toString() == "ENTER") {
+                handleRegistration()
+            }
+        }
+
+        uuidField.setOnKeyPressed { event ->
+            if (event.code.toString() == "ENTER") {
+                handleRegistration()
+            }
+        }
     }
 
     private fun handleRegistration() {
@@ -208,7 +246,7 @@ class ChatUI(
         var uuid = uuidField.text.trim()
 
         if (username.isEmpty()) {
-            "Username cannot be empty".appendSystemMessage(chatArea)
+            showAlert("Error", "Username cannot be empty")
             return
         }
 
@@ -234,6 +272,7 @@ class ChatUI(
             content = content,
             type = type,
             isOwnMessage = isOwnMessage,
+            messageId = messageId,
             onEdit = { newContent ->
                 messageId?.let { id ->
                     onEditMessage(id, newContent)
@@ -358,6 +397,7 @@ class ChatUI(
         }
         previewStage.show()
     }
+
     private fun sendTextMessage() {
         val toId = toIdField.text.trim()
         val message = inputField.text.trim()
@@ -370,22 +410,22 @@ class ChatUI(
         }
     }
 
-    fun showReceivedFile(senderId: String, fileName: String, bytes: ByteArray) {
-        addMessageToChat(senderId, fileName, MessageNode.MessageType.FILE, false, null, bytes)
-    }
-
-    fun showReceivedImage(senderId: String, bytes: ByteArray) {
-        addMessageToChat(senderId, "image", MessageNode.MessageType.IMAGE, false, null, bytes)
-    }
-
-    private fun createRecipientPanel(
-    ) = HBox(10.0).apply {
+    private fun createRecipientPanel() = HBox(10.0).apply {
         padding = Insets(10.0)
         children.addAll(
             Label("Send to ID:"),
             TextField().apply {
                 toIdField = this
-                prefWidth = 100.0
+                prefWidth = 200.0
+                promptText = "User ID or Group ID"
+            },
+            Button("Groups").apply {
+                groupManagerButton = this
+                setOnAction {
+                    if (::groupManager.isInitialized) {
+                        groupManager.showGroupManagerDialog(stage)
+                    }
+                }
             }
         )
     }
@@ -430,6 +470,12 @@ class ChatUI(
             TextField().apply {
                 inputField = this
                 HBox.setHgrow(this, Priority.ALWAYS)
+                // Allow to Enter key to send a message
+                setOnKeyPressed { event ->
+                    if (event.code.toString() == "ENTER") {
+                        sendTextMessage()
+                    }
+                }
             },
             Button("Send").apply {
                 sendButton = this
@@ -448,8 +494,11 @@ class ChatUI(
                         title = "Select File to Send"
                     }.showOpenDialog(stage)?.let { file ->
                         prepareFilePreview(file, PreviewType.FILE) {
-                            onSendFile(toIdField.text.trim(), file.name, file.readBytes())
-                            "[File sent: ${file.name}]".appendOwnMessage(chatArea)
+                            val toId = toIdField.text.trim()
+                            if (toId.isNotEmpty()) {
+                                onSendFile(toId, file.name, file.readBytes())
+                                addMessageToChat("You", file.name, MessageNode.MessageType.FILE, true, generateMessageId(), file.readBytes())
+                            }
                         }
                     }
                 }
@@ -506,8 +555,11 @@ class ChatUI(
         previewImage.isVisible = true
 
         prepareFilePreview(file, PreviewType.IMAGE) {
-            onSendImage(toIdField.text.trim(), image.toByteArray(file.extension))
-            "[Image sent: ${file.name}]".appendOwnMessage(chatArea)
+            val toId = toIdField.text.trim()
+            if (toId.isNotEmpty()) {
+                onSendImage(toId, image.toByteArray(file.extension))
+                addMessageToChat("You", "image", MessageNode.MessageType.IMAGE, true, generateMessageId(), file.readBytes())
+            }
         }
 
         previewLabel.text = "Image preview:"
@@ -545,6 +597,21 @@ class ChatUI(
                 chatArea.items.add(MessageNode("System", "Failed to save file: ${e.message}",
                     MessageNode.MessageType.SYSTEM, false))
             }
+        }
+    }
+
+    private fun showAlert(title: String, message: String) {
+        Platform.runLater {
+            Alert(Alert.AlertType.INFORMATION).apply {
+                this.title = title
+                headerText = message
+            }.showAndWait()
+        }
+    }
+
+    fun addGroup(group: ChatGroup) {
+        if (::groupManager.isInitialized) {
+            groupManager.addGroup(group)
         }
     }
 }
