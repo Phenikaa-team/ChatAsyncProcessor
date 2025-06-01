@@ -29,7 +29,6 @@ dependencies {
     implementation("org.openjfx:javafx-graphics:21")
 }
 
-
 tasks.test {
     useJUnitPlatform()
 }

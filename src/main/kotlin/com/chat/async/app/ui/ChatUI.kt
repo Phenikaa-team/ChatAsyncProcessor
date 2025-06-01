@@ -2,6 +2,7 @@ package com.chat.async.app.ui
 
 import com.chat.async.app.appendOwnMessage
 import com.chat.async.app.appendSystemMessage
+import com.chat.async.app.generateUserId
 import com.chat.async.app.toByteArray
 import javafx.application.Platform
 import javafx.geometry.Insets
@@ -31,6 +32,7 @@ class ChatUI(
     private lateinit var nameField: TextField
     private lateinit var toIdField: TextField
     private lateinit var inputField: TextField
+    private lateinit var uuidField: TextField
 
     // Buttons
     private lateinit var registerButton: Button
@@ -57,7 +59,7 @@ class ChatUI(
     // State
     private var currentPreviewFile: File? = null
     private var currentPreviewType: PreviewType = PreviewType.NONE
-    var onRegister: ((String) -> Unit)? = null
+    var onRegister: ((Pair<String, String>) -> Unit)? = null
 
     enum class PreviewType { NONE, IMAGE, FILE }
 
@@ -107,27 +109,69 @@ class ChatUI(
         registerPane.children.add(createRegisterForm())
     }
 
-    private fun createRegisterForm(
-    ) = VBox(10.0).apply {
+    private fun createRegisterForm() = VBox(10.0).apply {
         padding = Insets(20.0)
         alignment = Pos.CENTER
+
+        // Username field
         children.addAll(
-            Label("Name:"),
+            Label("Username:"),
             TextField().apply {
+                alignment = Pos.CENTER
                 nameField = this
-                promptText = "Enter your name"
-            },
+                promptText = "Enter your username"
+                prefWidth = 300.0
+            }
+        )
+
+        // UUID field with random generation button
+        children.addAll(
+            Label("UUID (leave empty to generate):"),
+            HBox(5.0).apply {
+                alignment = Pos.CENTER
+                children.addAll(
+                    TextField().apply {
+                        uuidField = this
+                        promptText = "Leave empty to generate random ID"
+                        prefWidth = 250.0
+                    },
+                    Button("⟳").apply {
+                        tooltip = Tooltip("Generate Random ID")
+                        style = "-fx-font-size: 14;"
+                        prefWidth = 40.0
+                        setOnAction {
+                            uuidField.text = generateUserId()
+                        }
+                    }
+                )
+            }
+        )
+
+        // Register button
+        children.add(
             Button("Register").apply {
                 registerButton = this
+                prefWidth = 300.0
                 setOnAction { handleRegistration() }
             }
         )
     }
 
     private fun handleRegistration() {
-        nameField.text.trim().takeIf { it.isNotEmpty() }?.let {
-            onRegister?.invoke(it)
+        val username = nameField.text.trim()
+        var uuid = uuidField.text.trim()
+
+        if (username.isEmpty()) {
+            "Username cannot be empty".appendSystemMessage(chatArea)
+            return
         }
+
+        if (uuid.isEmpty()) {
+            uuid = generateUserId()
+            uuidField.text = uuid
+        }
+
+        onRegister?.invoke(username to uuid)
     }
 
     private fun setupChatPane() {
