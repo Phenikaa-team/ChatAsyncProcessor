@@ -10,7 +10,6 @@ import com.rabbitmq.client.Envelope
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.json.JsonObject
 import javafx.application.Platform
-import javafx.scene.control.TextInputDialog
 
 class ClientVerticle(
     private val clientName: String
@@ -40,16 +39,10 @@ class ClientVerticle(
         }
     }
 
-    private fun showLoginDialog(): String {
-        val dialog = javafx.scene.control.ChoiceDialog("Yes", "Yes", "No")
-        dialog.title = "Login"
-        dialog.headerText = "Bạn đã có ID chưa?"
-        dialog.contentText = "Chọn:"
-        val result = dialog.showAndWait()
-        return result.orElse("Yes")
-    }
-
-    private fun registerUser(username: String, uuid: String) {
+    private fun registerUser(
+        username : String,
+        uuid : String
+    ) {
         val factory = ConnectionFactory().apply {
             host = System.getenv("RABBITMQ_HOST") ?: "localhost"
         }
@@ -90,7 +83,10 @@ class ClientVerticle(
         ch.basicConsume(replyQueue, true, consumer)
     }
 
-    private fun setupReceiver(id: String, ui: ChatUI) {
+    private fun setupReceiver(
+        id : String,
+        ui : ChatUI
+    ) {
         val factory = ConnectionFactory().apply {
             host = System.getenv("RABBITMQ_HOST") ?: "localhost"
         }
@@ -110,7 +106,10 @@ class ClientVerticle(
         })
     }
 
-    private fun sendToRabbitMQ(routingKey: String, data: String) {
+    private fun sendToRabbitMQ(
+        routingKey : String,
+        data : String
+    ) {
         val factory = ConnectionFactory().apply {
             host = System.getenv("RABBITMQ_HOST") ?: "localhost"
         }

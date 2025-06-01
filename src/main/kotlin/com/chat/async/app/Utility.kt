@@ -39,3 +39,6 @@ fun String.appendOwnMessage(
         chatArea.appendText("\n[YOU] $this\n")
     }
 }
+
+fun Any.asStream(path: String) = this.javaClass.getResourceAsStream("/assets/$path")
+    ?: throw RuntimeException("Resource not found: /assets/$path")

@@ -1,9 +1,6 @@
 package com.chat.async.app.ui
 
-import com.chat.async.app.appendOwnMessage
-import com.chat.async.app.appendSystemMessage
-import com.chat.async.app.generateUserId
-import com.chat.async.app.toByteArray
+import com.chat.async.app.*
 import javafx.application.Platform
 import javafx.geometry.Insets
 import javafx.geometry.Pos
@@ -16,7 +13,6 @@ import javafx.stage.FileChooser
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import java.io.File
-import javax.imageio.ImageIO
 
 class ChatUI(
     private val onSend: (toId: String, message: String) -> Unit,
@@ -65,29 +61,28 @@ class ChatUI(
     enum class PreviewType { NONE, IMAGE, FILE }
 
     init {
-        configureMainStage()
-        setupPreviewStage()
-        setupRegisterPane()
-        setupChatPane()
-        showRegisterPane()
-        stage.show()
-    }
-
-    private fun configureMainStage() {
         stage.title = "Chat App"
         stage.scene = Scene(rootPane, 600.0, 500.0)
 
         stage.icons.addAll(
-            Image(javaClass.getResourceAsStream("/assets/icon_16.png")),
-            Image(javaClass.getResourceAsStream("/assets/icon_32.png")),
-            Image(javaClass.getResourceAsStream("/assets/icon_64.png"))
+            Image(this.asStream("icon_16.png")),
+            Image(this.asStream("icon_32.png")),
+            Image(this.asStream("icon_64.png"))
         )
-    }
 
-    private fun setupPreviewStage() {
         previewStage.title = "Preview Before Sending"
         previewStage.scene = Scene(createPreviewPane(), 400.0, 500.0)
         previewCancelButton.setOnAction { resetPreview() }
+
+        registerPane.children.add(createRegisterForm())
+
+        chatPane.top = createRecipientPanel()
+        chatPane.center = createChatArea()
+        chatPane.bottom = createInputPanel()
+
+        registerPane.isVisible = true
+        chatPane.isVisible = false
+        stage.show()
     }
 
     private fun createPreviewPane(
@@ -110,10 +105,6 @@ class ChatUI(
         currentPreviewType = PreviewType.NONE
         previewImage.isVisible = false
         previewImage.image = null
-    }
-
-    private fun setupRegisterPane() {
-        registerPane.children.add(createRegisterForm())
     }
 
     private fun createRegisterForm() = VBox(10.0).apply {
@@ -179,12 +170,6 @@ class ChatUI(
         }
 
         onRegister?.invoke(username to uuid)
-    }
-
-    private fun setupChatPane() {
-        chatPane.top = createRecipientPanel()
-        chatPane.center = createChatArea()
-        chatPane.bottom = createInputPanel()
     }
 
     private fun createRecipientPanel(
@@ -316,11 +301,6 @@ class ChatUI(
             message.appendOwnMessage(chatArea)
             inputField.text = ""
         }
-    }
-
-    private fun showRegisterPane() {
-        registerPane.isVisible = true
-        chatPane.isVisible = false
     }
 
     private fun showChatPane() {
