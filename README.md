@@ -5,7 +5,7 @@
 <img src="https://img.shields.io/badge/Kotlin-da4567?style=for-the-badge&logo=kotlin&logoColor=white">
 <img src="https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white">
 <img src="https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white">
-<img src="https://img.shields.io/badge/vert.x-bd45e5?style=for-the-badge&logo=Eclipse Vert.x&logoColor=white">
+<img src="https://img.shields.io/badge/vert.x-bd45e5?style=for-the-badge&logo=Eclipse-Vert.x&logoColor=white">
 <img src="https://img.shields.io/badge/rabbitMQ-F66200.svg?style=for-the-badge&logo=rabbitMQ&logoColor=white">
 </p>
 
