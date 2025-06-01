@@ -1,4 +1,13 @@
-# Distributed Chat System with Vert.x and RabbitMQ
+<h1 align="center">Distributed Chat System</h1>
+
+
+<p align="center">
+<img src="https://img.shields.io/badge/Kotlin-da4567?style=for-the-badge&logo=kotlin&logoColor=white">
+<img src="https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white">
+<img src="https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white">
+<img src="https://img.shields.io/badge/vert.x-bd45e5?style=for-the-badge&logo=Eclipse Vert.x&logoColor=white">
+<img src="https://img.shields.io/badge/rabbitMQ-F66200.svg?style=for-the-badge&logo=rabbitMQ&logoColor=white">
+</p>
 
 ## Overview
 
@@ -29,6 +38,7 @@ graph TD
     F -->|Broadcast| H[Group Members]
     G -->|Forward| I[Target User]
     
+    style D stroke-width:2px, stroke-dasharray: 2
     style B fill:#ff9999
     style E fill:#99ccff
     style F fill:#99ff99
