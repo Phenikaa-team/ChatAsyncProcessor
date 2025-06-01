@@ -15,117 +15,131 @@ import javafx.stage.FileChooser
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import java.io.File
-import java.util.*
 
 class ChatUI(
     private val onSend: (toId: String, message: String) -> Unit,
     private val onSendFile: (toId: String, fileName: String, fileBytes: ByteArray) -> Unit,
     private val onSendImage: (toId: String, imageBytes: ByteArray) -> Unit
 ) {
+    // UI Components
     private val stage = Stage()
     private val registerPane = StackPane()
     private val chatPane = BorderPane()
     private val rootPane = StackPane(registerPane, chatPane)
 
+    // Input fields
     private lateinit var nameField: TextField
-    private lateinit var registerButton: Button
     private lateinit var toIdField: TextField
     private lateinit var inputField: TextField
+
+    // Buttons
+    private lateinit var registerButton: Button
     private lateinit var sendButton: Button
     private lateinit var fileButton: Button
     private lateinit var imageButton: Button
+
+    // Chat area
     lateinit var chatArea: TextArea
 
+    // Preview components
     private val previewStage = Stage(StageStyle.UTILITY)
-    private val previewImage = ImageView()
+    private val previewImage = ImageView().apply {
+        fitWidth = 300.0
+        fitHeight = 300.0
+        isPreserveRatio = true
+        isVisible = false
+    }
     private val previewLabel = Label("File ready to send:")
     private val previewFileName = Label()
     private val previewSendButton = Button("Send")
     private val previewCancelButton = Button("Cancel")
+
+    // State
     private var currentPreviewFile: File? = null
     private var currentPreviewType: PreviewType = PreviewType.NONE
-
-    enum class PreviewType {
-        NONE, IMAGE, FILE
-    }
-
     var onRegister: ((String) -> Unit)? = null
 
-    init {
-        stage.title = "Chat App"
-        stage.scene = Scene(rootPane, 600.0, 500.0)
+    enum class PreviewType { NONE, IMAGE, FILE }
 
+    init {
+        configureMainStage()
+        setupPreviewStage()
         setupRegisterPane()
         setupChatPane()
-        setupPreviewStage()
-
         showRegisterPane()
-
         stage.show()
+    }
+
+    private fun configureMainStage() {
+        stage.title = "Chat App"
+        stage.scene = Scene(rootPane, 600.0, 500.0)
     }
 
     private fun setupPreviewStage() {
         previewStage.title = "Preview Before Sending"
-        val previewPane = VBox(10.0).apply {
+        previewStage.scene = Scene(createPreviewPane(), 400.0, 500.0)
+        previewCancelButton.setOnAction { resetPreview() }
+    }
+
+    private fun createPreviewPane(): VBox {
+        return VBox(10.0).apply {
             padding = Insets(20.0)
             alignment = Pos.CENTER
+            children.addAll(
+                previewLabel,
+                previewImage,
+                previewFileName,
+                HBox(10.0, previewCancelButton, previewSendButton).apply {
+                    alignment = Pos.CENTER
+                }
+            )
         }
+    }
 
-        val buttonPane = HBox(10.0).apply {
-            alignment = Pos.CENTER
-            children.addAll(previewCancelButton, previewSendButton)
-        }
-
-        previewImage.fitWidth = 300.0
-        previewImage.fitHeight = 300.0
-        previewImage.isPreserveRatio = true
+    private fun resetPreview() {
+        previewStage.hide()
+        currentPreviewFile = null
+        currentPreviewType = PreviewType.NONE
         previewImage.isVisible = false
-
-        previewPane.children.addAll(
-            previewLabel,
-            previewImage,
-            previewFileName,
-            buttonPane
-        )
-
-        previewStage.scene = Scene(previewPane, 400.0, 500.0)
-
-        previewCancelButton.setOnAction {
-            previewStage.hide()
-            currentPreviewFile = null
-            currentPreviewType = PreviewType.NONE
-        }
+        previewImage.image = null
     }
 
     private fun setupRegisterPane() {
-        val layout = VBox(10.0)
-        layout.padding = Insets(20.0)
-        layout.alignment = Pos.CENTER
+        registerPane.children.add(createRegisterForm())
+    }
 
-        nameField = TextField().apply {
-            promptText = "Enter your name"
-        }
-        registerButton = Button("Register").apply {
-            setOnAction {
-                val name = nameField.text.trim()
-                if (name.isNotEmpty()) {
-                    onRegister?.invoke(name)
+    private fun createRegisterForm(): VBox {
+        return VBox(10.0).apply {
+            padding = Insets(20.0)
+            alignment = Pos.CENTER
+            children.addAll(
+                Label("Name:"),
+                TextField().apply {
+                    nameField = this
+                    promptText = "Enter your name"
+                },
+                Button("Register").apply {
+                    registerButton = this
+                    setOnAction { handleRegistration() }
                 }
-            }
+            )
         }
+    }
 
-        layout.children.addAll(
-            Label("Name:"),
-            nameField,
-            registerButton
-        )
-
-        registerPane.children.add(layout)
+    private fun handleRegistration() {
+        nameField.text.trim().takeIf { it.isNotEmpty() }?.let {
+            onRegister?.invoke(it)
+        }
     }
 
     private fun setupChatPane() {
-        // Top panel with recipient ID
-        val topPanel = HBox(10.0).apply {
+        chatPane.top = createRecipientPanel()
+        chatPane.center = createChatArea()
+        chatPane.bottom = createInputPanel()
+    }
+
+    private fun createRecipientPanel(): HBox {
+        return HBox(10.0).apply {
             padding = Insets(10.0)
             children.addAll(
                 Label("Send to ID:"),
@@ -135,130 +149,124 @@ class ChatUI(
                 }
             )
         }
+    }
 
-        // Chat area
+    private fun createChatArea(): ScrollPane {
         chatArea = TextArea().apply {
             isEditable = false
             isWrapText = true
         }
-        val scrollPane = ScrollPane(chatArea).apply {
+        return ScrollPane(chatArea).apply {
             isFitToWidth = true
             isFitToHeight = true
         }
+    }
 
-        // File and image buttons
-        fileButton = Button("Attach File").apply {
-            setOnAction { showFileChooser() }
-        }
-
-        imageButton = Button("Attach Image").apply {
-            setOnAction { showImageChooser() }
-        }
-
-        val attachmentButtons = HBox(10.0, fileButton, imageButton)
-
-        // Bottom panel with input and send button
-        val bottomPanel = VBox(10.0).apply {
+    private fun createInputPanel(): VBox {
+        return VBox(10.0).apply {
             padding = Insets(10.0)
             children.addAll(
-                HBox(10.0).apply {
-                    children.addAll(
-                        TextField().apply {
-                            inputField = this
-                            HBox.setHgrow(this, Priority.ALWAYS)
-                        },
-                        Button("Send").apply {
-                            sendButton = this
-                            setOnAction {
-                                sendTextMessage()
-                            }
-                        }
-                    )
-                },
-                attachmentButtons
+                createMessageInputRow(),
+                createAttachmentButtons()
             )
         }
-
-        chatPane.top = topPanel
-        chatPane.center = scrollPane
-        chatPane.bottom = bottomPanel
     }
 
-    private fun showFileChooser() {
-        val fileChooser = FileChooser().apply {
-            title = "Select File to Send"
-        }
-        val file = fileChooser.showOpenDialog(stage)
-        if (file != null) {
-            currentPreviewFile = file
-            currentPreviewType = PreviewType.FILE
-
-            previewLabel.text = "File ready to send:"
-            previewImage.isVisible = false
-            previewFileName.text = file.name
-            previewFileName.graphic = FileIconView(file)
-
-            previewSendButton.setOnAction {
-                val toId = toIdField.text.trim()
-                if (toId.isNotEmpty()) {
-                    onSendFile(toId, file.name, file.readBytes())
-                    "[File sent: ${file.name}]".appendOwnMessage(chatArea)
-                    previewStage.hide()
-                }
+    private fun createMessageInputRow(
+    ) = HBox(10.0).apply {
+        children.addAll(
+            TextField().apply {
+                inputField = this
+                HBox.setHgrow(this, Priority.ALWAYS)
+            },
+            Button("Send").apply {
+                sendButton = this
+                setOnAction { sendTextMessage() }
             }
-
-            previewStage.show()
-        }
+        )
     }
 
-    private fun showImageChooser() {
-        val fileChooser = FileChooser().apply {
-            title = "Select Image to Send"
-            extensionFilters.addAll(
-                FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
-            )
-        }
-        val file = fileChooser.showOpenDialog(stage)
-        if (file != null) {
-            currentPreviewFile = file
-            currentPreviewType = PreviewType.IMAGE
-
-            try {
-                val image = Image(file.toURI().toString())
-                previewImage.image = image
-                previewImage.isVisible = true
-                previewLabel.text = "Image preview:"
-                previewFileName.text = file.name
-                previewFileName.graphic = null
-
-                previewSendButton.setOnAction {
-                    val toId = toIdField.text.trim()
-                    if (toId.isNotEmpty()) {
-                        onSendImage(toId, image.toByteArray(getFileExtension(file)))
-                        "[Image sent: ${file.name}]".appendOwnMessage(chatArea)
-                        previewStage.hide()
+    private fun createAttachmentButtons(
+    ) = HBox(10.0).apply {
+        children.addAll(
+            Button("Attach File").apply {
+                fileButton = this
+                setOnAction {
+                    // show file chooser
+                    FileChooser().apply {
+                        title = "Select File to Send"
+                    }.showOpenDialog(stage)?.let { file ->
+                        prepareFilePreview(file, PreviewType.FILE) {
+                            onSendFile(toIdField.text.trim(), file.name, file.readBytes())
+                            "[File sent: ${file.name}]".appendOwnMessage(chatArea)
+                        }
                     }
                 }
-
-                previewStage.show()
-            } catch (e: Exception) {
-                e.printStackTrace()
-                "Failed to load image".appendSystemMessage(chatArea)
+            },
+            Button("Attach Image").apply {
+                imageButton = this
+                setOnAction {
+                    // show image chooser
+                    FileChooser().apply {
+                        title = "Select Image to Send"
+                        extensionFilters.addAll(
+                            FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif")
+                        )
+                    }.showOpenDialog(stage)?.let { file ->
+                        try {
+                            prepareImagePreview(file)
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                            "Failed to load image".appendSystemMessage(chatArea)
+                        }
+                    }
+                }
             }
-        }
+        )
     }
 
-    private fun getFileExtension(file: File): String {
-        val name = file.name
-        val lastDot = name.lastIndexOf('.')
-        return if (lastDot > 0) name.substring(lastDot + 1).lowercase(Locale.getDefault()) else ""
+    private fun prepareFilePreview(
+        file: File,
+        type: PreviewType,
+        onSendAction: () -> Unit
+    ) {
+        currentPreviewFile = file
+        currentPreviewType = type
+
+        previewLabel.text = "File ready to send:"
+        previewFileName.text = file.name
+        previewFileName.graphic = FileIconView(file)
+
+        previewSendButton.setOnAction {
+            if (toIdField.text.trim().isNotEmpty()) {
+                onSendAction()
+                resetPreview()
+            }
+        }
+
+        previewStage.show()
+    }
+
+    private fun prepareImagePreview(file: File) {
+        val image = Image(file.toURI().toString())
+        previewImage.image = image
+        previewImage.isVisible = true
+
+        prepareFilePreview(file, PreviewType.IMAGE) {
+            onSendImage(toIdField.text.trim(), image.toByteArray(file.extension))
+            "[Image sent: ${file.name}]".appendOwnMessage(chatArea)
+        }
+
+        previewLabel.text = "Image preview:"
+        previewFileName.graphic = null
     }
 
     private fun sendTextMessage() {
         val toId = toIdField.text.trim()
         val message = inputField.text.trim()
+
         if (toId.isNotEmpty() && message.isNotEmpty()) {
-            onSend.invoke(toId, message)
+            onSend(toId, message)
             message.appendOwnMessage(chatArea)
             inputField.text = ""
         }
@@ -283,31 +291,32 @@ class ChatUI(
 
     fun showReceivedFile(senderId: String, fileName: String, bytes: ByteArray) {
         Platform.runLater {
-            val saveButton = Button("Save $fileName")
-            saveButton.setOnAction {
-                val fileChooser = FileChooser().apply {
-                    initialFileName = fileName
-                    title = "Save File"
-                }
-                val file = fileChooser.showSaveDialog(stage)
-                if (file != null) {
-                    file.writeBytes(bytes)
-                    "[File saved to: ${file.absolutePath}]".appendSystemMessage(chatArea)
-                }
+            val saveButton = Button("Save $fileName").apply {
+                setOnAction { saveFile(fileName, bytes) }
             }
 
-            chatArea.appendText("\n\uD83D\uDCCE [$senderId] sent a file: ")
-            chatArea.appendText(fileName)
-            chatArea.appendText("\n")
+            chatArea.appendText("\n\uD83D\uDCCE [$senderId] sent a file: $fileName\n")
+        }
+    }
+
+    private fun saveFile(fileName: String, bytes: ByteArray) {
+        FileChooser().apply {
+            initialFileName = fileName
+            title = "Save File"
+        }.showSaveDialog(stage)?.let { file ->
+            file.writeBytes(bytes)
+            "[File saved to: ${file.absolutePath}]".appendSystemMessage(chatArea)
         }
     }
 }
 
-class FileIconView(
-    file : File
-) : StackPane() {
+class FileIconView(private val file: File) : StackPane() {
     init {
-        val icon = when {
+        children.add(Label(getFileIcon(file)))
+    }
+
+    private fun getFileIcon(file: File): String {
+        return when {
             file.name.endsWith(".pdf") -> "📄"
             file.name.endsWith(".doc", ignoreCase = true) -> "📝"
             file.name.endsWith(".xls", ignoreCase = true) -> "📊"
@@ -315,6 +324,5 @@ class FileIconView(
             file.name.matches(Regex(".*\\.(png|jpg|jpeg|gif)", RegexOption.IGNORE_CASE)) -> "🖼"
             else -> "📁"
         }
-        children.add(Label(icon))
     }
 }

@@ -25,6 +25,9 @@ fun Image.toByteArray(extension: String): ByteArray {
     return outputStream.toByteArray()
 }
 
+fun generateUserId() = UUID.randomUUID().toString().substring(0, 6)
+
+
 fun String.appendSystemMessage(
     chatArea: TextArea
 ) {
