@@ -16,6 +16,7 @@ import javafx.stage.FileChooser
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import java.io.File
+import javax.imageio.ImageIO
 
 class ChatUI(
     private val onSend: (toId: String, message: String) -> Unit,
@@ -75,6 +76,12 @@ class ChatUI(
     private fun configureMainStage() {
         stage.title = "Chat App"
         stage.scene = Scene(rootPane, 600.0, 500.0)
+
+        stage.icons.addAll(
+            Image(javaClass.getResourceAsStream("/assets/icon_16.png")),
+            Image(javaClass.getResourceAsStream("/assets/icon_32.png")),
+            Image(javaClass.getResourceAsStream("/assets/icon_64.png"))
+        )
     }
 
     private fun setupPreviewStage() {
