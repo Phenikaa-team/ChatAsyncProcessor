@@ -9,8 +9,14 @@ import com.chat.async.app.verticle.ServerVerticle
 import io.vertx.core.Vertx
 import javafx.application.Application
 import javafx.stage.Stage
+import kotlin.system.exitProcess
 
 class ChatApp : Application() {
+    companion object {
+        lateinit var vertx: Vertx
+            private set
+    }
+
     override fun start(primaryStage: Stage) {
         MonitoringConfiguration.loadFromSystemProperties()
         MonitoringConfiguration.validateAndCorrect()
@@ -22,16 +28,14 @@ class ChatApp : Application() {
             MonitoringIntegration.startMonitoringDashboard()
         }
 
-        val vertx = Vertx.vertx()
+        vertx = Vertx.vertx()
 
         "Chat application starting with Vert.x".logAsSystem()
 
-        // 1. First deploy server verticle
         vertx.deployVerticle(ServerVerticle()) { ar ->
             if (ar.succeeded()) {
                 "Server verticle deployed successfully".logAsSystem()
 
-                // 2. Only deploy clients after server is ready
                 if (MonitoringConfiguration.enableTestClients) {
                     deployTestClients(vertx)
                 }
@@ -59,8 +63,22 @@ class ChatApp : Application() {
     }
 
     override fun stop() {
-        MonitoringIntegration.shutdown()
         "Chat application shutting down".logAsSystem()
+        try {
+            vertx.close { ar ->
+                if (ar.succeeded()) {
+                    "Vert.x closed successfully".logAsSystem()
+                } else {
+                    "Failed to close Vert.x".logAsError(ar.cause())
+                }
+                MonitoringIntegration.shutdown()
+                exitProcess(0)
+            }
+        } catch (e: Exception) {
+            "Exception during shutdown".logAsError(e)
+            MonitoringIntegration.shutdown()
+            exitProcess(1)
+        }
     }
 }
 

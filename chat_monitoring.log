@@ -388,3 +388,27 @@
 [2025-06-02 13:52:00] [INFO] [SYSTEM] Client verticle 0 deployed successfully
 [2025-06-02 13:52:16] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748847136233}
 [2025-06-02 13:52:16] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 14:09:35] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748848175649}
+[2025-06-02 14:09:38] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 14:09:38] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 14:09:38] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 14:09:38] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 14:09:42] [INFO] [USER_REGISTER] User registered: gg | Details: {"userId":"a63d1a3a","username":"gg"}
+[2025-06-02 14:09:42] [INFO] [USER_REGISTER] User registered: gg | Details: {"userId":"a63d1a3a","username":"gg"}
+[2025-06-02 14:09:59] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748848199194}
+[2025-06-02 14:09:59] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 14:10:40] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748848240365}
+[2025-06-02 14:10:43] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 14:10:43] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 14:10:43] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 14:10:43] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 14:10:53] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748848253509}
+[2025-06-02 14:10:53] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 14:12:36] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748848356454}
+[2025-06-02 14:12:39] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 14:12:39] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 14:12:39] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 14:12:39] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 14:12:45] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 14:12:45] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 14:12:45] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748848365229}
