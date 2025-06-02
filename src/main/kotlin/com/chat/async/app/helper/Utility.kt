@@ -1,9 +1,9 @@
-package com.chat.async.app
+package com.chat.async.app.helper
 
+import com.chat.async.app.helper.enums.MessageType
 import com.chat.async.app.ui.node.MessageNode
 import javafx.application.Platform
 import javafx.embed.swing.SwingFXUtils
-import javafx.scene.control.Alert
 import javafx.scene.control.ListView
 import javafx.scene.image.Image
 import java.io.ByteArrayOutputStream
@@ -26,6 +26,22 @@ fun Image.toByteArray(extension: String): ByteArray {
 fun generateUserId(): String = UUID.randomUUID().toString().take(8)
 fun generateMessageId(): String = UUID.randomUUID().toString()
 fun generateGroupId(): String = UUID.randomUUID().toString().take(8)
+
+fun formatDuration(
+    millis: Long
+): String {
+    val seconds = millis / 1000
+    val minutes = seconds / 60
+    val hours = minutes / 60
+    val days = hours / 24
+
+    return when {
+        days > 0 -> "${days}d ${hours % 24}h ${minutes % 60}m"
+        hours > 0 -> "${hours}h ${minutes % 60}m ${seconds % 60}s"
+        minutes > 0 -> "${minutes}m ${seconds % 60}s"
+        else -> "${seconds}s"
+    }
+}
 
 fun formatLastActivity(lastActivity: Long): String {
     val diff = System.currentTimeMillis() - lastActivity
@@ -60,7 +76,7 @@ fun String.appendSystemMessage(
         chatArea.items.add(MessageNode(
             "System",
             this,
-            MessageNode.MessageType.SYSTEM,
+            MessageType.SYSTEM,
             false
         ))
     }

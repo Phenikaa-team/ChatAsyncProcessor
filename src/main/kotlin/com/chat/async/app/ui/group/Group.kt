@@ -19,18 +19,6 @@ data class ChatGroup(
     val createdAt: Long = System.currentTimeMillis()
 )
 
-data class ChatMessage(
-    val id: String,
-    val senderId: String,
-    val senderName: String,
-    val content: String,
-    val type: String,
-    val targetId: String, // Can be userId or groupId
-    val isGroup: Boolean,
-    val timestamp: Long = System.currentTimeMillis(),
-    val data: String? = null // For files/images
-)
-
 class GroupManager(
     private val currentUserId: String,
     private val currentUsername: String,

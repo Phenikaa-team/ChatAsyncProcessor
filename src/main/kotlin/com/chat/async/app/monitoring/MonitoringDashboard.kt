@@ -1,8 +1,8 @@
 package com.chat.async.app.monitoring
 
-import com.chat.async.app.asStream
-import com.chat.async.app.formatBytes
-import com.chat.async.app.formatLastActivity
+import com.chat.async.app.helper.asStream
+import com.chat.async.app.helper.formatBytes
+import com.chat.async.app.helper.formatLastActivity
 import javafx.application.Application
 import javafx.application.Platform
 import javafx.geometry.Insets
@@ -47,7 +47,9 @@ class MonitoringDashboard : Application() {
     private lateinit var groupsList: ListView<String>
     private lateinit var logArea: TextArea
 
-    override fun start(primaryStage: Stage) {
+    override fun start(
+        primaryStage: Stage
+    ) {
         setupUI(primaryStage)
         startAutoUpdate()
         primaryStage.show()
@@ -55,11 +57,12 @@ class MonitoringDashboard : Application() {
         // Handle window close request
         primaryStage.setOnCloseRequest {
             stopAutoUpdate()
-            // Don't call Platform.exit() here as it would close the entire JavaFX application
         }
     }
 
-    private fun setupUI(stage: Stage) {
+    private fun setupUI(
+        stage: Stage
+    ) {
         stage.title = "Chat System Monitoring Dashboard"
         stage.initStyle(StageStyle.DECORATED)
 
@@ -86,7 +89,6 @@ class MonitoringDashboard : Application() {
             alignment = Pos.CENTER
             style = "-fx-background-color: #2c3e50; -fx-background-radius: 5;"
 
-            // Create stat cards and assign labels directly
             val uptimeCard = createStatCard("System Uptime", "⏱️")
             uptimeLabel = findLabelInStatCard(uptimeCard)
 
@@ -103,8 +105,9 @@ class MonitoringDashboard : Application() {
         }
     }
 
-    private fun findLabelInStatCard(statCard: VBox): Label {
-        // Navigate through the VBox structure to find the value label
+    private fun findLabelInStatCard(
+        statCard: VBox
+    ): Label {
         for (child in statCard.children) {
             if (child is VBox) {
                 for (subChild in child.children) {
@@ -114,13 +117,15 @@ class MonitoringDashboard : Application() {
                 }
             }
         }
-        // Fallback: create a new label if not found
         return Label("N/A").apply {
             style = "-fx-font-size: 14; -fx-text-fill: #3498db; -fx-font-weight: bold;"
         }
     }
 
-    private fun createStatCard(title: String, icon: String): VBox {
+    private fun createStatCard(
+        title: String,
+        icon: String
+    ): VBox {
         val valueLabel = Label("Loading...").apply {
             style = "-fx-font-size: 14; -fx-text-fill: #3498db; -fx-font-weight: bold;"
         }
@@ -193,7 +198,6 @@ class MonitoringDashboard : Application() {
         gridPane.add(messagesPane, 0, 0)
         gridPane.add(VBox(10.0, refreshButton, systemInfoArea), 1, 0)
 
-        // Fix: Use columnConstraints property instead of setColumnConstraints method
         gridPane.columnConstraints.addAll(
             ColumnConstraints().apply { percentWidth = 40.0 },
             ColumnConstraints().apply { percentWidth = 60.0 }
@@ -325,7 +329,10 @@ class MonitoringDashboard : Application() {
         return tab
     }
 
-    private fun createStatsGroup(title: String, stats: List<Pair<String, String>>): TitledPane {
+    private fun createStatsGroup(
+        title: String,
+        stats: List<Pair<String, String>>
+    ): TitledPane {
         val vbox = VBox(10.0).apply {
             padding = Insets(10.0)
         }
@@ -335,7 +342,6 @@ class MonitoringDashboard : Application() {
                 style = "-fx-font-weight: bold; -fx-font-size: 14;"
             }
 
-            // Assign labels to properties for updates
             when (statName) {
                 "Messages Sent" -> messagesSentLabel = label
                 "Messages Received" -> messagesReceivedLabel = label
@@ -479,7 +485,9 @@ class MonitoringDashboard : Application() {
         }
     }
 
-    private fun updateSystemInfo(textArea: TextArea) {
+    private fun updateSystemInfo(
+        textArea: TextArea
+    ) {
         try {
             val stats = monitoring.getSystemStats()
             val health = monitoring.getHealthStatus()
@@ -569,8 +577,6 @@ class MonitoringDashboard : Application() {
     }
 
     private fun updateLogs() {
-        // This would ideally read from the log file or have MonitoringService provide recent logs
-        // For now, we'll simulate with current stats
         try {
             val currentTime = java.text.SimpleDateFormat("HH:mm:ss").format(Date())
             val stats = monitoring.getSystemStats()
@@ -585,8 +591,6 @@ class MonitoringDashboard : Application() {
             }
 
             logArea.appendText("\n$recentLogEntry")
-
-            // Auto-scroll to bottom if enabled
             logArea.positionCaret(logArea.text.length)
         } catch (e: Exception) {
             println("❌ Error updating logs: ${e.message}")

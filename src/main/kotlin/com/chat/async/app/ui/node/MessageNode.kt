@@ -1,6 +1,7 @@
 package com.chat.async.app.ui.node
 
-import com.chat.async.app.asStream
+import com.chat.async.app.helper.asStream
+import com.chat.async.app.helper.enums.MessageType
 import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.control.*
@@ -26,8 +27,6 @@ class MessageNode(
     val onPreview: (() -> Unit)? = null,
     private val fileBytes: ByteArray? = null
 ) : HBox(10.0) {
-
-    enum class MessageType { TEXT, FILE, IMAGE, SYSTEM }
 
     init {
         padding = Insets(5.0, 10.0, 5.0, 10.0)

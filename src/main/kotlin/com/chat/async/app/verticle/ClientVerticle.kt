@@ -1,6 +1,7 @@
 package com.chat.async.app.verticle
 
-import com.chat.async.app.*
+import com.chat.async.app.helper.*
+import com.chat.async.app.helper.enums.MessageType
 import com.chat.async.app.monitoring.MonitoringIntegration
 import com.chat.async.app.ui.ChatUI
 import com.chat.async.app.ui.group.ChatGroup
@@ -197,7 +198,7 @@ class ClientVerticle : AbstractVerticle() {
                 ui.addMessageToChat(
                     sender = displaySender,
                     content = message,
-                    type = MessageNode.MessageType.TEXT,
+                    type = MessageType.TEXT,
                     isOwnMessage = isOwn,
                     messageId = json.getString("messageId")
                 )
@@ -215,7 +216,7 @@ class ClientVerticle : AbstractVerticle() {
 
                 val displaySender = if (isGroup) "$sender@$targetId" else sender
 
-                ui.addMessageToChat(displaySender, fileName, MessageNode.MessageType.FILE, isOwn, null, bytes)
+                ui.addMessageToChat(displaySender, fileName, MessageType.FILE, isOwn, null, bytes)
                 MonitoringIntegration.trackFileSent(sender, targetId, "file")
             }
 
@@ -228,7 +229,7 @@ class ClientVerticle : AbstractVerticle() {
 
                 val displaySender = if (isGroup) "$sender@$targetId" else sender
 
-                ui.addMessageToChat(displaySender, "image", MessageNode.MessageType.IMAGE, isOwn, null, bytes)
+                ui.addMessageToChat(displaySender, "image", MessageType.IMAGE, isOwn, null, bytes)
                 MonitoringIntegration.trackImageSent(sender, targetId, "image")
             }
 
@@ -251,7 +252,7 @@ class ClientVerticle : AbstractVerticle() {
                             items[i] = MessageNode(
                                 sender = displaySender,
                                 content = newContent,
-                                type = MessageNode.MessageType.TEXT,
+                                type = MessageType.TEXT,
                                 isOwnMessage = isOwn,
                                 messageId = messageId,
                                 onEdit = { newText ->

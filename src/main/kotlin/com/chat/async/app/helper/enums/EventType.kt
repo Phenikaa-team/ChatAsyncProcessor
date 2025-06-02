@@ -1,0 +1,10 @@
+package com.chat.async.app.helper.enums
+
+enum class EventType {
+    USER_REGISTER, USER_ACTIVITY,
+    MESSAGE_SENT, MESSAGE_RECEIVED,
+    FILE_SENT, FILE_RECEIVED,
+    IMAGE_SENT, IMAGE_RECEIVED,
+    GROUP_CREATED, GROUP_JOINED, GROUP_LEFT,
+    ERROR, SYSTEM
+}

@@ -1,6 +1,8 @@
 package com.chat.async.app.ui
 
-import com.chat.async.app.*
+import com.chat.async.app.helper.*
+import com.chat.async.app.helper.enums.MessageType
+import com.chat.async.app.helper.enums.PreviewType
 import com.chat.async.app.ui.group.GroupManager
 import com.chat.async.app.ui.group.ChatGroup
 import com.chat.async.app.ui.node.MessageNode
@@ -69,15 +71,13 @@ class ChatUI(
     private var currentPreviewFile: File? = null
     private var currentPreviewType: PreviewType = PreviewType.NONE
     var onRegister: ((Pair<String, String>) -> Unit)? = null
-    var hostServices: javafx.application.HostServices? = null
+    private var hostServices: javafx.application.HostServices? = null
 
     private var currentUserId: String = ""
     private var currentUsername: String = ""
 
     // Group Manager
     private lateinit var groupManager: GroupManager
-
-    enum class PreviewType { NONE, IMAGE, FILE }
 
     init {
         stage.title = "Chat App"
@@ -262,7 +262,7 @@ class ChatUI(
     fun addMessageToChat(
         sender: String,
         content: String,
-        type: MessageNode.MessageType,
+        type: MessageType,
         isOwnMessage: Boolean,
         messageId: String? = null,
         fileBytes: ByteArray? = null
@@ -303,8 +303,8 @@ class ChatUI(
             },
             onPreview = {
                 when (type) {
-                    MessageNode.MessageType.FILE -> showFilePreview(content, fileBytes!!)
-                    MessageNode.MessageType.IMAGE -> showImagePreview(fileBytes!!)
+                    MessageType.FILE -> showFilePreview(content, fileBytes!!)
+                    MessageType.IMAGE -> showImagePreview(fileBytes!!)
                     else -> {}
                 }
             }
@@ -405,7 +405,7 @@ class ChatUI(
 
         if (toId.isNotEmpty() && message.isNotEmpty()) {
             onSend(toId, message)
-            addMessageToChat("You", message, MessageNode.MessageType.TEXT, true, messageId)
+            addMessageToChat("You", message, MessageType.TEXT, true, messageId)
             inputField.text = ""
         }
     }
@@ -497,7 +497,7 @@ class ChatUI(
                             val toId = toIdField.text.trim()
                             if (toId.isNotEmpty()) {
                                 onSendFile(toId, file.name, file.readBytes())
-                                addMessageToChat("You", file.name, MessageNode.MessageType.FILE, true, generateMessageId(), file.readBytes())
+                                addMessageToChat("You", file.name, MessageType.FILE, true, generateMessageId(), file.readBytes())
                             }
                         }
                     }
@@ -558,7 +558,7 @@ class ChatUI(
             val toId = toIdField.text.trim()
             if (toId.isNotEmpty()) {
                 onSendImage(toId, image.toByteArray(file.extension))
-                addMessageToChat("You", "image", MessageNode.MessageType.IMAGE, true, generateMessageId(), file.readBytes())
+                addMessageToChat("You", "image", MessageType.IMAGE, true, generateMessageId(), file.readBytes())
             }
         }
 
@@ -571,15 +571,6 @@ class ChatUI(
         chatPane.isVisible = true
     }
 
-    fun setUserId(
-        id: String
-    ) {
-        Platform.runLater {
-            showChatPane()
-            ("📌 Registration successful! Your ID is: $id").appendSystemMessage(chatArea)
-        }
-    }
-
     private fun saveFile(fileName: String, bytes: ByteArray) {
         val fileChooser = FileChooser().apply {
             initialFileName = fileName
@@ -590,12 +581,12 @@ class ChatUI(
             file.writeBytes(bytes)
             Platform.runLater {
                 chatArea.items.add(MessageNode("System", "File saved to ${file.absolutePath}",
-                    MessageNode.MessageType.SYSTEM, false))
+                    MessageType.SYSTEM, false))
             }
         } catch (e: Exception) {
             Platform.runLater {
                 chatArea.items.add(MessageNode("System", "Failed to save file: ${e.message}",
-                    MessageNode.MessageType.SYSTEM, false))
+                    MessageType.SYSTEM, false))
             }
         }
     }

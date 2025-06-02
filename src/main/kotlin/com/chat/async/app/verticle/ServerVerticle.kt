@@ -1,8 +1,8 @@
 package com.chat.async.app.verticle
 
-import com.chat.async.app.EXCHANGE
-import com.chat.async.app.generateMessageId
-import com.chat.async.app.generateUserId
+import com.chat.async.app.helper.EXCHANGE
+import com.chat.async.app.helper.generateMessageId
+import com.chat.async.app.helper.generateUserId
 import com.chat.async.app.monitoring.MonitoringIntegration
 import com.chat.async.app.ui.group.ChatGroup
 import com.rabbitmq.client.*

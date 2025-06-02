@@ -1,5 +1,8 @@
 package com.chat.async.app.monitoring
 
+import com.chat.async.app.helper.enums.EventType
+import com.chat.async.app.helper.enums.LogLevel
+import com.chat.async.app.helper.formatDuration
 import io.vertx.core.json.JsonObject
 import java.io.File
 import java.text.SimpleDateFormat
@@ -61,18 +64,13 @@ class MonitoringService private constructor() {
         var memberCount: Int = 0
     )
 
-    enum class LogLevel { INFO, WARN, ERROR, DEBUG }
-    enum class EventType {
-        USER_REGISTER, USER_ACTIVITY,
-        MESSAGE_SENT, MESSAGE_RECEIVED,
-        FILE_SENT, FILE_RECEIVED,
-        IMAGE_SENT, IMAGE_RECEIVED,
-        GROUP_CREATED, GROUP_JOINED, GROUP_LEFT,
-        ERROR, SYSTEM
-    }
-
     // Core logging function
-    fun log(level: LogLevel, eventType: EventType, message: String, details: Map<String, Any> = emptyMap()) {
+    fun log(
+        level: LogLevel,
+        eventType: EventType,
+        message: String,
+        details: Map<String, Any> = emptyMap()
+    ) {
         val timestamp = dateFormat.format(Date())
         val logEntry = "[$timestamp] [${level.name}] [${eventType.name}] $message"
 
@@ -98,7 +96,9 @@ class MonitoringService private constructor() {
         updateStatistics(eventType)
     }
 
-    private fun updateStatistics(eventType: EventType) {
+    private fun updateStatistics(
+        eventType: EventType
+    ) {
         when (eventType) {
             EventType.MESSAGE_SENT -> messagesSent.incrementAndGet()
             EventType.MESSAGE_RECEIVED -> messagesReceived.incrementAndGet()
@@ -116,19 +116,26 @@ class MonitoringService private constructor() {
     }
 
     // User session management
-    fun registerUser(userId: String, username: String) {
+    fun registerUser(
+        userId: String,
+        username: String
+    ) {
         activeUsers[userId] = UserSession(userId, username, System.currentTimeMillis())
         log(LogLevel.INFO, EventType.USER_REGISTER, "User registered: $username",
             mapOf("userId" to userId, "username" to username))
     }
 
-    fun updateUserActivity(userId: String) {
+    fun updateUserActivity(
+        userId: String
+    ) {
         activeUsers[userId]?.let { session ->
             session.lastActivity = System.currentTimeMillis()
         }
     }
 
-    fun removeUser(userId: String) {
+    fun removeUser(
+        userId: String
+    ) {
         activeUsers.remove(userId)?.let { session ->
             log(LogLevel.INFO, EventType.SYSTEM, "User disconnected: ${session.username}",
                 mapOf("userId" to userId, "sessionDuration" to (System.currentTimeMillis() - session.loginTime)))
@@ -136,19 +143,27 @@ class MonitoringService private constructor() {
     }
 
     // Group management
-    fun registerGroup(groupId: String, groupName: String) {
+    fun registerGroup(
+        groupId: String,
+        groupName: String
+    ) {
         activeGroups[groupId] = GroupInfo(groupId, groupName, System.currentTimeMillis())
         log(LogLevel.INFO, EventType.GROUP_CREATED, "Group created: $groupName",
             mapOf("groupId" to groupId, "groupName" to groupName))
     }
 
-    fun updateGroupMemberCount(groupId: String, memberCount: Int) {
+    fun updateGroupMemberCount(
+        groupId: String,
+        memberCount: Int
+    ) {
         activeGroups[groupId]?.let { group ->
             group.memberCount = memberCount
         }
     }
 
-    fun removeGroup(groupId: String) {
+    fun removeGroup(
+        groupId: String
+    ) {
         activeGroups.remove(groupId)?.let { group ->
             log(LogLevel.INFO, EventType.SYSTEM, "Group deleted: ${group.groupName}",
                 mapOf("groupId" to groupId, "groupName" to group.groupName))
@@ -156,44 +171,76 @@ class MonitoringService private constructor() {
     }
 
     // Message tracking
-    fun trackMessageSent(senderId: String, targetId: String, messageType: String, size: Int = 0) {
+    fun trackMessageSent(
+        senderId: String,
+        targetId: String,
+        messageType: String,
+        size: Int = 0
+    ) {
         updateUserActivity(senderId)
         log(LogLevel.INFO, EventType.MESSAGE_SENT, "Message sent: $messageType",
             mapOf("senderId" to senderId, "targetId" to targetId, "type" to messageType, "size" to size))
     }
 
-    fun trackMessageReceived(receiverId: String, senderId: String, messageType: String, size: Int = 0) {
+    fun trackMessageReceived(
+        receiverId: String,
+        senderId: String,
+        messageType: String,
+        size: Int = 0
+    ) {
         updateUserActivity(receiverId)
         log(LogLevel.INFO, EventType.MESSAGE_RECEIVED, "Message received: $messageType",
             mapOf("receiverId" to receiverId, "senderId" to senderId, "type" to messageType, "size" to size))
     }
 
-    fun trackFileSent(senderId: String, targetId: String, messageType: String, size: Int = 0) {
+    fun trackFileSent(
+        senderId: String,
+        targetId: String,
+        messageType: String,
+        size: Int = 0
+    ) {
         updateUserActivity(senderId)
         log(LogLevel.INFO, EventType.FILE_SENT, "File sent: $messageType",
             mapOf("senderId" to senderId, "targetId" to targetId, "type" to messageType, "size" to size))
     }
 
-    fun trackFileReceived(receiverId: String, senderId: String, messageType: String, size: Int = 0) {
+    fun trackFileReceived(
+        receiverId: String,
+        senderId: String,
+        messageType: String,
+        size: Int = 0
+    ) {
         updateUserActivity(receiverId)
         log(LogLevel.INFO, EventType.FILE_RECEIVED, "File received: $messageType",
             mapOf("receiverId" to receiverId, "senderId" to senderId, "type" to messageType, "size" to size))
     }
 
-    fun trackImageSent(senderId: String, targetId: String, messageType: String, size: Int = 0) {
+    fun trackImageSent(
+        senderId: String,
+        targetId: String,
+        messageType: String,
+        size: Int = 0
+    ) {
         updateUserActivity(senderId)
         log(LogLevel.INFO, EventType.IMAGE_SENT, "Image sent: $messageType",
             mapOf("senderId" to senderId, "targetId" to targetId, "type" to messageType, "size" to size))
     }
 
-    fun trackImageReceived(receiverId: String, senderId: String, messageType: String, size: Int = 0) {
+    fun trackImageReceived(
+        receiverId: String,
+        senderId: String,
+        messageType: String,
+        size: Int = 0
+    ) {
         updateUserActivity(receiverId)
         log(LogLevel.INFO, EventType.IMAGE_RECEIVED, "Image received: $messageType",
             mapOf("receiverId" to receiverId, "senderId" to senderId, "type" to messageType, "size" to size))
     }
 
     // Performance tracking
-    fun trackMessageProcessingTime(processingTime: Long) {
+    fun trackMessageProcessingTime(
+        processingTime: Long
+    ) {
         synchronized(messageProcessingTimes) {
             messageProcessingTimes.add(processingTime)
             if (messageProcessingTimes.size > maxMessageProcessingTimes) {
@@ -203,7 +250,11 @@ class MonitoringService private constructor() {
     }
 
     // Error tracking
-    fun logError(message: String, exception: Throwable? = null, context: Map<String, Any> = emptyMap()) {
+    fun logError(
+        message: String,
+        exception: Throwable? = null,
+        context: Map<String, Any> = emptyMap()
+    ) {
         val details = context.toMutableMap()
         exception?.let {
             details["exception"] = it.javaClass.simpleName
@@ -305,20 +356,6 @@ class MonitoringService private constructor() {
             put("total", totalMemory)
             put("max", maxMemory)
             put("usedPercentage", (usedMemory.toDouble() / maxMemory.toDouble()) * 100)
-        }
-    }
-
-    private fun formatDuration(millis: Long): String {
-        val seconds = millis / 1000
-        val minutes = seconds / 60
-        val hours = minutes / 60
-        val days = hours / 24
-
-        return when {
-            days > 0 -> "${days}d ${hours % 24}h ${minutes % 60}m"
-            hours > 0 -> "${hours}h ${minutes % 60}m ${seconds % 60}s"
-            minutes > 0 -> "${minutes}m ${seconds % 60}s"
-            else -> "${seconds}s"
         }
     }
 

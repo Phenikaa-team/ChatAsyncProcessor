@@ -381,3 +381,10 @@
 [2025-06-02 13:38:00] [INFO] [SYSTEM] Group deleted: NiceGroup | Details: {"groupId":"group_942a14b1","groupName":"NiceGroup"}
 [2025-06-02 13:38:09] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748846289198}
 [2025-06-02 13:38:09] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 13:51:57] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748847117131}
+[2025-06-02 13:52:00] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:52:00] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:52:00] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 13:52:00] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 13:52:16] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748847136233}
+[2025-06-02 13:52:16] [INFO] [SYSTEM] Chat application shutting down
