@@ -26,11 +26,12 @@ The system supports:
 - ✅ Multiple concurrent users with unique ID system
 - ✅ User registration with UUID generation
 - ✅ File type detection with appropriate icons
+- ✅ Monitoring / Logging
 
 UI:
 <details>
     <summary>Click to show GUI </summary>
-   <img src="src/main/resources/assets/static/ui.png" alt="latest ui">
+    <img src="src/main/resources/assets/static/ui.png" alt="latest ui">
 </details>
 
 ## ️ Architecture
@@ -190,69 +191,88 @@ The system automatically:
 | **Group Join** | `join_group` | `{groupId}` | Join existing groups |
 | **Group Leave** | `leave_group` | `{groupId}` | Leave group chats |
 
+---
+
 ## Advanced Features
 
 ### File & Image Handling
-- **Preview System**: Files and images can be previewed before sending
-- **Type Detection**: Automatic file type detection with appropriate icons (📄 PDF, 📝 DOC, 📊 XLS, etc.)
-- **Download Support**: Recipients can download shared files to local storage
-- **Image Viewer**: Full-screen image viewing with copy-to-clipboard functionality
+
+* **Preview**: View files and images before sending
+* **Type Detection**: Automatically detect file types with icons (📄 PDF, 📝 DOC, 📊 XLS, etc.)
+* **Downloadable**: Recipients can download shared files
+* **Image Viewer**: Full-screen image viewing with copy-to-clipboard support
 
 ### Group Chat Management
-- **Dynamic Groups**: Create groups with custom names and auto-generated IDs
-- **Member Management**: Real-time join/leave notifications
-- **Group Persistence**: Groups are maintained on server until last member leaves
-- **Broadcast Messaging**: Efficient message distribution to all group members
+
+* **Dynamic Groups**: Create groups with custom names and auto-generated IDs
+* **Join/Leave Events**: Real-time notifications for member activity
+* **Group Persistence**: Groups remain active until the last member leaves
+* **Broadcast Messaging**: Efficiently send messages to all group members
 
 ### Message Features
-- **Edit Capability**: Users can edit their own messages post-send
-- **Message History**: Server maintains message history for edited content
-- **Delivery Confirmation**: Visual feedback for message delivery status
-- **Timestamp Support**: All messages include server-side timestamps
+
+* **Edit**: Users can edit their own sent messages
+* **History**: Message history and edits are tracked
+* **Delivery Status**: Visual indicators for message delivery
+* **Timestamps**: Server-generated timestamps for all messages
 
 ### UI/UX Enhancements
-- **Modern Interface**: Clean JavaFX design with intuitive controls
-- **Real-time Updates**: Instant message display with smooth scrolling
-- **User Information**: Display current user info with copyable UUID
-- **Notification System**: Toast notifications for system events
-- **Responsive Layout**: Adaptive UI that scales with window size
 
-## Technical Implementation Details
+* **Modern UI**: Clean JavaFX interface with intuitive controls
+* **Live Updates**: Instant message rendering with smooth scrolling
+* **User Info**: Display user UUID with copy functionality
+* **Notifications**: Toast notifications for system events
+* **Responsive Layout**: UI adapts to window size dynamically
+
+---
+
+## Technical Implementation
 
 ### Queue Management
-- **Dynamic Queue Creation**: Queues created on-demand for new users
-- **Queue Cleanup**: Automatic cleanup of unused queues
-- **Message Persistence**: RabbitMQ durability settings for message reliability
-- **Error Handling**: Comprehensive error handling for connection failures
+
+* **Dynamic Creation**: Queues created on demand for new users
+* **Auto Cleanup**: Automatically remove unused queues
+* **Durability**: RabbitMQ durability ensures message reliability
+* **Error Handling**: Robust error handling for connection failures
 
 ### Concurrency & Threading
-- **Thread-Safe Operations**: ConcurrentHashMap for user and group storage
-- **JavaFX Threading**: Proper Platform.runLater() usage for UI updates
-- **Async Processing**: Vert.x event loop for non-blocking operations
 
-### Security Considerations
-- **UUID-based Authentication**: Unique user identification system
-- **Message Validation**: Server-side validation of all incoming messages
-- **Access Control**: Users can only edit their own messages
-- **Group Security**: Only group members receive group messages
+* **Thread-Safe**: Use of `ConcurrentHashMap` for user/group tracking
+* **UI Threading**: Proper use of `Platform.runLater()` for UI updates
+* **Async**: Vert.x event loop ensures non-blocking operations
+
+### Security
+
+* **UUID Authentication**: Unique ID system for user identity
+* **Validation**: Server-side validation of all messages
+* **Access Control**: Users can only edit their own messages
+* **Group Security**: Group messages are only delivered to members
+
+---
 
 ## Error Handling
 
-The system includes comprehensive error handling for:
-- **Connection Failures**: Automatic reconnection attempts to RabbitMQ
-- **Invalid Messages**: Malformed JSON or missing required fields
-- **User Conflicts**: Duplicate UUID registration prevention
-- **File Transfer Errors**: Graceful handling of corrupted or oversized files
-- **UI Exceptions**: Proper error display in JavaFX interface
+The system includes robust handling for:
+
+* **Connection Failures**: Automatic reconnection to RabbitMQ
+* **Invalid Messages**: Malformed JSON or missing fields
+* **User Conflicts**: Prevent duplicate UUID registrations
+* **File Transfer Issues**: Graceful handling of large/corrupted files
+* **UI Exceptions**: Display error messages in the JavaFX interface
+
+---
 
 ## Future Enhancements
 
-Potential improvements and features:
-- [ ] **Message Encryption**: End-to-end encryption for secure communication
-- [ ] **Voice Messages**: Audio recording and playback support
-- [ ] **User Presence**: Online/offline status indicators
-- [ ] **Message Reactions**: Emoji reactions to messages
-- [ ] **File Streaming**: Large file transfer with progress indicators
-- [ ] **Database Integration**: Persistent message storage with database
-- [ ] **Web Client**: Browser-based client using WebSocket connections
-- [ ] **Mobile Support**: Cross-platform mobile applications
+Potential upcoming features:
+
+* [ ] **Message Encryption** – End-to-end secure communication
+* [ ] **Voice Messages** – Audio recording and playback
+* [ ] **User Presence** – Online/offline status indicators
+* [ ] **Reactions** – Emoji responses to messages
+* [ ] **File Streaming** – Large file transfer with progress indicators
+* [ ] **Database Integration** – Persistent message storage
+* [ ] **Web Client** – Browser-based client with WebSocket
+* [ ] **Mobile Support** – Cross-platform mobile apps
+
+---
