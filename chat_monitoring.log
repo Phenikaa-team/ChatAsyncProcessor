@@ -1,0 +1,383 @@
+[2025-06-02 11:38:54] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748839134946}
+[2025-06-02 11:38:55] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 11:38:55] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"f70a0801-ff05-4585-b318-f4f28a9778ec"}
+[2025-06-02 11:38:55] [INFO] [SYSTEM] Deploying test clients | Details: {"clientCount":2}
+[2025-06-02 11:38:55] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:38:55] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:39:30] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 11:39:30] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748839170994}
+[2025-06-02 11:39:30] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 11:44:07] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748839447632}
+[2025-06-02 11:44:07] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 11:44:08] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"102733b0-d754-4ac4-b04c-6fbd44ed6243"}
+[2025-06-02 11:44:08] [INFO] [SYSTEM] Deploying test clients | Details: {"clientCount":2}
+[2025-06-02 11:44:08] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:44:08] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:44:57] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 11:44:57] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748839497576}
+[2025-06-02 11:44:57] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 11:48:32] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748839712832}
+[2025-06-02 11:48:32] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 11:48:33] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"642d01b6-d319-47bd-a9a8-4db59cd5f8ec"}
+[2025-06-02 11:48:33] [INFO] [SYSTEM] Deploying test clients | Details: {"clientCount":2}
+[2025-06-02 11:48:33] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:48:33] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:49:01] [INFO] [SYSTEM] JavaFX application stop() called
+[2025-06-02 11:49:01] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748839741299}
+[2025-06-02 11:49:02] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 11:49:02] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748839742321}
+[2025-06-02 11:49:02] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 11:51:58] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748839918806}
+[2025-06-02 11:51:58] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 11:51:59] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"78b9ae2d-82bb-4dae-bb70-5da864020ffc"}
+[2025-06-02 11:51:59] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 11:51:59] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:51:59] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":3}
+[2025-06-02 11:52:00] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:52:00] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":2}
+[2025-06-02 11:52:02] [INFO] [SYSTEM] Monitoring dashboard started successfully
+[2025-06-02 11:52:02] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-4","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:52:02] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":1}
+[2025-06-02 11:52:06] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-5","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:52:06] [ERROR] [ERROR] Client deployment failed after all retries | Details: {"clientIndex":0}
+[2025-06-02 11:52:06] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":1,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-6","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:52:06] [ERROR] [ERROR] Client deployment failed after all retries | Details: {"clientIndex":1}
+[2025-06-02 11:52:07] [INFO] [SYSTEM] Client deployment completed | Details: {"totalDeployed":0,"targetCount":2}
+[2025-06-02 11:52:29] [INFO] [SYSTEM] JavaFX application stop() called
+[2025-06-02 11:52:29] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 11:52:29] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748839949363}
+[2025-06-02 11:52:29] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 11:52:30] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 11:52:30] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 11:52:30] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748839950358}
+[2025-06-02 11:52:30] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 11:57:30] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748840250610}
+[2025-06-02 11:57:30] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 11:57:30] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"0c7aad16-ad4b-4cfd-99e4-9d85f970c5b9"}
+[2025-06-02 11:57:30] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 11:57:31] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:57:31] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":3}
+[2025-06-02 11:57:32] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:57:32] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":2}
+[2025-06-02 11:57:33] [INFO] [SYSTEM] Monitoring dashboard started successfully
+[2025-06-02 11:57:34] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-4","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:57:34] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":1}
+[2025-06-02 11:57:38] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-5","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:57:38] [ERROR] [ERROR] Client deployment failed after all retries | Details: {"clientIndex":0}
+[2025-06-02 11:57:38] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":1,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-6","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 11:57:38] [ERROR] [ERROR] Client deployment failed after all retries | Details: {"clientIndex":1}
+[2025-06-02 11:57:39] [INFO] [SYSTEM] Client deployment completed | Details: {"totalDeployed":0,"targetCount":2}
+[2025-06-02 11:57:39] [INFO] [SYSTEM] JavaFX application stop() called
+[2025-06-02 11:57:39] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 11:57:39] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748840259938}
+[2025-06-02 11:57:39] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 11:57:40] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 11:57:40] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 11:57:40] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748840260933}
+[2025-06-02 11:57:40] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:14:54] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748841294322}
+[2025-06-02 12:14:54] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:14:54] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"221d4a1f-2526-43e3-a017-7db989df6303"}
+[2025-06-02 12:14:54] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:14:56] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":0,"deploymentId":"931312c5-7ddd-40b5-b52b-307007cbda69"}
+[2025-06-02 12:14:56] [INFO] [USER_REGISTER] User registered: TestClient0 | Details: {"userId":"test-client-0","username":"TestClient0"}
+[2025-06-02 12:14:56] [INFO] [USER_REGISTER] Client started and user registered | Details: {"clientIndex":0,"userId":"test-client-0","username":"TestClient0"}
+[2025-06-02 12:14:56] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":1,"deploymentId":"1de3648d-81df-4655-a502-65f649361208"}
+[2025-06-02 12:14:56] [INFO] [USER_REGISTER] User registered: TestClient1 | Details: {"userId":"test-client-1","username":"TestClient1"}
+[2025-06-02 12:14:56] [INFO] [USER_REGISTER] Client started and user registered | Details: {"clientIndex":1,"userId":"test-client-1","username":"TestClient1"}
+[2025-06-02 12:14:56] [INFO] [SYSTEM] Client deployment completed | Details: {"totalDeployed":2,"targetCount":2}
+[2025-06-02 12:14:57] [INFO] [SYSTEM] Monitoring dashboard started successfully
+[2025-06-02 12:21:32] [INFO] [SYSTEM] JavaFX application stop() called
+[2025-06-02 12:21:32] [INFO] [SYSTEM] User disconnected: TestClient0 | Details: {"userId":"test-client-0","sessionDuration":396089}
+[2025-06-02 12:21:32] [INFO] [SYSTEM] User disconnected: TestClient1 | Details: {"userId":"test-client-1","sessionDuration":395708}
+[2025-06-02 12:21:32] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:21:32] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841692451}
+[2025-06-02 12:21:32] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:22:13] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:22:13] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:22:13] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841733903}
+[2025-06-02 12:22:13] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:22:17] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748841737454}
+[2025-06-02 12:22:17] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:22:17] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"ceb299b3-498f-476a-a408-2c8e3e7a58ea"}
+[2025-06-02 12:22:17] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:22:17] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:22:17] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":3}
+[2025-06-02 12:22:18] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:22:18] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":2}
+[2025-06-02 12:22:20] [INFO] [SYSTEM] Monitoring dashboard started successfully
+[2025-06-02 12:22:20] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-4","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:22:20] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":1}
+[2025-06-02 12:22:24] [INFO] [SYSTEM] JavaFX application stop() called
+[2025-06-02 12:22:24] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:22:24] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841744399}
+[2025-06-02 12:22:24] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:22:25] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:22:25] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:22:25] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841745397}
+[2025-06-02 12:22:25] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:22:49] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748841769479}
+[2025-06-02 12:22:49] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:22:49] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"a7990c6c-2504-4195-acc7-e83c669cc472"}
+[2025-06-02 12:22:49] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:22:49] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:22:49] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":3}
+[2025-06-02 12:22:50] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:22:50] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":2}
+[2025-06-02 12:22:51] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:22:51] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:22:51] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841771445}
+[2025-06-02 12:22:51] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:23:35] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748841815962}
+[2025-06-02 12:23:36] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:23:36] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"6feb6437-2562-459c-ae1b-83877c0b7c81"}
+[2025-06-02 12:23:36] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:23:36] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":0,"deploymentId":null}
+[2025-06-02 12:23:36] [ERROR] [ERROR] Failed to start client or register user | Details: {"clientIndex":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-1","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:23:36] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":1,"deploymentId":null}
+[2025-06-02 12:23:36] [ERROR] [ERROR] Failed to start client or register user | Details: {"clientIndex":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-1","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:23:36] [INFO] [SYSTEM] Client deployment completed | Details: {"totalDeployed":2,"targetCount":2}
+[2025-06-02 12:23:39] [INFO] [SYSTEM] Monitoring dashboard started successfully
+[2025-06-02 12:23:42] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:23:42] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:23:42] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841822049}
+[2025-06-02 12:23:42] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:24:07] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748841847644}
+[2025-06-02 12:24:07] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:24:07] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"1a6606de-6d09-47df-b2a0-25ab16566fbb"}
+[2025-06-02 12:24:07] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:24:07] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":0,"deploymentId":null}
+[2025-06-02 12:24:08] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":1,"deploymentId":null}
+[2025-06-02 12:24:08] [INFO] [SYSTEM] Client deployment completed | Details: {"totalDeployed":2,"targetCount":2}
+[2025-06-02 12:24:10] [INFO] [SYSTEM] Monitoring dashboard started successfully
+[2025-06-02 12:24:13] [INFO] [SYSTEM] JavaFX application stop() called
+[2025-06-02 12:24:13] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:24:13] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841853805}
+[2025-06-02 12:24:13] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:24:14] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:24:14] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:24:14] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841854802}
+[2025-06-02 12:24:14] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:24:58] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748841898562}
+[2025-06-02 12:24:58] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:24:58] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"3b5ae896-72f7-41c5-a14e-d59723ce79a5"}
+[2025-06-02 12:24:58] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:24:58] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":0,"deploymentId":null}
+[2025-06-02 12:24:58] [ERROR] [ERROR] Failed to start client or register user | Details: {"clientIndex":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-1","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:24:59] [INFO] [SYSTEM] Test client deployed successfully | Details: {"clientIndex":1,"deploymentId":null}
+[2025-06-02 12:24:59] [ERROR] [ERROR] Failed to start client or register user | Details: {"clientIndex":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-1","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:24:59] [INFO] [SYSTEM] Client deployment completed | Details: {"totalDeployed":4,"targetCount":2}
+[2025-06-02 12:25:00] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:25:00] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:25:00] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748841900801}
+[2025-06-02 12:25:00] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:28:55] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748842135907}
+[2025-06-02 12:28:55] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:28:56] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"3fcbb7ce-9ae3-44bd-a28d-b8c017318c11"}
+[2025-06-02 12:28:56] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:28:56] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-4","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:28:56] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":3}
+[2025-06-02 12:28:57] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-7","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:28:57] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":2}
+[2025-06-02 12:28:59] [INFO] [SYSTEM] Monitoring dashboard started successfully
+[2025-06-02 12:28:59] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-10","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:28:59] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":1}
+[2025-06-02 12:29:02] [INFO] [SYSTEM] JavaFX application stop() called
+[2025-06-02 12:29:02] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:29:02] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748842142365}
+[2025-06-02 12:29:02] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:29:03] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:29:03] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:29:03] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748842143366}
+[2025-06-02 12:29:03] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:29:18] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748842158231}
+[2025-06-02 12:29:18] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:29:18] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"1704b298-e2fe-4239-a5d9-389abee2033c"}
+[2025-06-02 12:29:18] [INFO] [SYSTEM] Deploying test clients with retry logic | Details: {"clientCount":2,"maxRetries":3}
+[2025-06-02 12:29:18] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:29:18] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":3}
+[2025-06-02 12:29:19] [ERROR] [ERROR] Failed to deploy test client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-5","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:29:19] [WARN] [SYSTEM] Retrying client deployment | Details: {"clientIndex":0,"retriesLeft":2}
+[2025-06-02 12:29:21] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:29:21] [INFO] [SYSTEM] Vert.x instance closed successfully
+[2025-06-02 12:29:21] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748842161142}
+[2025-06-02 12:29:21] [INFO] [SYSTEM] Application shutdown completed successfully
+[2025-06-02 12:34:24] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748842464586}
+[2025-06-02 12:34:24] [INFO] [SYSTEM] Chat application starting up | Details: {"javaVersion":"22.0.1","osName":"Windows 11","osVersion":"10.0"}
+[2025-06-02 12:34:24] [INFO] [SYSTEM] Application shutdown initiated
+[2025-06-02 12:34:24] [INFO] [SYSTEM] Server verticle deployed successfully | Details: {"deploymentId":"44e838b4-c5c6-4825-b1ba-61cc129fc2b2"}
+[2025-06-02 12:34:24] [INFO] [SYSTEM] Test clients disabled in configuration
+[2025-06-02 12:34:25] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-4","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:25] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:25] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:25] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":3,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-5","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:26] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-6","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:26] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-8","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:26] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-7","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:26] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":2,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-9","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:27] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-10","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:27] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-11","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:27] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-13","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:27] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":1,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-12","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:28] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-14","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:28] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":0,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-15","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:28] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-16","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:34:28] [ERROR] [ERROR] Failed to deploy client | Details: {"clientIndex":1,"retriesLeft":0,"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-17","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:38:00] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748842680634}
+[2025-06-02 12:38:03] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:38:03] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:38:04] [ERROR] [ERROR] Failed to deploy client verticle 1 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:38:04] [ERROR] [ERROR] Failed to deploy client verticle 0 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-1","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:38:07] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748842687459}
+[2025-06-02 12:38:07] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 12:40:54] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748842854387}
+[2025-06-02 12:40:57] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:40:57] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:40:57] [ERROR] [ERROR] Failed to deploy client verticle 0 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:40:57] [ERROR] [ERROR] Failed to deploy client verticle 1 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:41:03] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748842863562}
+[2025-06-02 12:41:03] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 12:41:06] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748842866843}
+[2025-06-02 12:41:10] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:41:10] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:41:10] [ERROR] [ERROR] Failed to deploy client verticle 1 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:41:10] [ERROR] [ERROR] Failed to deploy client verticle 0 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:41:12] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748842872576}
+[2025-06-02 12:41:12] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 12:43:35] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748843015070}
+[2025-06-02 12:43:38] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:43:38] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:43:38] [ERROR] [ERROR] Failed to deploy client verticle 0: Not on FX application thread; currentThread = vert.x-eventloop-thread-2 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-2","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:43:38] [ERROR] [ERROR] Failed to deploy client verticle 1: Not on FX application thread; currentThread = vert.x-eventloop-thread-3 | Details: {"exception":"IllegalStateException","errorMessage":"Not on FX application thread; currentThread = vert.x-eventloop-thread-3","stackTrace":"  at com.sun.javafx.tk.Toolkit.checkFxUserThread(Toolkit.java:294)\n  at com.sun.javafx.tk.quantum.QuantumToolkit.checkFxUserThread(QuantumToolkit.java:475)\n  at javafx.stage.Stage.<init>(Stage.java:258)\n  at javafx.stage.Stage.<init>(Stage.java:244)\n  at com.chat.async.app.ui.ChatUI.<init>(ChatUI.kt:34)"}
+[2025-06-02 12:43:41] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748843021561}
+[2025-06-02 12:43:41] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 12:44:55] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748843095535}
+[2025-06-02 12:44:58] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:44:58] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:44:58] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 12:44:58] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 12:45:56] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748843156530}
+[2025-06-02 12:45:56] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 12:46:00] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748843160217}
+[2025-06-02 12:46:03] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:46:03] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:46:03] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 12:46:03] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 12:47:52] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748843272487}
+[2025-06-02 12:47:52] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 12:53:15] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748843595083}
+[2025-06-02 12:53:18] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:53:18] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:53:18] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 12:53:18] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 12:53:27] [INFO] [USER_REGISTER] User registered: dc | Details: {"userId":"123","username":"dc"}
+[2025-06-02 12:53:27] [INFO] [USER_REGISTER] User registered: dc | Details: {"userId":"123","username":"dc"}
+[2025-06-02 12:53:32] [INFO] [USER_REGISTER] User registered: ee | Details: {"userId":"ty","username":"ee"}
+[2025-06-02 12:53:32] [INFO] [USER_REGISTER] User registered: ee | Details: {"userId":"ty","username":"ee"}
+[2025-06-02 12:53:56] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748843636789}
+[2025-06-02 12:54:00] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:54:00] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:54:00] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 12:54:00] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 12:54:04] [INFO] [USER_REGISTER] User registered: faf | Details: {"userId":"1deb8782","username":"faf"}
+[2025-06-02 12:54:04] [INFO] [USER_REGISTER] User registered: faf | Details: {"userId":"1deb8782","username":"faf"}
+[2025-06-02 12:54:07] [INFO] [USER_REGISTER] User registered: dđ | Details: {"userId":"2a6943ad","username":"dđ"}
+[2025-06-02 12:54:07] [INFO] [USER_REGISTER] User registered: dđ | Details: {"userId":"2a6943ad","username":"dđ"}
+[2025-06-02 12:55:30] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748843730369}
+[2025-06-02 12:55:30] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 12:59:35] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748843975694}
+[2025-06-02 12:59:38] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 12:59:38] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 12:59:38] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 12:59:38] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 12:59:43] [INFO] [USER_REGISTER] User registered: ad | Details: {"userId":"123","username":"ad"}
+[2025-06-02 12:59:43] [INFO] [USER_REGISTER] User registered: ad | Details: {"userId":"123","username":"ad"}
+[2025-06-02 12:59:47] [INFO] [USER_REGISTER] User registered: df | Details: {"userId":"456","username":"df"}
+[2025-06-02 12:59:47] [INFO] [USER_REGISTER] User registered: df | Details: {"userId":"456","username":"df"}
+[2025-06-02 12:59:55] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"123","targetId":"456","type":"text","size":0}
+[2025-06-02 12:59:57] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"456","targetId":"123","type":"text","size":0}
+[2025-06-02 13:00:02] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"456","targetId":"123","type":"text","size":0}
+[2025-06-02 13:00:13] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"456","targetId":"123","type":"text","size":0}
+[2025-06-02 13:00:21] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748844021510}
+[2025-06-02 13:00:21] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 13:24:59] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748845499236}
+[2025-06-02 13:25:02] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:25:02] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:25:02] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 13:25:02] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 13:25:08] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 13:25:08] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 13:25:12] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 13:25:12] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 13:25:26] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"123","type":"text","size":0}
+[2025-06-02 13:25:26] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Quy","targetId":"","type":"text","size":0}
+[2025-06-02 13:25:28] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"456","type":"text","size":0}
+[2025-06-02 13:25:28] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Duc","targetId":"","type":"text","size":0}
+[2025-06-02 13:25:34] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"123","senderId":"456","type":"image","size":0}
+[2025-06-02 13:25:34] [INFO] [MESSAGE_SENT] Message sent: image | Details: {"senderId":"Duc","targetId":"","type":"image","size":0}
+[2025-06-02 13:25:46] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"123","senderId":"456","type":"image","size":0}
+[2025-06-02 13:25:46] [INFO] [MESSAGE_SENT] Message sent: image | Details: {"senderId":"Duc","targetId":"","type":"image","size":0}
+[2025-06-02 13:25:52] [INFO] [FILE_RECEIVED] File received: file | Details: {"receiverId":"123","senderId":"456","type":"file","size":0}
+[2025-06-02 13:25:52] [INFO] [FILE_SENT] File sent: file | Details: {"senderId":"Duc","targetId":"","type":"file","size":0}
+[2025-06-02 13:26:06] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"456","senderId":"123","type":"image","size":0}
+[2025-06-02 13:26:06] [INFO] [MESSAGE_SENT] Message sent: image | Details: {"senderId":"Quy","targetId":"","type":"image","size":0}
+[2025-06-02 13:26:26] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748845586681}
+[2025-06-02 13:26:26] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 13:26:34] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748845594359}
+[2025-06-02 13:26:37] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:26:37] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:26:37] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 13:26:37] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 13:26:41] [INFO] [USER_REGISTER] User registered: fff | Details: {"userId":"123","username":"fff"}
+[2025-06-02 13:26:41] [INFO] [USER_REGISTER] User registered: fff | Details: {"userId":"123","username":"fff"}
+[2025-06-02 13:26:48] [INFO] [USER_REGISTER] User registered: ggg | Details: {"userId":"456","username":"ggg"}
+[2025-06-02 13:26:48] [INFO] [USER_REGISTER] User registered: ggg | Details: {"userId":"456","username":"ggg"}
+[2025-06-02 13:26:54] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"456","type":"text","size":0}
+[2025-06-02 13:26:54] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"fff","targetId":"","type":"text","size":0}
+[2025-06-02 13:26:56] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"123","type":"text","size":0}
+[2025-06-02 13:26:56] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"ggg","targetId":"","type":"text","size":0}
+[2025-06-02 13:27:07] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"123","senderId":"456","type":"image","size":0}
+[2025-06-02 13:27:07] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"fff","targetId":"","type":"image","size":0}
+[2025-06-02 13:27:21] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748845641479}
+[2025-06-02 13:27:21] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 13:29:44] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748845784445}
+[2025-06-02 13:29:47] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:29:47] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:29:47] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 13:29:47] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 13:30:12] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748845812627}
+[2025-06-02 13:30:12] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 13:33:21] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748846001014}
+[2025-06-02 13:33:21] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:33:21] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:33:35] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748846015383}
+[2025-06-02 13:33:35] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:33:35] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:33:57] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748846037547}
+[2025-06-02 13:34:00] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:34:00] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:34:00] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 13:34:00] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 13:34:08] [INFO] [USER_REGISTER] User registered: dđ | Details: {"userId":"123","username":"dđ"}
+[2025-06-02 13:34:08] [INFO] [USER_REGISTER] User registered: dđ | Details: {"userId":"123","username":"dđ"}
+[2025-06-02 13:34:11] [INFO] [USER_REGISTER] User registered: fe | Details: {"userId":"456","username":"fe"}
+[2025-06-02 13:34:11] [INFO] [USER_REGISTER] User registered: fe | Details: {"userId":"456","username":"fe"}
+[2025-06-02 13:35:00] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"group_d1b4dc4e","type":"text","size":0}
+[2025-06-02 13:35:00] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"fe","targetId":"group_d1b4dc4e","type":"text","size":0}
+[2025-06-02 13:35:03] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_d1b4dc4e","type":"text","size":0}
+[2025-06-02 13:35:03] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"dđ","targetId":"group_d1b4dc4e","type":"text","size":0}
+[2025-06-02 13:35:13] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748846113756}
+[2025-06-02 13:35:13] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 13:37:29] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748846249984}
+[2025-06-02 13:37:33] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 13:37:33] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 13:37:33] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 13:37:33] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 13:37:38] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 13:37:38] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 13:37:42] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 13:37:42] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 13:37:52] [INFO] [GROUP_CREATED] Group created: NiceGroup | Details: {"groupId":"group_942a14b1","groupName":"NiceGroup"}
+[2025-06-02 13:38:00] [INFO] [SYSTEM] Group deleted: NiceGroup | Details: {"groupId":"group_942a14b1","groupName":"NiceGroup"}
+[2025-06-02 13:38:09] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748846289198}
+[2025-06-02 13:38:09] [INFO] [SYSTEM] Chat application shutting down

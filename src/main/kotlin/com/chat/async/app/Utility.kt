@@ -27,15 +27,29 @@ fun generateUserId(): String = UUID.randomUUID().toString().take(8)
 fun generateMessageId(): String = UUID.randomUUID().toString()
 fun generateGroupId(): String = UUID.randomUUID().toString().take(8)
 
-fun showAlert(
-    title: String,
-    message: String
-) {
-    Platform.runLater {
-        Alert(Alert.AlertType.INFORMATION).apply {
-            this.title = title
-            headerText = message
-        }.showAndWait()
+fun formatLastActivity(lastActivity: Long): String {
+    val diff = System.currentTimeMillis() - lastActivity
+    val seconds = diff / 1000
+    val minutes = seconds / 60
+    val hours = minutes / 60
+
+    return when {
+        hours > 0 -> "${hours}h ${minutes % 60}m ago"
+        minutes > 0 -> "${minutes}m ${seconds % 60}s ago"
+        else -> "${seconds}s ago"
+    }
+}
+
+fun formatBytes(bytes: Long): String {
+    val kb = bytes / 1024.0
+    val mb = kb / 1024.0
+    val gb = mb / 1024.0
+
+    return when {
+        gb >= 1 -> String.format("%.2f GB", gb)
+        mb >= 1 -> String.format("%.2f MB", mb)
+        kb >= 1 -> String.format("%.2f KB", kb)
+        else -> "$bytes B"
     }
 }
 
@@ -48,19 +62,6 @@ fun String.appendSystemMessage(
             this,
             MessageNode.MessageType.SYSTEM,
             false
-        ))
-    }
-}
-
-fun String.appendOwnMessage(
-    chatArea: ListView<MessageNode>
-) {
-    Platform.runLater {
-        chatArea.items.add(MessageNode(
-            "You",
-            this,
-            MessageNode.MessageType.TEXT,
-            true
         ))
     }
 }

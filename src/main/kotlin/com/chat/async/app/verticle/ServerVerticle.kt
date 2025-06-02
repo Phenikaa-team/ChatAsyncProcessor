@@ -3,6 +3,7 @@ package com.chat.async.app.verticle
 import com.chat.async.app.EXCHANGE
 import com.chat.async.app.generateMessageId
 import com.chat.async.app.generateUserId
+import com.chat.async.app.monitoring.MonitoringIntegration
 import com.chat.async.app.ui.group.ChatGroup
 import com.rabbitmq.client.*
 import io.vertx.core.AbstractVerticle
@@ -55,29 +56,19 @@ class ServerVerticle : AbstractVerticle() {
     }
 
     private fun createRegistrationConsumer() = object : DefaultConsumer(channel) {
-        override fun handleDelivery(
-            tag: String?,
-            env: Envelope?,
-            props: AMQP.BasicProperties?,
-            body: ByteArray?
-        ) {
+        override fun handleDelivery(tag: String?, env: Envelope?, props: AMQP.BasicProperties?, body: ByteArray?) {
             val json = JsonObject(String(body!!))
             val name = json.getString("username")
             val id = json.getString("uuid") ?: generateUserId()
 
             if (users.containsKey(id)) {
-                // ID already exists - send error back
-                val replyProps = AMQP.BasicProperties.Builder()
-                    .correlationId(props?.correlationId)
-                    .build()
-                channel.basicPublish("", props?.replyTo, replyProps,
-                    "ERROR: ID already exists".toByteArray())
                 return
             }
 
             users[id] = name
             println("Registered user $name with ID $id")
 
+            // Gửi phản hồi cho client
             val replyData = JsonObject()
                 .put("userId", id)
                 .put("username", name)
@@ -87,6 +78,8 @@ class ServerVerticle : AbstractVerticle() {
                 .correlationId(props?.correlationId)
                 .build()
             channel.basicPublish("", props?.replyTo, replyProps, replyData.toByteArray())
+
+            MonitoringIntegration.registerUser(id, name)
         }
     }
 
@@ -129,6 +122,7 @@ class ServerVerticle : AbstractVerticle() {
 
                         sendToQueue(createdBy, responseMsg)
                         println("✅ Group created: $groupName (ID: $groupId) by $senderName")
+                        MonitoringIntegration.registerGroup(groupId, groupName)
                     }
 
                     "join_group" -> {
@@ -216,6 +210,7 @@ class ServerVerticle : AbstractVerticle() {
                             }
 
                             println("👋 User $senderName left group: ${group.name}")
+                            MonitoringIntegration.removeGroup(groupId)
                         }
                     }
                 }
@@ -295,6 +290,7 @@ class ServerVerticle : AbstractVerticle() {
                             }
                             sendToQueue(toId, forwardMsg)
                         }
+                        MonitoringIntegration.trackMessageReceived(senderId, toId, "text")
                     }
 
                     "file" -> {
@@ -310,6 +306,8 @@ class ServerVerticle : AbstractVerticle() {
                         }
 
                         sendToQueue(toId, forwardMsg)
+                        MonitoringIntegration.trackFileReceived(senderId, toId, "file")
+
                     }
 
                     "image" -> {
@@ -323,6 +321,7 @@ class ServerVerticle : AbstractVerticle() {
                         }
 
                         sendToQueue(toId, forwardMsg)
+                        MonitoringIntegration.trackImageReceived(senderId, toId, "image")
                     }
 
                     "edit" -> {
@@ -346,6 +345,7 @@ class ServerVerticle : AbstractVerticle() {
                                 }
 
                                 sendToQueue(toId, forwardMsg)
+                                MonitoringIntegration.trackMessageReceived(toId, senderId, "text")
                             } else {
                                 println("⚠️ Unauthorized edit attempt by $senderId for message $originalMessageId")
                             }

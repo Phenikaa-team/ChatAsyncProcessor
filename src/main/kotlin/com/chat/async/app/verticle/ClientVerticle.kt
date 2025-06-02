@@ -1,6 +1,7 @@
 package com.chat.async.app.verticle
 
 import com.chat.async.app.*
+import com.chat.async.app.monitoring.MonitoringIntegration
 import com.chat.async.app.ui.ChatUI
 import com.chat.async.app.ui.group.ChatGroup
 import com.chat.async.app.ui.node.MessageNode
@@ -17,80 +18,83 @@ class ClientVerticle : AbstractVerticle() {
     private var currentUserId: String = ""
 
     override fun start() {
-        ui = ChatUI(
-            onSend = { toId, msg ->
-                val messageId = generateMessageId()
-                sentMessages[messageId] = msg
-                val json = JsonObject(
-                    mapOf(
-                        "toId" to toId,
-                        "message" to msg,
-                        "messageId" to messageId
+        Platform.runLater {
+            ui = ChatUI(
+                onSend = { toId, msg ->
+                    val messageId = generateMessageId()
+                    sentMessages[messageId] = msg
+                    val json = JsonObject(
+                        mapOf(
+                            "toId" to toId,
+                            "message" to msg,
+                            "messageId" to messageId
+                        )
                     )
-                )
-                sendToRabbitMQ("message", json.encode())
-            },
-            onSendFile = { toId, name, bytes ->
-                val json = JsonObject(
-                    mapOf(
-                        "toId" to toId,
-                        "file" to name,
-                        "data" to bytes.encodeBase64()
+                    sendToRabbitMQ("message", json.encode())
+                },
+                onSendFile = { toId, name, bytes ->
+                    val json = JsonObject(
+                        mapOf(
+                            "toId" to toId,
+                            "file" to name,
+                            "data" to bytes.encodeBase64()
+                        )
                     )
-                )
-                sendToRabbitMQ("file", json.encode())
-            },
-            onSendImage = { toId, bytes ->
-                val json = JsonObject(
-                    mapOf(
-                        "toId" to toId,
-                        "image" to bytes.encodeBase64()
+                    sendToRabbitMQ("file", json.encode())
+                },
+                onSendImage = { toId, bytes ->
+                    val json = JsonObject(
+                        mapOf(
+                            "toId" to toId,
+                            "image" to bytes.encodeBase64()
+                        )
                     )
-                )
-                sendToRabbitMQ("image", json.encode())
-            },
-            onEditMessage = { messageId, newContent ->
-                val json = JsonObject(
-                    mapOf(
-                        "messageId" to messageId,
-                        "newContent" to newContent
+                    sendToRabbitMQ("image", json.encode())
+                },
+                onEditMessage = { messageId, newContent ->
+                    val json = JsonObject(
+                        mapOf(
+                            "messageId" to messageId,
+                            "newContent" to newContent
+                        )
                     )
-                )
-                sendToRabbitMQ("edit", json.encode())
-            },
-            onCreateGroup = { group ->
-                val json = JsonObject(
-                    mapOf(
-                        "groupId" to group.id,
-                        "groupName" to group.name,
-                        "createdBy" to group.createdBy
+                    sendToRabbitMQ("edit", json.encode())
+                },
+                onCreateGroup = { group ->
+                    val json = JsonObject(
+                        mapOf(
+                            "groupId" to group.id,
+                            "groupName" to group.name,
+                            "createdBy" to group.createdBy
+                        )
                     )
-                )
-                sendToRabbitMQ("create_group", json.encode())
-            },
-            onJoinGroup = { groupId ->
-                val json = JsonObject(
-                    mapOf(
-                        "groupId" to groupId
+                    sendToRabbitMQ("create_group", json.encode())
+                },
+                onJoinGroup = { groupId ->
+                    val json = JsonObject(
+                        mapOf(
+                            "groupId" to groupId
+                        )
                     )
-                )
-                sendToRabbitMQ("join_group", json.encode())
-            },
-            onLeaveGroup = { groupId ->
-                val json = JsonObject(
-                    mapOf(
-                        "groupId" to groupId
+                    sendToRabbitMQ("join_group", json.encode())
+                },
+                onLeaveGroup = { groupId ->
+                    val json = JsonObject(
+                        mapOf(
+                            "groupId" to groupId
+                        )
                     )
-                )
-                sendToRabbitMQ("leave_group", json.encode())
-            }
-        )
+                    sendToRabbitMQ("leave_group", json.encode())
+                }
+            )
 
-        ui?.onRegister = { (name, uuid) ->
-            currentUserId = uuid
-            registerUser(name, uuid)
+            ui?.onRegister = { (name, uuid) ->
+                currentUserId = uuid
+                registerUser(name, uuid)
+            }
         }
     }
+
 
     private fun registerUser(
         username : String,
@@ -116,14 +120,10 @@ class ClientVerticle : AbstractVerticle() {
             .encode()
 
         ch.basicPublish(EXCHANGE, "register", props, registrationData.toByteArray())
+        MonitoringIntegration.registerUser(uuid, username)
 
         val consumer = object : DefaultConsumer(ch) {
-            override fun handleDelivery(
-                tag: String?,
-                env: Envelope?,
-                props: AMQP.BasicProperties?,
-                body: ByteArray?
-            ) {
+            override fun handleDelivery(tag: String?, env: Envelope?, props: AMQP.BasicProperties?, body: ByteArray?) {
                 if (props?.correlationId == uuid) {
                     val json = JsonObject(String(body!!))
                     val id = json.getString("userId")
@@ -201,6 +201,8 @@ class ClientVerticle : AbstractVerticle() {
                     isOwnMessage = isOwn,
                     messageId = json.getString("messageId")
                 )
+
+                MonitoringIntegration.trackMessageSent(sender, targetId, "text")
             }
 
             private fun handleFileMessage(json: JsonObject) {
@@ -214,6 +216,7 @@ class ClientVerticle : AbstractVerticle() {
                 val displaySender = if (isGroup) "$sender@$targetId" else sender
 
                 ui.addMessageToChat(displaySender, fileName, MessageNode.MessageType.FILE, isOwn, null, bytes)
+                MonitoringIntegration.trackFileSent(sender, targetId, "file")
             }
 
             private fun handleImageMessage(json: JsonObject) {
@@ -226,6 +229,7 @@ class ClientVerticle : AbstractVerticle() {
                 val displaySender = if (isGroup) "$sender@$targetId" else sender
 
                 ui.addMessageToChat(displaySender, "image", MessageNode.MessageType.IMAGE, isOwn, null, bytes)
+                MonitoringIntegration.trackImageSent(sender, targetId, "image")
             }
 
             private fun handleEditMessage(json: JsonObject) {
@@ -333,6 +337,7 @@ class ClientVerticle : AbstractVerticle() {
 
             ch.basicPublish(EXCHANGE, routingKey, props, data.toByteArray())
             conn.close()
+            MonitoringIntegration.updateUserActivity(currentUserId)
             println("✅ Sent successfully")
         } catch (e: Exception) {
             println("❌ Failed to send message: ${e.message}")
