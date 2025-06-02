@@ -27,6 +27,11 @@ fun generateUserId(): String = UUID.randomUUID().toString().take(8)
 fun generateMessageId(): String = UUID.randomUUID().toString()
 fun generateGroupId(): String = UUID.randomUUID().toString().take(8)
 
+fun getMemoryUsage(): Double {
+    val runtime = Runtime.getRuntime()
+    return (runtime.totalMemory() - runtime.freeMemory()) / (1024.0 * 1024.0)
+}
+
 fun formatDuration(
     millis: Long
 ): String {

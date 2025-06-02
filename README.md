@@ -1,3 +1,5 @@
+<a id="readme-top"></a>
+
 <p align="center">
 <a href="https://github.com/Phenikaa-team/ChatAsyncProcessor">
     <img src="/src/main/resources/assets/icon.png" alt="Logo" width="80" height="80">
@@ -6,7 +8,6 @@
 
 <h1 align="center">Distributed Chat System </h1>
 
-<a id="readme-top"></a>
 <p align="center">
 <img src="https://img.shields.io/badge/Kotlin-da4567?style=for-the-badge&logo=kotlin&logoColor=white">
 <img src="https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white">
@@ -305,3 +306,11 @@ Potential upcoming features:
 * [ ] **Mobile Support** – Cross-platform mobile apps
 
 ---
+
+## Top contributors:
+<a href="https://github.com/Phenikaa-team/ChatAsyncProcessor/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Phenikaa-team/ChatAsyncProcessor" alt="Contributors" />
+</a>
+
+<p align="right">(<a href="#readme-top">back to the top</a>)</p>
+
