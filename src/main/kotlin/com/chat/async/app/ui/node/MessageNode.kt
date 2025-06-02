@@ -25,6 +25,8 @@ class MessageNode(
     val onEdit: ((String) -> Unit)? = null,
     val onDownload: (() -> Unit)? = null,
     val onPreview: (() -> Unit)? = null,
+    val onCopy: (() -> Unit)? = null,
+    val onClick: (() -> Unit)? = null,
     private val fileBytes: ByteArray? = null
 ) : HBox(10.0) {
 
@@ -45,6 +47,11 @@ class MessageNode(
         }
 
         children.add(messageBox)
+
+        if (type == MessageType.SYSTEM && onClick != null) {
+            messageBox.style += "-fx-cursor: hand;"
+            messageBox.setOnMouseClicked { onClick.invoke() }
+        }
     }
 
     private fun createMessageBox() = VBox(5.0).apply {
@@ -158,29 +165,33 @@ class MessageNode(
                     when (type) {
                         MessageType.TEXT -> copyToClipboard(content)
                         MessageType.FILE -> onDownload?.invoke()
-                        MessageType.IMAGE -> onPreview?.invoke()
-                        else -> {}
+                        MessageType.IMAGE -> {
+                            onPreview?.invoke()
+                            items.add(MenuItem("Download").apply {
+                                setOnAction { onDownload?.invoke() }
+                            })
+                        }
+                        MessageType.SYSTEM -> {
+                            val idPattern = "ID: ([A-Za-z0-9-]+)".toRegex()
+                            val matchResult = idPattern.find(content)
+                            if (matchResult != null) {
+                                copyToClipboard(matchResult.groupValues[1])
+                            } else {
+                                copyToClipboard(content)
+                            }
+                        }
                     }
                 }
             }
         )
 
-        if (type == MessageType.IMAGE || type == MessageType.FILE) {
-            items.add(MenuItem("Download").apply {
-                setOnAction { onDownload?.invoke() }
-            })
-        }
-
-        if (onEdit != null && isOwnMessage && type == MessageType.TEXT) {
-            items.add(MenuItem("Edit").apply {
+        if (type == MessageType.SYSTEM && content.contains("ID:")) {
+            items.add(MenuItem("Copy ID Only").apply {
                 setOnAction {
-                    val dialog = TextInputDialog(content)
-                    dialog.title = "Edit Message"
-                    dialog.headerText = "Edit your message:"
-                    dialog.showAndWait().ifPresent { newContent ->
-                        if (newContent.isNotBlank() && newContent != content) {
-                            onEdit.invoke(newContent)
-                        }
+                    val idPattern = "ID: ([A-Za-z0-9-]+)".toRegex()
+                    val matchResult = idPattern.find(content)
+                    matchResult?.let {
+                        copyToClipboard(it.groupValues[1])
                     }
                 }
             })

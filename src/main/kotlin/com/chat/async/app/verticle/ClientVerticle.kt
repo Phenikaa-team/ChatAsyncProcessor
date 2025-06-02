@@ -345,4 +345,11 @@ class ClientVerticle : AbstractVerticle() {
             e.printStackTrace()
         }
     }
+
+    override fun stop() {
+        if (currentUserId.isNotEmpty()) {
+            println("🛑 Stopping client verticle. Removing user: $currentUserId")
+            MonitoringIntegration.removeUser(currentUserId)
+        }
+    }
 }

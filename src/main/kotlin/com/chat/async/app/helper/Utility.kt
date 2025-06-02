@@ -6,6 +6,8 @@ import javafx.application.Platform
 import javafx.embed.swing.SwingFXUtils
 import javafx.scene.control.ListView
 import javafx.scene.image.Image
+import javafx.scene.input.Clipboard
+import javafx.scene.input.ClipboardContent
 import java.io.ByteArrayOutputStream
 import java.util.*
 import javax.imageio.ImageIO
@@ -74,16 +76,29 @@ fun formatBytes(bytes: Long): String {
     }
 }
 
+fun copyToClipboard(
+    text: String
+) {
+    val clipboard = Clipboard.getSystemClipboard()
+    val content = ClipboardContent()
+    content.putString(text)
+    clipboard.setContent(content)
+}
+
 fun String.appendSystemMessage(
-    chatArea: ListView<MessageNode>
+    chatArea: ListView<MessageNode>,
+    onClick: (() -> Unit)? = null
 ) {
     Platform.runLater {
-        chatArea.items.add(MessageNode(
-            "System",
-            this,
-            MessageType.SYSTEM,
-            false
-        ))
+        val messageNode = MessageNode(
+            sender = "System",
+            content = this,
+            type = MessageType.SYSTEM,
+            isOwnMessage = false,
+            onClick = onClick
+        )
+        chatArea.items.add(messageNode)
+        chatArea.scrollTo(chatArea.items.size - 1)
     }
 }
 

@@ -1,5 +1,8 @@
 package com.chat.async.app.ui.group
 
+import com.chat.async.app.helper.copyToClipboard
+import javafx.animation.KeyFrame
+import javafx.animation.Timeline
 import javafx.application.Platform
 import javafx.geometry.Insets
 import javafx.geometry.Pos
@@ -8,6 +11,7 @@ import javafx.scene.control.*
 import javafx.scene.layout.*
 import javafx.stage.Modality
 import javafx.stage.Stage
+import javafx.util.Duration
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
 
@@ -173,6 +177,20 @@ class GroupManager(
                                             refreshGroupsList(listView)
                                             showAlert("Info", "Left group: ${group?.name ?: item}")
                                         }
+                                    },
+                                    Button("📋").apply {
+                                        println("Copying group ID: $item")
+                                        tooltip = Tooltip("Copy Group ID")
+                                        style = "-fx-font-size: 11px;"
+                                        prefWidth = 30.0
+                                        setOnAction {
+                                            copyToClipboard(item)
+                                            val originalText = text
+                                            text = "✓"
+                                            Timeline(KeyFrame(Duration.seconds(1.0), {
+                                                text = originalText
+                                            })).play()
+                                        }
                                     }
                                 )
                             }
@@ -215,7 +233,14 @@ class GroupManager(
         groups[group.id] = group
     }
 
-    fun getJoinedGroups(): Set<String> = joinedGroups.toSet()
+    fun getAllGroups(): List<ChatGroup> {
+        return groups.values.sortedBy { it.name }
+    }
+
+
+    fun getGroupById(groupId: String): ChatGroup? {
+        return groups[groupId]
+    }
 
     fun isInGroup(groupId: String): Boolean = joinedGroups.contains(groupId)
 }

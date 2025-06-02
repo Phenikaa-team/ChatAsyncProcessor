@@ -77,7 +77,29 @@ class ChatUI(
     private var currentUsername: String = ""
 
     // Group Manager
-    private lateinit var groupManager: GroupManager
+    private val groupManager: GroupManager by lazy {
+        GroupManager(
+            currentUserId = currentUserId,
+            currentUsername = currentUsername,
+            onCreateGroup = onCreateGroup,
+            onJoinGroup = { groupId ->
+                onJoinGroup(groupId)
+                Platform.runLater {
+                    updateGroupUI()
+                }
+            },
+            onLeaveGroup = { groupId ->
+                onLeaveGroup(groupId)
+                Platform.runLater {
+                    updateGroupUI()
+                }
+            }
+        ).apply {
+            Platform.runLater {
+                updateGroupUI()
+            }
+        }
+    }
 
     init {
         stage.title = "Chat App"
@@ -151,18 +173,32 @@ class ChatUI(
         currentUserId = id
         currentUsername = username
 
-        // Initialize group manager
-        groupManager = GroupManager(
-            currentUserId = currentUserId,
-            currentUsername = currentUsername,
-            onCreateGroup = onCreateGroup,
-            onJoinGroup = onJoinGroup,
-            onLeaveGroup = onLeaveGroup
-        )
-
         Platform.runLater {
             showChatPane()
+            groupManagerButton.isDisable = false
+            groupManagerButton.text = "Groups"
             ("📌 Registration successful!").appendSystemMessage(chatArea)
+        }
+    }
+
+    private fun updateGroupUI() {
+        groupManagerButton.text = "Groups (${groupManager.getAllGroups().size})"
+
+        (chatPane.top as? HBox)?.children?.filterIsInstance<MenuButton>()?.firstOrNull()?.let { menuButton ->
+            menuButton.items.clear()
+            groupManager.getAllGroups().forEach { groupId ->
+                groupManager.getGroupById(groupId.id)?.let { group ->
+                    menuButton.items.add(MenuItem("${group.name} (${group.id.take(8)}...)").apply {
+                        setOnAction {
+                            toIdField.text = group.id
+                        }
+                    })
+                }
+            }
+            if (menuButton.items.isEmpty()) {
+                menuButton.items.add(MenuItem("No groups joined").apply { isDisable = true })
+            }
+            menuButton.text = "Joined Groups (${groupManager.getAllGroups().size})"
         }
     }
 
@@ -419,11 +455,24 @@ class ChatUI(
                 prefWidth = 200.0
                 promptText = "User ID or Group ID"
             },
+            Button("📋").apply {
+                tooltip = Tooltip("Paste from clipboard")
+                prefWidth = 30.0
+                setOnAction {
+                    val clipboard = Clipboard.getSystemClipboard()
+                    if (clipboard.hasString()) {
+                        toIdField.text = clipboard.string
+                    }
+                }
+            },
             Button("Groups").apply {
                 groupManagerButton = this
                 setOnAction {
-                    if (::groupManager.isInitialized) {
+                    try {
+                        text = "Groups (${groupManager.getAllGroups().size})"
                         groupManager.showGroupManagerDialog(stage)
+                    } catch (e: Exception) {
+                        showAlert("Error", "Groups not available yet")
                     }
                 }
             }
@@ -448,13 +497,6 @@ class ChatUI(
             isFitToHeight = true
         }
         return borderPane
-    }
-
-    private fun copyToClipboard(text: String) {
-        val clipboard = Clipboard.getSystemClipboard()
-        val content = ClipboardContent()
-        content.putString(text)
-        clipboard.setContent(content)
     }
 
     private fun createInputPanel() = VBox(10.0).apply {
@@ -601,8 +643,9 @@ class ChatUI(
     }
 
     fun addGroup(group: ChatGroup) {
-        if (::groupManager.isInitialized) {
-            groupManager.addGroup(group)
+        groupManager.addGroup(group)
+        Platform.runLater {
+            updateGroupUI()
         }
     }
 }

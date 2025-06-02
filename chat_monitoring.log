@@ -420,3 +420,516 @@
 [2025-06-02 16:01:46] [INFO] [SYSTEM] Chat application shutting down
 [2025-06-02 16:01:46] [INFO] [SYSTEM] Vert.x closed successfully
 [2025-06-02 16:01:46] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748854906496}
+[2025-06-02 17:49:30] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748861370526}
+[2025-06-02 17:49:33] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 17:49:33] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 17:49:33] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 17:49:33] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_2 | Details: {"userId":"d4b45e27","username":"StressUser_client_2"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_0 | Details: {"userId":"e125db73","username":"StressUser_client_0"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_14 | Details: {"userId":"ecc0cb9a","username":"StressUser_client_14"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_15 | Details: {"userId":"6aa16f97","username":"StressUser_client_15"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_5 | Details: {"userId":"f8bd790b","username":"StressUser_client_5"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_4 | Details: {"userId":"347b0b7f","username":"StressUser_client_4"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_1 | Details: {"userId":"878d5ab2","username":"StressUser_client_1"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_12 | Details: {"userId":"4c7d580d","username":"StressUser_client_12"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_13 | Details: {"userId":"3c0466ad","username":"StressUser_client_13"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_6 | Details: {"userId":"a32a680e","username":"StressUser_client_6"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_7 | Details: {"userId":"93e055fa","username":"StressUser_client_7"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_3 | Details: {"userId":"e86517e3","username":"StressUser_client_3"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_10 | Details: {"userId":"59e735b2","username":"StressUser_client_10"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_9 | Details: {"userId":"efd16242","username":"StressUser_client_9"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_8 | Details: {"userId":"efe7d300","username":"StressUser_client_8"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_11 | Details: {"userId":"c6af3886","username":"StressUser_client_11"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_25 | Details: {"userId":"856ec8f2","username":"StressUser_client_25"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_31 | Details: {"userId":"a226681b","username":"StressUser_client_31"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_24 | Details: {"userId":"aaa9353d","username":"StressUser_client_24"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_30 | Details: {"userId":"4ce5e74d","username":"StressUser_client_30"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_29 | Details: {"userId":"ad9e1f69","username":"StressUser_client_29"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_21 | Details: {"userId":"e3c55dce","username":"StressUser_client_21"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_20 | Details: {"userId":"9f6510be","username":"StressUser_client_20"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_28 | Details: {"userId":"6bdea34d","username":"StressUser_client_28"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_22 | Details: {"userId":"9f328eda","username":"StressUser_client_22"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_18 | Details: {"userId":"a64a9244","username":"StressUser_client_18"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_26 | Details: {"userId":"56647691","username":"StressUser_client_26"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_17 | Details: {"userId":"0a7efbb6","username":"StressUser_client_17"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_19 | Details: {"userId":"59810a3a","username":"StressUser_client_19"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_23 | Details: {"userId":"cc9c6a02","username":"StressUser_client_23"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_16 | Details: {"userId":"ac9ee6b9","username":"StressUser_client_16"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_27 | Details: {"userId":"79ba1d0c","username":"StressUser_client_27"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_32 | Details: {"userId":"577f9916","username":"StressUser_client_32"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_36 | Details: {"userId":"0a9a2cd4","username":"StressUser_client_36"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_34 | Details: {"userId":"ad7c45ad","username":"StressUser_client_34"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_33 | Details: {"userId":"62875867","username":"StressUser_client_33"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_37 | Details: {"userId":"6758faec","username":"StressUser_client_37"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_39 | Details: {"userId":"afdd7b2b","username":"StressUser_client_39"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_40 | Details: {"userId":"f9426ea9","username":"StressUser_client_40"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_43 | Details: {"userId":"d0f10b07","username":"StressUser_client_43"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_47 | Details: {"userId":"e15b02f1","username":"StressUser_client_47"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_42 | Details: {"userId":"74d5c908","username":"StressUser_client_42"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_45 | Details: {"userId":"48c92e30","username":"StressUser_client_45"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_41 | Details: {"userId":"372539fc","username":"StressUser_client_41"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_46 | Details: {"userId":"3fb8aa36","username":"StressUser_client_46"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_38 | Details: {"userId":"a74703a3","username":"StressUser_client_38"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_44 | Details: {"userId":"78cbde9a","username":"StressUser_client_44"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_35 | Details: {"userId":"9877e753","username":"StressUser_client_35"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_49 | Details: {"userId":"32794a7a","username":"StressUser_client_49"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser_client_48 | Details: {"userId":"23231b0c","username":"StressUser_client_48"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser0 | Details: {"userId":"600b2abf","username":"TestUser0"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser3 | Details: {"userId":"13ef9280","username":"TestUser3"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser1 | Details: {"userId":"1929cb35","username":"TestUser1"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser5 | Details: {"userId":"df5914fa","username":"TestUser5"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser2 | Details: {"userId":"e693bca8","username":"TestUser2"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser4 | Details: {"userId":"20fd455b","username":"TestUser4"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser6 | Details: {"userId":"ee591046","username":"TestUser6"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser7 | Details: {"userId":"c08485f1","username":"TestUser7"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser8 | Details: {"userId":"6cd6c474","username":"TestUser8"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: TestUser9 | Details: {"userId":"a5ecfbce","username":"TestUser9"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser0 | Details: {"userId":"87372ea0","username":"ConcurrentUser0"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser1 | Details: {"userId":"1cd70d54","username":"ConcurrentUser1"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser2 | Details: {"userId":"94e25214","username":"ConcurrentUser2"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser3 | Details: {"userId":"2beda668","username":"ConcurrentUser3"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser4 | Details: {"userId":"4802bb22","username":"ConcurrentUser4"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser5 | Details: {"userId":"363216fe","username":"ConcurrentUser5"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser6 | Details: {"userId":"0f280a6b","username":"ConcurrentUser6"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser7 | Details: {"userId":"9ffc224f","username":"ConcurrentUser7"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser8 | Details: {"userId":"df09ca6b","username":"ConcurrentUser8"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser9 | Details: {"userId":"b50490fd","username":"ConcurrentUser9"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser10 | Details: {"userId":"9bd35eea","username":"ConcurrentUser10"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser11 | Details: {"userId":"c5e7f5bc","username":"ConcurrentUser11"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser12 | Details: {"userId":"9abb5460","username":"ConcurrentUser12"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser13 | Details: {"userId":"5a3f0dc0","username":"ConcurrentUser13"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser14 | Details: {"userId":"d580a576","username":"ConcurrentUser14"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser15 | Details: {"userId":"80691234","username":"ConcurrentUser15"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser16 | Details: {"userId":"ab13b711","username":"ConcurrentUser16"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser17 | Details: {"userId":"2df02266","username":"ConcurrentUser17"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser18 | Details: {"userId":"44c174a6","username":"ConcurrentUser18"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser19 | Details: {"userId":"7b32b41e","username":"ConcurrentUser19"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser20 | Details: {"userId":"fa45cf8d","username":"ConcurrentUser20"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser21 | Details: {"userId":"48ebfcdd","username":"ConcurrentUser21"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser22 | Details: {"userId":"b8b9605b","username":"ConcurrentUser22"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser23 | Details: {"userId":"c4e18ad9","username":"ConcurrentUser23"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: ConcurrentUser24 | Details: {"userId":"de1ac6fc","username":"ConcurrentUser24"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser3 | Details: {"userId":"stress_client_3","username":"StressUser3"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser9 | Details: {"userId":"stress_client_9","username":"StressUser9"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser1 | Details: {"userId":"stress_client_1","username":"StressUser1"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser4 | Details: {"userId":"stress_client_4","username":"StressUser4"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser6 | Details: {"userId":"stress_client_6","username":"StressUser6"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser2 | Details: {"userId":"stress_client_2","username":"StressUser2"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser7 | Details: {"userId":"stress_client_7","username":"StressUser7"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser8 | Details: {"userId":"stress_client_8","username":"StressUser8"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser10 | Details: {"userId":"stress_client_10","username":"StressUser10"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser5 | Details: {"userId":"stress_client_5","username":"StressUser5"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser16 | Details: {"userId":"stress_client_16","username":"StressUser16"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser14 | Details: {"userId":"stress_client_14","username":"StressUser14"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser11 | Details: {"userId":"stress_client_11","username":"StressUser11"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser21 | Details: {"userId":"stress_client_21","username":"StressUser21"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser35 | Details: {"userId":"stress_client_35","username":"StressUser35"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser49 | Details: {"userId":"stress_client_49","username":"StressUser49"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser18 | Details: {"userId":"stress_client_18","username":"StressUser18"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser31 | Details: {"userId":"stress_client_31","username":"StressUser31"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser15 | Details: {"userId":"stress_client_15","username":"StressUser15"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser12 | Details: {"userId":"stress_client_12","username":"StressUser12"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser28 | Details: {"userId":"stress_client_28","username":"StressUser28"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser13 | Details: {"userId":"stress_client_13","username":"StressUser13"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser36 | Details: {"userId":"stress_client_36","username":"StressUser36"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser29 | Details: {"userId":"stress_client_29","username":"StressUser29"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser17 | Details: {"userId":"stress_client_17","username":"StressUser17"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser26 | Details: {"userId":"stress_client_26","username":"StressUser26"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser47 | Details: {"userId":"stress_client_47","username":"StressUser47"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser23 | Details: {"userId":"stress_client_23","username":"StressUser23"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser25 | Details: {"userId":"stress_client_25","username":"StressUser25"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser46 | Details: {"userId":"stress_client_46","username":"StressUser46"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser20 | Details: {"userId":"stress_client_20","username":"StressUser20"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser27 | Details: {"userId":"stress_client_27","username":"StressUser27"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser43 | Details: {"userId":"stress_client_43","username":"StressUser43"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser38 | Details: {"userId":"stress_client_38","username":"StressUser38"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser40 | Details: {"userId":"stress_client_40","username":"StressUser40"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser41 | Details: {"userId":"stress_client_41","username":"StressUser41"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser34 | Details: {"userId":"stress_client_34","username":"StressUser34"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser37 | Details: {"userId":"stress_client_37","username":"StressUser37"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser30 | Details: {"userId":"stress_client_30","username":"StressUser30"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser39 | Details: {"userId":"stress_client_39","username":"StressUser39"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser19 | Details: {"userId":"stress_client_19","username":"StressUser19"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser44 | Details: {"userId":"stress_client_44","username":"StressUser44"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser33 | Details: {"userId":"stress_client_33","username":"StressUser33"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser32 | Details: {"userId":"stress_client_32","username":"StressUser32"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser24 | Details: {"userId":"stress_client_24","username":"StressUser24"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser42 | Details: {"userId":"stress_client_42","username":"StressUser42"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser45 | Details: {"userId":"stress_client_45","username":"StressUser45"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser48 | Details: {"userId":"stress_client_48","username":"StressUser48"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser22 | Details: {"userId":"stress_client_22","username":"StressUser22"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser50 | Details: {"userId":"stress_client_50","username":"StressUser50"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser64 | Details: {"userId":"stress_client_64","username":"StressUser64"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser58 | Details: {"userId":"stress_client_58","username":"StressUser58"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser61 | Details: {"userId":"stress_client_61","username":"StressUser61"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser52 | Details: {"userId":"stress_client_52","username":"StressUser52"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser54 | Details: {"userId":"stress_client_54","username":"StressUser54"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser53 | Details: {"userId":"stress_client_53","username":"StressUser53"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser62 | Details: {"userId":"stress_client_62","username":"StressUser62"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser55 | Details: {"userId":"stress_client_55","username":"StressUser55"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser60 | Details: {"userId":"stress_client_60","username":"StressUser60"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser63 | Details: {"userId":"stress_client_63","username":"StressUser63"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser59 | Details: {"userId":"stress_client_59","username":"StressUser59"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser57 | Details: {"userId":"stress_client_57","username":"StressUser57"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser51 | Details: {"userId":"stress_client_51","username":"StressUser51"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser56 | Details: {"userId":"stress_client_56","username":"StressUser56"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser67 | Details: {"userId":"stress_client_67","username":"StressUser67"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser66 | Details: {"userId":"stress_client_66","username":"StressUser66"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser68 | Details: {"userId":"stress_client_68","username":"StressUser68"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser65 | Details: {"userId":"stress_client_65","username":"StressUser65"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser70 | Details: {"userId":"stress_client_70","username":"StressUser70"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser72 | Details: {"userId":"stress_client_72","username":"StressUser72"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser92 | Details: {"userId":"stress_client_92","username":"StressUser92"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser81 | Details: {"userId":"stress_client_81","username":"StressUser81"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser90 | Details: {"userId":"stress_client_90","username":"StressUser90"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser74 | Details: {"userId":"stress_client_74","username":"StressUser74"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser79 | Details: {"userId":"stress_client_79","username":"StressUser79"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser97 | Details: {"userId":"stress_client_97","username":"StressUser97"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser86 | Details: {"userId":"stress_client_86","username":"StressUser86"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser100 | Details: {"userId":"stress_client_100","username":"StressUser100"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser82 | Details: {"userId":"stress_client_82","username":"StressUser82"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser99 | Details: {"userId":"stress_client_99","username":"StressUser99"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser91 | Details: {"userId":"stress_client_91","username":"StressUser91"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser80 | Details: {"userId":"stress_client_80","username":"StressUser80"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser85 | Details: {"userId":"stress_client_85","username":"StressUser85"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser96 | Details: {"userId":"stress_client_96","username":"StressUser96"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser93 | Details: {"userId":"stress_client_93","username":"StressUser93"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser94 | Details: {"userId":"stress_client_94","username":"StressUser94"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser69 | Details: {"userId":"stress_client_69","username":"StressUser69"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser89 | Details: {"userId":"stress_client_89","username":"StressUser89"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser83 | Details: {"userId":"stress_client_83","username":"StressUser83"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser77 | Details: {"userId":"stress_client_77","username":"StressUser77"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser84 | Details: {"userId":"stress_client_84","username":"StressUser84"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser87 | Details: {"userId":"stress_client_87","username":"StressUser87"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser71 | Details: {"userId":"stress_client_71","username":"StressUser71"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser78 | Details: {"userId":"stress_client_78","username":"StressUser78"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser98 | Details: {"userId":"stress_client_98","username":"StressUser98"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser73 | Details: {"userId":"stress_client_73","username":"StressUser73"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser88 | Details: {"userId":"stress_client_88","username":"StressUser88"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser76 | Details: {"userId":"stress_client_76","username":"StressUser76"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser75 | Details: {"userId":"stress_client_75","username":"StressUser75"}
+[2025-06-02 17:49:34] [INFO] [USER_REGISTER] User registered: StressUser95 | Details: {"userId":"stress_client_95","username":"StressUser95"}
+[2025-06-02 17:49:34] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"stress_client_9","senderId":"stress_client_9","type":"text","size":0}
+[2025-06-02 17:49:34] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"stress_client_8","senderId":"stress_client_9","type":"text","size":0}
+[2025-06-02 17:49:34] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"stress_client_7","senderId":"stress_client_2","type":"text","size":0}
+[2025-06-02 17:50:04] [INFO] [USER_REGISTER] User registered: ad | Details: {"userId":"123","username":"ad"}
+[2025-06-02 17:50:07] [INFO] [USER_REGISTER] User registered: dă | Details: {"userId":"244","username":"dă"}
+[2025-06-02 17:50:45] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748861445933}
+[2025-06-02 17:50:49] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 17:50:49] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 17:50:49] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 17:50:49] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 17:50:49] [INFO] [USER_REGISTER] User registered: ad | Details: {"userId":"123","username":"ad"}
+[2025-06-02 17:50:49] [INFO] [USER_REGISTER] User registered: dă | Details: {"userId":"244","username":"dă"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup0 | Details: {"groupId":"stress_group_0","groupName":"StressGroup0"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup1 | Details: {"groupId":"stress_group_1","groupName":"StressGroup1"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup2 | Details: {"groupId":"stress_group_2","groupName":"StressGroup2"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup3 | Details: {"groupId":"stress_group_3","groupName":"StressGroup3"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup4 | Details: {"groupId":"stress_group_4","groupName":"StressGroup4"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup0 | Details: {"groupId":"stress_group_0","groupName":"StressGroup0"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup1 | Details: {"groupId":"stress_group_1","groupName":"StressGroup1"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup3 | Details: {"groupId":"stress_group_3","groupName":"StressGroup3"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup4 | Details: {"groupId":"stress_group_4","groupName":"StressGroup4"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup0 | Details: {"groupId":"stress_group_0","groupName":"StressGroup0"}
+[2025-06-02 17:50:49] [INFO] [GROUP_CREATED] Group created: StressGroup4 | Details: {"groupId":"stress_group_4","groupName":"StressGroup4"}
+[2025-06-02 17:50:55] [INFO] [USER_REGISTER] User registered: AD | Details: {"userId":"123","username":"AD"}
+[2025-06-02 17:50:56] [INFO] [USER_REGISTER] User registered: AD | Details: {"userId":"123","username":"AD"}
+[2025-06-02 17:50:56] [INFO] [USER_REGISTER] User registered: AD | Details: {"userId":"123","username":"AD"}
+[2025-06-02 17:50:56] [INFO] [USER_REGISTER] User registered: AD | Details: {"userId":"123","username":"AD"}
+[2025-06-02 17:51:37] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748861497136}
+[2025-06-02 17:51:40] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 17:51:40] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 17:51:40] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 17:51:40] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 17:51:44] [INFO] [USER_REGISTER] User registered: AD | Details: {"userId":"123","username":"AD"}
+[2025-06-02 17:51:44] [INFO] [USER_REGISTER] User registered: AD | Details: {"userId":"123","username":"AD"}
+[2025-06-02 17:51:52] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"456","username":"Duc"}
+[2025-06-02 17:51:52] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"456","username":"Duc"}
+[2025-06-02 17:52:01] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"456","type":"text","size":0}
+[2025-06-02 17:52:01] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"AD","targetId":"","type":"text","size":0}
+[2025-06-02 17:52:03] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"123","type":"text","size":0}
+[2025-06-02 17:52:03] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Duc","targetId":"","type":"text","size":0}
+[2025-06-02 17:52:20] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 17:52:20] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 17:52:20] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748861540833}
+[2025-06-02 17:57:05] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748861825725}
+[2025-06-02 17:57:09] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 17:57:09] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 17:57:09] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 17:57:09] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:01:15] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748862075600}
+[2025-06-02 18:01:18] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:01:18] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:01:18] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:01:18] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:01:27] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:01:27] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:01:32] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 18:01:32] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 18:01:41] [INFO] [GROUP_CREATED] Group created: ggg | Details: {"groupId":"group_4969a6c8","groupName":"ggg"}
+[2025-06-02 18:02:03] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"group_4969a6c8","type":"text","size":0}
+[2025-06-02 18:02:03] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Quy","targetId":"group_4969a6c8","type":"text","size":0}
+[2025-06-02 18:02:06] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_4969a6c8","type":"text","size":0}
+[2025-06-02 18:02:06] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Duc","targetId":"group_4969a6c8","type":"text","size":0}
+[2025-06-02 18:02:09] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"group_4969a6c8","type":"text","size":0}
+[2025-06-02 18:02:09] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Quy","targetId":"group_4969a6c8","type":"text","size":0}
+[2025-06-02 18:02:19] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"123","type":"text","size":0}
+[2025-06-02 18:02:19] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Quy","targetId":"","type":"text","size":0}
+[2025-06-02 18:02:22] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"456","type":"text","size":0}
+[2025-06-02 18:02:22] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Duc","targetId":"","type":"text","size":0}
+[2025-06-02 18:02:25] [INFO] [SYSTEM] Group deleted: ggg | Details: {"groupId":"group_4969a6c8","groupName":"ggg"}
+[2025-06-02 18:02:38] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:02:38] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:02:38] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748862158526}
+[2025-06-02 18:07:54] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748862474087}
+[2025-06-02 18:07:57] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:07:57] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:07:57] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:07:57] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:08:04] [INFO] [USER_REGISTER] User registered: D | Details: {"userId":"132","username":"D"}
+[2025-06-02 18:08:04] [INFO] [USER_REGISTER] User registered: D | Details: {"userId":"132","username":"D"}
+[2025-06-02 18:08:07] [INFO] [USER_REGISTER] User registered: F | Details: {"userId":"543","username":"F"}
+[2025-06-02 18:08:07] [INFO] [USER_REGISTER] User registered: F | Details: {"userId":"543","username":"F"}
+[2025-06-02 18:08:13] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"543","senderId":"132","type":"text","size":0}
+[2025-06-02 18:08:13] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"F","targetId":"","type":"text","size":0}
+[2025-06-02 18:08:16] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"132","senderId":"543","type":"text","size":0}
+[2025-06-02 18:08:16] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"D","targetId":"","type":"text","size":0}
+[2025-06-02 18:08:24] [INFO] [GROUP_CREATED] Group created: TestGroup | Details: {"groupId":"group_fb284bf0","groupName":"TestGroup"}
+[2025-06-02 18:08:39] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"132","senderId":"group_fb284bf0","type":"text","size":0}
+[2025-06-02 18:08:39] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"D","targetId":"group_fb284bf0","type":"text","size":0}
+[2025-06-02 18:08:42] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"543","senderId":"group_fb284bf0","type":"text","size":0}
+[2025-06-02 18:08:42] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"F","targetId":"group_fb284bf0","type":"text","size":0}
+[2025-06-02 18:09:16] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748862556394}
+[2025-06-02 18:09:19] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:09:19] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:09:19] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:09:19] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:09:22] [INFO] [USER_REGISTER] User registered: 4124 | Details: {"userId":"f1042534","username":"4124"}
+[2025-06-02 18:09:22] [INFO] [USER_REGISTER] User registered: 4124 | Details: {"userId":"f1042534","username":"4124"}
+[2025-06-02 18:09:32] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:09:32] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:09:32] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748862572960}
+[2025-06-02 18:12:03] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748862723614}
+[2025-06-02 18:12:06] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:12:06] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:12:06] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:12:06] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:12:13] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:12:13] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:12:17] [INFO] [USER_REGISTER] User registered: duy | Details: {"userId":"456","username":"duy"}
+[2025-06-02 18:12:17] [INFO] [USER_REGISTER] User registered: duy | Details: {"userId":"456","username":"duy"}
+[2025-06-02 18:12:25] [INFO] [GROUP_CREATED] Group created: Test | Details: {"groupId":"group_16622b2d","groupName":"Test"}
+[2025-06-02 18:12:51] [INFO] [GROUP_CREATED] Group created: Test2 | Details: {"groupId":"group_d399520a","groupName":"Test2"}
+[2025-06-02 18:13:04] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"group_16622b2d","type":"text","size":0}
+[2025-06-02 18:13:08] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_16622b2d","type":"text","size":0}
+[2025-06-02 18:13:08] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Duc","targetId":"group_16622b2d","type":"text","size":0}
+[2025-06-02 18:15:09] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748862909372}
+[2025-06-02 18:15:12] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:15:12] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:15:12] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:15:12] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:15:17] [INFO] [USER_REGISTER] User registered: ADD | Details: {"userId":"123","username":"ADD"}
+[2025-06-02 18:15:17] [INFO] [USER_REGISTER] User registered: ADD | Details: {"userId":"123","username":"ADD"}
+[2025-06-02 18:15:20] [INFO] [USER_REGISTER] User registered: dưf | Details: {"userId":"3435","username":"dưf"}
+[2025-06-02 18:15:20] [INFO] [USER_REGISTER] User registered: dưf | Details: {"userId":"3435","username":"dưf"}
+[2025-06-02 18:15:25] [INFO] [GROUP_CREATED] Group created: Agh | Details: {"groupId":"group_ac8dd5c2","groupName":"Agh"}
+[2025-06-02 18:15:30] [INFO] [GROUP_CREATED] Group created: fwg | Details: {"groupId":"group_0d652f52","groupName":"fwg"}
+[2025-06-02 18:15:57] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:15:57] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:15:57] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748862957210}
+[2025-06-02 18:19:55] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748863195516}
+[2025-06-02 18:19:58] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:19:58] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:19:58] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:19:58] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:20:05] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:20:05] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:20:08] [INFO] [USER_REGISTER] User registered: 5324 | Details: {"userId":"125","username":"5324"}
+[2025-06-02 18:20:08] [INFO] [USER_REGISTER] User registered: 5324 | Details: {"userId":"125","username":"5324"}
+[2025-06-02 18:20:16] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"125","senderId":"123","type":"text","size":0}
+[2025-06-02 18:20:16] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"5324","targetId":"","type":"text","size":0}
+[2025-06-02 18:20:21] [INFO] [GROUP_CREATED] Group created: adđ | Details: {"groupId":"group_b6f2109f","groupName":"adđ"}
+[2025-06-02 18:21:40] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:21:40] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:21:40] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748863300363}
+[2025-06-02 18:23:12] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748863392477}
+[2025-06-02 18:23:15] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:23:15] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:23:15] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:23:15] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:23:22] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:23:22] [INFO] [USER_REGISTER] User registered: Duc | Details: {"userId":"123","username":"Duc"}
+[2025-06-02 18:23:27] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 18:23:27] [INFO] [USER_REGISTER] User registered: Quy | Details: {"userId":"456","username":"Quy"}
+[2025-06-02 18:23:31] [INFO] [GROUP_CREATED] Group created: Test | Details: {"groupId":"group_4a8eb943","groupName":"Test"}
+[2025-06-02 18:23:51] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"group_4a8eb943","type":"text","size":0}
+[2025-06-02 18:23:51] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Quy","targetId":"group_4a8eb943","type":"text","size":0}
+[2025-06-02 18:26:01] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:26:01] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:26:01] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748863561429}
+[2025-06-02 18:29:34] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748863774085}
+[2025-06-02 18:29:37] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:29:37] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:29:37] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:29:37] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:29:54] [INFO] [USER_REGISTER] User registered: ad | Details: {"userId":"123","username":"ad"}
+[2025-06-02 18:29:54] [INFO] [USER_REGISTER] User registered: ad | Details: {"userId":"123","username":"ad"}
+[2025-06-02 18:29:57] [INFO] [USER_REGISTER] User registered: 512 | Details: {"userId":"456","username":"512"}
+[2025-06-02 18:29:57] [INFO] [USER_REGISTER] User registered: 512 | Details: {"userId":"456","username":"512"}
+[2025-06-02 18:30:01] [INFO] [GROUP_CREATED] Group created: Test | Details: {"groupId":"group_c11ade42","groupName":"Test"}
+[2025-06-02 18:30:04] [INFO] [GROUP_CREATED] Group created: Test2 | Details: {"groupId":"group_1d0090ea","groupName":"Test2"}
+[2025-06-02 18:30:30] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_c11ade42","type":"text","size":0}
+[2025-06-02 18:30:33] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"group_c11ade42","type":"text","size":0}
+[2025-06-02 18:30:33] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"512","targetId":"group_c11ade42","type":"text","size":0}
+[2025-06-02 18:30:42] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_c11ade42","type":"text","size":0}
+[2025-06-02 18:30:44] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"456","senderId":"group_c11ade42","type":"text","size":0}
+[2025-06-02 18:30:44] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"512","targetId":"group_c11ade42","type":"text","size":0}
+[2025-06-02 18:30:51] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:30:51] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:30:51] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748863851159}
+[2025-06-02 18:31:25] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748863885011}
+[2025-06-02 18:31:28] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:31:28] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:31:28] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:31:28] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:31:36] [INFO] [USER_REGISTER] User registered: 12 | Details: {"userId":"44","username":"12"}
+[2025-06-02 18:31:36] [INFO] [USER_REGISTER] User registered: 12 | Details: {"userId":"44","username":"12"}
+[2025-06-02 18:31:39] [INFO] [USER_REGISTER] User registered: 5124 | Details: {"userId":"645","username":"5124"}
+[2025-06-02 18:31:39] [INFO] [USER_REGISTER] User registered: 5124 | Details: {"userId":"645","username":"5124"}
+[2025-06-02 18:32:30] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:32:30] [INFO] [SYSTEM] User disconnected: 12 | Details: {"userId":"44","sessionDuration":54033}
+[2025-06-02 18:32:30] [INFO] [SYSTEM] User disconnected: 5124 | Details: {"userId":"645","sessionDuration":50977}
+[2025-06-02 18:32:30] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:32:30] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748863950251}
+[2025-06-02 18:52:52] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748865172751}
+[2025-06-02 18:52:56] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:52:56] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:52:56] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:52:56] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:53:02] [INFO] [USER_REGISTER] User registered: q4 | Details: {"userId":"123","username":"q4"}
+[2025-06-02 18:53:02] [INFO] [USER_REGISTER] User registered: q4 | Details: {"userId":"123","username":"q4"}
+[2025-06-02 18:53:06] [INFO] [USER_REGISTER] User registered: 315 | Details: {"userId":"535","username":"315"}
+[2025-06-02 18:53:06] [INFO] [USER_REGISTER] User registered: 315 | Details: {"userId":"535","username":"315"}
+[2025-06-02 18:53:16] [INFO] [GROUP_CREATED] Group created: Testtt | Details: {"groupId":"group_89a7a6df","groupName":"Testtt"}
+[2025-06-02 18:53:18] [INFO] [GROUP_CREATED] Group created: fawf | Details: {"groupId":"group_43e2a476","groupName":"fawf"}
+[2025-06-02 18:53:26] [INFO] [SYSTEM] Group deleted: fawf | Details: {"groupId":"group_43e2a476","groupName":"fawf"}
+[2025-06-02 18:53:47] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"535","senderId":"group_89a7a6df","type":"text","size":0}
+[2025-06-02 18:53:50] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_89a7a6df","type":"text","size":0}
+[2025-06-02 18:53:50] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"q4","targetId":"group_89a7a6df","type":"text","size":0}
+[2025-06-02 18:53:59] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_89a7a6df","type":"text","size":0}
+[2025-06-02 18:53:59] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"q4","targetId":"group_89a7a6df","type":"text","size":0}
+[2025-06-02 18:54:01] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"535","senderId":"group_89a7a6df","type":"text","size":0}
+[2025-06-02 18:54:01] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"315","targetId":"group_89a7a6df","type":"text","size":0}
+[2025-06-02 18:58:46] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748865526738}
+[2025-06-02 18:58:50] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 18:58:50] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 18:58:50] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 18:58:50] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 18:58:54] [INFO] [USER_REGISTER] User registered: gg | Details: {"userId":"24","username":"gg"}
+[2025-06-02 18:58:54] [INFO] [USER_REGISTER] User registered: gg | Details: {"userId":"24","username":"gg"}
+[2025-06-02 18:58:57] [INFO] [USER_REGISTER] User registered: 352 | Details: {"userId":"657","username":"352"}
+[2025-06-02 18:58:57] [INFO] [USER_REGISTER] User registered: 352 | Details: {"userId":"657","username":"352"}
+[2025-06-02 18:59:00] [INFO] [GROUP_CREATED] Group created: af | Details: {"groupId":"group_d5f3cef9","groupName":"af"}
+[2025-06-02 18:59:33] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 18:59:33] [INFO] [SYSTEM] User disconnected: gg | Details: {"userId":"24","sessionDuration":39451}
+[2025-06-02 18:59:33] [INFO] [SYSTEM] User disconnected: 352 | Details: {"userId":"657","sessionDuration":36199}
+[2025-06-02 18:59:33] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 18:59:33] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748865573568}
+[2025-06-02 19:01:34] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748865694758}
+[2025-06-02 19:01:38] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:01:38] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:01:38] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:01:38] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:01:43] [INFO] [USER_REGISTER] User registered: r | Details: {"userId":"46h","username":"r"}
+[2025-06-02 19:01:43] [INFO] [USER_REGISTER] User registered: r | Details: {"userId":"46h","username":"r"}
+[2025-06-02 19:01:47] [INFO] [USER_REGISTER] User registered: 3r | Details: {"userId":"h67","username":"3r"}
+[2025-06-02 19:01:47] [INFO] [USER_REGISTER] User registered: 3r | Details: {"userId":"h67","username":"3r"}
+[2025-06-02 19:01:54] [INFO] [GROUP_CREATED] Group created: tee | Details: {"groupId":"group_de54a718","groupName":"tee"}
+[2025-06-02 19:02:07] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:02:07] [INFO] [SYSTEM] User disconnected: 3r | Details: {"userId":"h67","sessionDuration":20524}
+[2025-06-02 19:02:07] [INFO] [SYSTEM] User disconnected: r | Details: {"userId":"46h","sessionDuration":24183}
+[2025-06-02 19:02:07] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:02:07] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748865727649}
+[2025-06-02 19:06:07] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748865967700}
+[2025-06-02 19:06:10] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:06:10] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:06:10] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:06:10] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:06:17] [INFO] [USER_REGISTER] User registered: Dcc | Details: {"userId":"145","username":"Dcc"}
+[2025-06-02 19:06:17] [INFO] [USER_REGISTER] User registered: Dcc | Details: {"userId":"145","username":"Dcc"}
+[2025-06-02 19:06:21] [INFO] [USER_REGISTER] User registered: r3f | Details: {"userId":"4tg","username":"r3f"}
+[2025-06-02 19:06:21] [INFO] [USER_REGISTER] User registered: r3f | Details: {"userId":"4tg","username":"r3f"}
+[2025-06-02 19:06:24] [INFO] [GROUP_CREATED] Group created: 53ww | Details: {"groupId":"group_7bede27d","groupName":"53ww"}
+[2025-06-02 19:06:39] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"145","senderId":"group_7bede27d","type":"text","size":0}
+[2025-06-02 19:06:39] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Dcc","targetId":"group_7bede27d","type":"text","size":0}
+[2025-06-02 19:06:43] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"4tg","senderId":"group_7bede27d","type":"text","size":0}
+[2025-06-02 19:06:43] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"r3f","targetId":"group_7bede27d","type":"text","size":0}
+[2025-06-02 19:07:11] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:07:11] [INFO] [SYSTEM] User disconnected: Dcc | Details: {"userId":"145","sessionDuration":54455}
+[2025-06-02 19:07:11] [INFO] [SYSTEM] User disconnected: r3f | Details: {"userId":"4tg","sessionDuration":50826}
+[2025-06-02 19:07:11] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:07:11] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866031913}
+[2025-06-02 19:07:56] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866076299}
+[2025-06-02 19:07:59] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:07:59] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:07:59] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:07:59] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:08:04] [INFO] [USER_REGISTER] User registered: dddd | Details: {"userId":"123","username":"dddd"}
+[2025-06-02 19:08:04] [INFO] [USER_REGISTER] User registered: dddd | Details: {"userId":"123","username":"dddd"}
+[2025-06-02 19:08:08] [INFO] [USER_REGISTER] User registered: fegrg | Details: {"userId":"235","username":"fegrg"}
+[2025-06-02 19:08:08] [INFO] [USER_REGISTER] User registered: fegrg | Details: {"userId":"235","username":"fegrg"}
+[2025-06-02 19:08:12] [INFO] [GROUP_CREATED] Group created: tesst | Details: {"groupId":"group_d1f841c0","groupName":"tesst"}
+[2025-06-02 19:08:32] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"235","senderId":"group_d1f841c0","type":"text","size":0}
+[2025-06-02 19:08:32] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"fegrg","targetId":"group_d1f841c0","type":"text","size":0}
+[2025-06-02 19:08:34] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"123","senderId":"group_d1f841c0","type":"text","size":0}
+[2025-06-02 19:08:34] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"dddd","targetId":"group_d1f841c0","type":"text","size":0}
+[2025-06-02 19:08:57] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:08:57] [INFO] [SYSTEM] User disconnected: fegrg | Details: {"userId":"235","sessionDuration":48463}
+[2025-06-02 19:08:57] [INFO] [SYSTEM] User disconnected: dddd | Details: {"userId":"123","sessionDuration":52985}
+[2025-06-02 19:08:57] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:08:57] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866137300}
+[2025-06-02 19:09:59] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866199596}
+[2025-06-02 19:10:02] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:10:02] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:10:02] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:10:02] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:10:06] [INFO] [USER_REGISTER] User registered: r3 | Details: {"userId":"seg","username":"r3"}
+[2025-06-02 19:10:06] [INFO] [USER_REGISTER] User registered: r3 | Details: {"userId":"seg","username":"r3"}
+[2025-06-02 19:10:09] [INFO] [GROUP_CREATED] Group created: gseg | Details: {"groupId":"group_f86fc62d","groupName":"gseg"}
+[2025-06-02 19:10:55] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866255615}
+[2025-06-02 19:10:58] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:10:58] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:10:58] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:10:58] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:11:02] [INFO] [USER_REGISTER] User registered: gse | Details: {"userId":"geg","username":"gse"}
+[2025-06-02 19:11:02] [INFO] [USER_REGISTER] User registered: gse | Details: {"userId":"geg","username":"gse"}
+[2025-06-02 19:11:09] [INFO] [GROUP_CREATED] Group created: fwf | Details: {"groupId":"group_51105fdf","groupName":"fwf"}
+[2025-06-02 19:11:18] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:11:18] [INFO] [SYSTEM] User disconnected: gse | Details: {"userId":"geg","sessionDuration":16699}
+[2025-06-02 19:11:18] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:11:18] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866278934}
+[2025-06-02 19:11:48] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866308399}
+[2025-06-02 19:11:51] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:11:51] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:11:51] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:11:51] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:11:55] [INFO] [USER_REGISTER] User registered: faf | Details: {"userId":"awff","username":"faf"}
+[2025-06-02 19:11:55] [INFO] [USER_REGISTER] User registered: faf | Details: {"userId":"awff","username":"faf"}
+[2025-06-02 19:12:00] [INFO] [GROUP_CREATED] Group created: fwfw | Details: {"groupId":"group_a44c55cd","groupName":"fwfw"}
+[2025-06-02 19:12:15] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:12:15] [INFO] [SYSTEM] User disconnected: faf | Details: {"userId":"awff","sessionDuration":20108}
+[2025-06-02 19:12:15] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:12:15] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866335315}
+[2025-06-02 19:12:38] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866358392}
+[2025-06-02 19:12:41] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:12:41] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:12:41] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:12:41] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:12:45] [INFO] [USER_REGISTER] User registered: t3 | Details: {"userId":"gesg","username":"t3"}
+[2025-06-02 19:12:45] [INFO] [USER_REGISTER] User registered: t3 | Details: {"userId":"gesg","username":"t3"}
+[2025-06-02 19:12:56] [INFO] [GROUP_CREATED] Group created: gaw | Details: {"groupId":"group_7601ada5","groupName":"gaw"}
+[2025-06-02 19:13:06] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:13:06] [INFO] [SYSTEM] User disconnected: t3 | Details: {"userId":"gesg","sessionDuration":21162}
+[2025-06-02 19:13:06] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:13:06] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866386548}
