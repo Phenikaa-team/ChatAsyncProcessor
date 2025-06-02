@@ -1,6 +1,12 @@
-<h1 align="center">Distributed Chat System</h1>
+<p align="center">
+<a href="https://github.com/Phenikaa-team/ChatAsyncProcessor">
+    <img src="/src/main/resources/assets/icon.png" alt="Logo" width="80" height="80">
+</a>
+</p>
 
+<h1 align="center">Distributed Chat System </h1>
 
+<a id="readme-top"></a>
 <p align="center">
 <img src="https://img.shields.io/badge/Kotlin-da4567?style=for-the-badge&logo=kotlin&logoColor=white">
 <img src="https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white">
@@ -9,6 +15,8 @@
 <img src="https://img.shields.io/badge/rabbitMQ-F66200.svg?style=for-the-badge&logo=rabbitMQ&logoColor=white">
 <img src="https://img.shields.io/badge/docker-1c62ef.svg?style=for-the-badge&logo=docker&logoColor=white">
 </p>
+
+---
 
 ## Overview
 
@@ -29,10 +37,17 @@ The system supports:
 - ✅ Monitoring / Logging
 
 UI:
-<details>
-    <summary>Click to show GUI </summary>
+- <details>
+    <summary>Chat panel </summary>
     <img src="src/main/resources/assets/static/ui.png" alt="latest ui">
-</details>
+ </details>
+
+- <details>
+    <summary>Monitor dashboard </summary>
+    <img src="src/main/resources/assets/static/ui.png" alt="latest ui">
+  </details>
+
+---
 
 ## ️ Architecture
 ```mermaid
@@ -51,7 +66,15 @@ graph TD
     style E fill:#99ccff
     style F fill:#99ff99
     style G fill:#ffcc99 
+
+   classDef whiteText color:#000000
+   class B,E,F,G whiteText
+   
+   classDef blackOutline stroke:#ffffff
+   class A,B,C,D,E,F,G blackOutline
 ```
+
+---
 
 ### Key Components:
 
@@ -82,6 +105,8 @@ graph TD
    - Join/leave group operations
    - Member management
    - Group message broadcasting
+
+---
 
 ## Features
 
@@ -138,6 +163,8 @@ sequenceDiagram
     Note over C2,C3: Sender excluded from broadcast
 ```
 
+---
+
 ## Setup & Usage
 
 ### Prerequisites
@@ -177,6 +204,8 @@ The system automatically:
 - Deploys server verticle
 - Creates multiple client instances for testing
 - Sets up all necessary RabbitMQ queues and exchanges
+
+---
 
 ## Message Types & Protocols
 
