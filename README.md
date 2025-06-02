@@ -44,7 +44,7 @@ UI:
 
 - <details>
     <summary>Monitor dashboard </summary>
-    <img src="src/main/resources/assets/static/ui.png" alt="latest ui">
+    <img src="src/main/resources/assets/static/monitor.png" alt="latest ui">
   </details>
 
 ---
