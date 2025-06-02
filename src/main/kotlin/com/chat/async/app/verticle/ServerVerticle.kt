@@ -297,30 +297,51 @@ class ServerVerticle : AbstractVerticle() {
                         val fileName = json.getString("file")
                         val data = json.getString("data")
 
+                        val isGroup = groups.containsKey(toId)
                         val forwardMsg = JsonObject().apply {
                             put("file", fileName)
                             put("data", data)
                             put("sender", senderName)
                             put("senderId", senderId)
+                            put("isGroup", isGroup)
+                            if (isGroup) {
+                                put("targetId", toId)
+                            }
                             put("timestamp", System.currentTimeMillis())
                         }
 
-                        sendToQueue(toId, forwardMsg)
+                        if (isGroup) {
+                            groups[toId]?.members?.forEach { memberId ->
+                                sendToQueue(memberId, forwardMsg)
+                            }
+                            println("📤 Group file sent to ${groups[toId]?.members?.size} members in group $toId")
+                        } else {
+                            sendToQueue(toId, forwardMsg)
+                        }
                         MonitoringIntegration.trackFileReceived(senderId, toId, "file")
-
                     }
 
                     "image" -> {
                         val imageData = json.getString("image")
 
+                        val isGroup = groups.containsKey(toId)
                         val forwardMsg = JsonObject().apply {
                             put("image", imageData)
                             put("sender", senderName)
                             put("senderId", senderId)
+                            put("isGroup", isGroup)
+                            if (isGroup) put("targetId", toId)
                             put("timestamp", System.currentTimeMillis())
                         }
 
-                        sendToQueue(toId, forwardMsg)
+                        if (isGroup) {
+                            groups[toId]?.members?.forEach { memberId ->
+                                sendToQueue(memberId, forwardMsg)
+                            }
+                            println("📤 Group image sent to ${groups[toId]?.members?.size} members in group $toId")
+                        } else {
+                            sendToQueue(toId, forwardMsg)
+                        }
                         MonitoringIntegration.trackImageReceived(senderId, toId, "image")
                     }
 

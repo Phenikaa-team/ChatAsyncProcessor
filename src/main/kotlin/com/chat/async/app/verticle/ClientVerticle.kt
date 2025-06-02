@@ -166,7 +166,12 @@ class ClientVerticle : AbstractVerticle() {
             override fun handleDelivery(tag: String?, env: Envelope?, props: AMQP.BasicProperties?, body: ByteArray?) {
                 try {
                     val json = JsonObject(String(body!!))
-                    println("📩 Received message: ${json.encodePrettily()}")
+
+                    when {
+                        json.containsKey("image") -> println("📩 Received IMAGE (truncated)")
+                        json.containsKey("file") -> println("📩 Received FILE: ${json.getString("file")}")
+                        else -> println("📩 Received: ${json.encodePrettily()}")
+                    }
 
                     Platform.runLater {
                         when {
@@ -243,7 +248,6 @@ class ClientVerticle : AbstractVerticle() {
 
                 val displaySender = if (isGroup) "$sender@$targetId" else sender
 
-                // Find the old message in the chatArea to replace it
                 Platform.runLater {
                     val items = ui.chatArea.items
                     for (i in 0 until items.size) {

@@ -933,3 +933,176 @@
 [2025-06-02 19:13:06] [INFO] [SYSTEM] User disconnected: t3 | Details: {"userId":"gesg","sessionDuration":21162}
 [2025-06-02 19:13:06] [INFO] [SYSTEM] Vert.x closed successfully
 [2025-06-02 19:13:06] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866386548}
+[2025-06-02 19:14:32] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866472622}
+[2025-06-02 19:14:35] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:14:35] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:14:35] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:14:35] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:14:47] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"2415","username":"Test1"}
+[2025-06-02 19:14:47] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"2415","username":"Test1"}
+[2025-06-02 19:14:52] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"refsf","username":"Test2"}
+[2025-06-02 19:14:52] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"refsf","username":"Test2"}
+[2025-06-02 19:15:03] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"2415","senderId":"refsf","type":"text","size":0}
+[2025-06-02 19:15:03] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test1","targetId":"","type":"text","size":0}
+[2025-06-02 19:15:08] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"refsf","senderId":"2415","type":"text","size":0}
+[2025-06-02 19:15:08] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test2","targetId":"","type":"text","size":0}
+[2025-06-02 19:15:14] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"refsf","senderId":"2415","type":"image","size":0}
+[2025-06-02 19:15:14] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Test2","targetId":"","type":"image","size":0}
+[2025-06-02 19:15:30] [INFO] [FILE_RECEIVED] File received: file | Details: {"receiverId":"2415","senderId":"refsf","type":"file","size":0}
+[2025-06-02 19:15:30] [INFO] [FILE_SENT] File sent: file | Details: {"senderId":"Test1","targetId":"","type":"file","size":0}
+[2025-06-02 19:15:41] [INFO] [GROUP_CREATED] Group created: Group1 | Details: {"groupId":"group_5fac3542","groupName":"Group1"}
+[2025-06-02 19:15:58] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"2415","senderId":"group_5fac3542","type":"text","size":0}
+[2025-06-02 19:15:58] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test1","targetId":"group_5fac3542","type":"text","size":0}
+[2025-06-02 19:16:03] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"refsf","senderId":"group_5fac3542","type":"text","size":0}
+[2025-06-02 19:16:03] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test2","targetId":"group_5fac3542","type":"text","size":0}
+[2025-06-02 19:16:13] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"2415","senderId":"group_5fac3542","type":"image","size":0}
+[2025-06-02 19:16:21] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:16:21] [INFO] [SYSTEM] User disconnected: Test1 | Details: {"userId":"2415","sessionDuration":93946}
+[2025-06-02 19:16:21] [INFO] [SYSTEM] User disconnected: Test2 | Details: {"userId":"refsf","sessionDuration":89296}
+[2025-06-02 19:16:21] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:16:21] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866581960}
+[2025-06-02 19:18:43] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866723704}
+[2025-06-02 19:18:47] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:18:47] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:18:47] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:18:47] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:18:56] [INFO] [USER_REGISTER] User registered: Test | Details: {"userId":"141","username":"Test"}
+[2025-06-02 19:18:56] [INFO] [USER_REGISTER] User registered: Test | Details: {"userId":"141","username":"Test"}
+[2025-06-02 19:18:59] [INFO] [USER_REGISTER] User registered: Tes2 | Details: {"userId":"taf","username":"Tes2"}
+[2025-06-02 19:18:59] [INFO] [USER_REGISTER] User registered: Tes2 | Details: {"userId":"taf","username":"Tes2"}
+[2025-06-02 19:19:06] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"taf","senderId":"141","type":"text","size":0}
+[2025-06-02 19:19:06] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Tes2","targetId":"","type":"text","size":0}
+[2025-06-02 19:19:12] [INFO] [FILE_RECEIVED] File received: file | Details: {"receiverId":"taf","senderId":"141","type":"file","size":0}
+[2025-06-02 19:19:12] [INFO] [FILE_SENT] File sent: file | Details: {"senderId":"Tes2","targetId":"","type":"file","size":0}
+[2025-06-02 19:19:21] [INFO] [GROUP_CREATED] Group created: faf | Details: {"groupId":"group_5f0216a5","groupName":"faf"}
+[2025-06-02 19:19:40] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"taf","senderId":"group_5f0216a5","type":"image","size":0}
+[2025-06-02 19:19:46] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"141","senderId":"group_5f0216a5","type":"text","size":0}
+[2025-06-02 19:19:46] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test","targetId":"group_5f0216a5","type":"text","size":0}
+[2025-06-02 19:19:51] [INFO] [FILE_RECEIVED] File received: file | Details: {"receiverId":"141","senderId":"group_5f0216a5","type":"file","size":0}
+[2025-06-02 19:19:57] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:19:57] [INFO] [SYSTEM] User disconnected: Test | Details: {"userId":"141","sessionDuration":61651}
+[2025-06-02 19:19:57] [INFO] [SYSTEM] User disconnected: Tes2 | Details: {"userId":"taf","sessionDuration":58356}
+[2025-06-02 19:19:57] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:19:57] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748866797724}
+[2025-06-02 19:21:26] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748866886722}
+[2025-06-02 19:21:30] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:21:30] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:21:30] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:21:30] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:21:36] [INFO] [USER_REGISTER] User registered: Test | Details: {"userId":"14","username":"Test"}
+[2025-06-02 19:21:36] [INFO] [USER_REGISTER] User registered: Test | Details: {"userId":"14","username":"Test"}
+[2025-06-02 19:21:41] [INFO] [USER_REGISTER] User registered: Testt3 | Details: {"userId":"r523","username":"Testt3"}
+[2025-06-02 19:21:41] [INFO] [USER_REGISTER] User registered: Testt3 | Details: {"userId":"r523","username":"Testt3"}
+[2025-06-02 19:21:49] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"r523","senderId":"14","type":"text","size":0}
+[2025-06-02 19:21:49] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Testt3","targetId":"","type":"text","size":0}
+[2025-06-02 19:21:56] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"14","senderId":"r523","type":"image","size":0}
+[2025-06-02 19:21:56] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Test","targetId":"","type":"image","size":0}
+[2025-06-02 19:22:07] [INFO] [FILE_RECEIVED] File received: file | Details: {"receiverId":"14","senderId":"r523","type":"file","size":0}
+[2025-06-02 19:22:07] [INFO] [FILE_SENT] File sent: file | Details: {"senderId":"Test","targetId":"","type":"file","size":0}
+[2025-06-02 19:22:16] [INFO] [GROUP_CREATED] Group created: Test | Details: {"groupId":"group_bbf9b3ab","groupName":"Test"}
+[2025-06-02 19:22:37] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"14","senderId":"group_bbf9b3ab","type":"text","size":0}
+[2025-06-02 19:22:37] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test","targetId":"group_bbf9b3ab","type":"text","size":0}
+[2025-06-02 19:22:41] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"r523","senderId":"group_bbf9b3ab","type":"text","size":0}
+[2025-06-02 19:22:41] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Testt3","targetId":"group_bbf9b3ab","type":"text","size":0}
+[2025-06-02 19:22:48] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"r523","senderId":"group_bbf9b3ab","type":"image","size":0}
+[2025-06-02 19:22:48] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Testt3","targetId":"group_bbf9b3ab","type":"image","size":0}
+[2025-06-02 19:22:48] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Testt3","targetId":"group_bbf9b3ab","type":"image","size":0}
+[2025-06-02 19:26:08] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748867168622}
+[2025-06-02 19:26:11] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:26:11] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:26:11] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:26:11] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:26:15] [INFO] [USER_REGISTER] User registered: awg | Details: {"userId":"ff","username":"awg"}
+[2025-06-02 19:26:15] [INFO] [USER_REGISTER] User registered: awg | Details: {"userId":"ff","username":"awg"}
+[2025-06-02 19:26:18] [INFO] [USER_REGISTER] User registered: 3t3 | Details: {"userId":"afa","username":"3t3"}
+[2025-06-02 19:26:18] [INFO] [USER_REGISTER] User registered: 3t3 | Details: {"userId":"afa","username":"3t3"}
+[2025-06-02 19:26:26] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"afa","senderId":"ff","type":"text","size":0}
+[2025-06-02 19:26:26] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"3t3","targetId":"","type":"text","size":0}
+[2025-06-02 19:26:31] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"afa","senderId":"ff","type":"image","size":0}
+[2025-06-02 19:26:31] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"3t3","targetId":"","type":"image","size":0}
+[2025-06-02 19:26:44] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:26:44] [INFO] [SYSTEM] User disconnected: awg | Details: {"userId":"ff","sessionDuration":28641}
+[2025-06-02 19:26:44] [INFO] [SYSTEM] User disconnected: 3t3 | Details: {"userId":"afa","sessionDuration":25637}
+[2025-06-02 19:26:44] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:26:44] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748867204171}
+[2025-06-02 19:27:19] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748867239289}
+[2025-06-02 19:27:22] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 19:27:22] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 19:27:22] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 19:27:22] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 19:32:10] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 19:32:10] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 19:32:10] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748867530436}
+[2025-06-02 20:52:32] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748872352546}
+[2025-06-02 20:52:36] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 20:52:36] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 20:52:36] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 20:52:36] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 20:52:49] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"1235","username":"Test1"}
+[2025-06-02 20:52:49] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"1235","username":"Test1"}
+[2025-06-02 20:52:55] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"1251f","username":"Test2"}
+[2025-06-02 20:52:55] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"1251f","username":"Test2"}
+[2025-06-02 20:53:08] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"1235","senderId":"1251f","type":"text","size":0}
+[2025-06-02 20:53:08] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test1","targetId":"","type":"text","size":0}
+[2025-06-02 20:53:13] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"1251f","senderId":"1235","type":"text","size":0}
+[2025-06-02 20:53:13] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test2","targetId":"","type":"text","size":0}
+[2025-06-02 20:53:28] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"1235","senderId":"1251f","type":"image","size":0}
+[2025-06-02 20:53:28] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Test1","targetId":"","type":"image","size":0}
+[2025-06-02 20:53:45] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 20:53:45] [INFO] [SYSTEM] User disconnected: Test2 | Details: {"userId":"1251f","sessionDuration":49546}
+[2025-06-02 20:53:45] [INFO] [SYSTEM] User disconnected: Test1 | Details: {"userId":"1235","sessionDuration":56537}
+[2025-06-02 20:53:45] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 20:53:45] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748872425575}
+[2025-06-02 20:54:05] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748872445056}
+[2025-06-02 20:54:08] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 20:54:08] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 20:54:08] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 20:54:08] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 20:54:23] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"1234","username":"Test1"}
+[2025-06-02 20:54:23] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"1234","username":"Test1"}
+[2025-06-02 20:54:32] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"1542","username":"Test2"}
+[2025-06-02 20:54:32] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"1542","username":"Test2"}
+[2025-06-02 20:54:40] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"1234","senderId":"1542","type":"text","size":0}
+[2025-06-02 20:54:40] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test1","targetId":"","type":"text","size":0}
+[2025-06-02 20:54:43] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"1542","senderId":"1234","type":"text","size":0}
+[2025-06-02 20:54:43] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test2","targetId":"","type":"text","size":0}
+[2025-06-02 20:54:50] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"1234","senderId":"1542","type":"image","size":0}
+[2025-06-02 20:54:50] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Test1","targetId":"","type":"image","size":0}
+[2025-06-02 20:55:01] [INFO] [FILE_RECEIVED] File received: file | Details: {"receiverId":"1542","senderId":"1234","type":"file","size":0}
+[2025-06-02 20:55:01] [INFO] [FILE_SENT] File sent: file | Details: {"senderId":"Test2","targetId":"","type":"file","size":0}
+[2025-06-02 20:55:12] [INFO] [GROUP_CREATED] Group created: Group | Details: {"groupId":"group_2db3cf5c","groupName":"Group"}
+[2025-06-02 20:55:27] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"1234","senderId":"group_2db3cf5c","type":"text","size":0}
+[2025-06-02 20:55:27] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test1","targetId":"group_2db3cf5c","type":"text","size":0}
+[2025-06-02 20:55:35] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"1542","senderId":"group_2db3cf5c","type":"text","size":0}
+[2025-06-02 20:55:59] [INFO] [SYSTEM] Chat system monitoring initialized | Details: {"timestamp":1748872559494}
+[2025-06-02 20:56:02] [INFO] [SYSTEM] Chat application starting with Vert.x
+[2025-06-02 20:56:02] [INFO] [SYSTEM] Server verticle deployed successfully
+[2025-06-02 20:56:02] [INFO] [SYSTEM] Client verticle 0 deployed successfully
+[2025-06-02 20:56:02] [INFO] [SYSTEM] Client verticle 1 deployed successfully
+[2025-06-02 20:56:15] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"12356","username":"Test1"}
+[2025-06-02 20:56:15] [INFO] [USER_REGISTER] User registered: Test1 | Details: {"userId":"12356","username":"Test1"}
+[2025-06-02 20:56:23] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"5342","username":"Test2"}
+[2025-06-02 20:56:23] [INFO] [USER_REGISTER] User registered: Test2 | Details: {"userId":"5342","username":"Test2"}
+[2025-06-02 20:56:32] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"12356","senderId":"5342","type":"text","size":0}
+[2025-06-02 20:56:32] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test1","targetId":"","type":"text","size":0}
+[2025-06-02 20:56:35] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"5342","senderId":"12356","type":"text","size":0}
+[2025-06-02 20:56:35] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test2","targetId":"","type":"text","size":0}
+[2025-06-02 20:56:42] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"12356","senderId":"5342","type":"image","size":0}
+[2025-06-02 20:56:42] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Test1","targetId":"","type":"image","size":0}
+[2025-06-02 20:56:50] [INFO] [FILE_RECEIVED] File received: file | Details: {"receiverId":"5342","senderId":"12356","type":"file","size":0}
+[2025-06-02 20:56:50] [INFO] [FILE_SENT] File sent: file | Details: {"senderId":"Test2","targetId":"","type":"file","size":0}
+[2025-06-02 20:56:59] [INFO] [GROUP_CREATED] Group created: Group | Details: {"groupId":"group_cec6daaa","groupName":"Group"}
+[2025-06-02 20:57:20] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"12356","senderId":"group_cec6daaa","type":"text","size":0}
+[2025-06-02 20:57:20] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test1","targetId":"group_cec6daaa","type":"text","size":0}
+[2025-06-02 20:57:24] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"5342","senderId":"group_cec6daaa","type":"text","size":0}
+[2025-06-02 20:57:24] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test2","targetId":"group_cec6daaa","type":"text","size":0}
+[2025-06-02 20:57:31] [INFO] [IMAGE_RECEIVED] Image received: image | Details: {"receiverId":"5342","senderId":"group_cec6daaa","type":"image","size":0}
+[2025-06-02 20:57:31] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Test2","targetId":"group_cec6daaa","type":"image","size":0}
+[2025-06-02 20:57:31] [INFO] [IMAGE_SENT] Image sent: image | Details: {"senderId":"Test2","targetId":"group_cec6daaa","type":"image","size":0}
+[2025-06-02 20:57:40] [INFO] [MESSAGE_RECEIVED] Message received: text | Details: {"receiverId":"5342","senderId":"group_cec6daaa","type":"text","size":0}
+[2025-06-02 20:57:40] [INFO] [MESSAGE_SENT] Message sent: text | Details: {"senderId":"Test2","targetId":"group_cec6daaa","type":"text","size":0}
+[2025-06-02 20:58:29] [INFO] [SYSTEM] Chat application shutting down
+[2025-06-02 20:58:29] [INFO] [SYSTEM] User disconnected: Test2 | Details: {"userId":"5342","sessionDuration":126212}
+[2025-06-02 20:58:29] [INFO] [SYSTEM] User disconnected: Test1 | Details: {"userId":"12356","sessionDuration":133599}
+[2025-06-02 20:58:29] [INFO] [SYSTEM] Vert.x closed successfully
+[2025-06-02 20:58:29] [INFO] [SYSTEM] Chat system shutting down | Details: {"timestamp":1748872709499}
