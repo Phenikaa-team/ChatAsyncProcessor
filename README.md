@@ -18,7 +18,7 @@
 </p>
 
 ---
----
+
 ## Overview
 
 This project implements a comprehensive distributed chat system using:
