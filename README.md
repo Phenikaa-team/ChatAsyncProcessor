@@ -6,8 +6,6 @@
 </a>
 </p>
 
----
-
 <h1 align="center">Distributed Chat System </h1>
 
 <p align="center">
