@@ -308,9 +308,9 @@ Potential upcoming features:
 ---
 
 ## Top contributors:
-<a href="https://github.com/Phenikaa-team/ChatAsyncProcessor/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Phenikaa-team/ChatAsyncProcessor" alt="Contributors" />
-</a>
+
+- [KuroHere](https://github.com/KuroHere) — provided initial design ideas
+- [mdung1515](https://github.com/mdung1515) — helped with testing and documentation
 
 <p align="right">(<a href="#readme-top">back to the top</a>)</p>
 
